@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xavianaxw/webpack-starter.git"
+    "url": ""
   },
   "keywords": [
     "webpack-starter",
@@ -18,12 +18,12 @@
     "es6",
     "scss"
   ],
-  "author": "Xavian Ang (xavianaxw@gmail.com)",
+  "author": "Alberto soto",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/xavianaxw/webpack-starter/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/xavianaxw/webpack-starter#readme",
+  "homepage": "",
   "devDependencies": {
     "@babel/core": "^7.13.15",
     "@babel/plugin-syntax-class-properties": "^7.12.13",
@@ -35,6 +35,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.1",
+    "cssnano-webpack-plugin": "^1.0.3",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
@@ -45,6 +46,7 @@
     "postcss-preset-env": "^6.7.0",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"

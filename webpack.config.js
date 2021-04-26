@@ -4,11 +4,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');//extracts components css into a separate file
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-/*const extractCss = new ExtractTextPlugin({
-  // filename: "[name].[contenthash].css",
-  filename: "bundle.css",
-  disable: process.env.NODE_ENV === "development"
-});*/
+const CssnanoPlugin = require('cssnano-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -18,7 +15,6 @@ module.exports = {
         path: path.resolve(__dirname, 'public'),
         filename: '[name].js',
         clean: true,
-        // publicPath: 'public/'
     },
     module: {
         rules: [
@@ -56,6 +52,16 @@ module.exports = {
                     },
                 ]
             },
+            // Fonts and SVGs
+            {
+                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+                type: 'asset/inline',
+            },
+            // Images
+            {
+                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+                type: 'asset/resource',
+            },
             {
                 test: /\.(jpg|png)$/,
                 use: {
@@ -72,19 +78,39 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        usedExports: true,
+        minimize: true,
+        minimizer: [
+            `...`,
+            new TerserPlugin({
+                    parallel: true,
+                    extractComments: false,
+                    terserOptions: {
+                        compress: true,
+                        mangle: true,
+                        comments: false,
+                    },
+                }
+            ),
+            new CssnanoPlugin()
+        ]
+    },
     plugins: [
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['**/*', path.join(process.cwd(), 'extra/**/*')]
         }),
-        require('postcss-preset-env')({
+/*        require('postcss-preset-env')({
             browsers: 'last 2 versions',
-        }),
+        }),*/
         new MiniCSSExtractPlugin({
             linkType: 'text/css',
             filename: "vi.css",
         }),
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            title: 'webpack Boilerplate',
+            template: path.resolve(__dirname, './src/index.html'),
+            filename: 'index.html', // output file
         }),
-    ],
+    ]
 }
