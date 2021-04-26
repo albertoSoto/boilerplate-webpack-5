@@ -1,0 +1,59 @@
+{
+  "name": "webpack-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "export NODE_ENV=development && webpack-dev-server",
+    "production": "cross-env NODE_ENV=production  webpack "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xavianaxw/webpack-starter.git"
+  },
+  "keywords": [
+    "webpack-starter",
+    "webpack",
+    "es6",
+    "scss"
+  ],
+  "author": "Xavian Ang (xavianaxw@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xavianaxw/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/xavianaxw/webpack-starter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-syntax-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.13.15",
+    "autoprefixer": "^10.2.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.4",
+    "cssnano": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.5.0",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.2.12",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "dependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
+}
