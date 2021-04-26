@@ -40,6 +40,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
+    "inuitcss": "^6.0.0",
     "mini-css-extract-plugin": "^1.5.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.12",
