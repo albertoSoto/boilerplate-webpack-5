@@ -6,7 +6,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');//extracts compo
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CssnanoPlugin = require('cssnano-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
-
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');//compress it
 module.exports = {
     entry: {
         app: path.resolve(__dirname, 'src') + '/js/app.js',
@@ -93,6 +93,7 @@ module.exports = {
                     },
                 }
             ),
+            new CssMinimizerPlugin(),
             new CssnanoPlugin()
         ]
     },
