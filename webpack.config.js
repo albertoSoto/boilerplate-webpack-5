@@ -26,25 +26,30 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCSSExtractPlugin.loader, // instead of style-loader
+                   // MiniCSSExtractPlugin.loader, // instead of style-loader
+                    {
+                        loader: MiniCSSExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },
                     {
                         loader: "css-loader",
-                        options: {
+                        /*options: {
                             // Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
                             // If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
                             importLoaders: 1,
-                        },
+                        },*/
+                        options: {
+                            importLoaders: 2,
+                            sourceMap: process.env.NODE_ENV === 'development',
+                            url: false,
+                            //context: '../../',
+                        }
                     },
                     {
                         loader: 'postcss-loader',
-                        options: {
-                            /*  plugins: (loader) => {
-                                  return [
-                                      require('autoprefixer')(),
-                                      require('cssnano')(),
-                                  ];
-                              }*/
-                        }
+                      //  options: {postcssOptions: {url: false}}
                     },
                     // Can be `less-loader`
                     {
@@ -101,12 +106,12 @@ module.exports = {
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: ['**/*', path.join(process.cwd(), 'extra/**/*')]
         }),
-/*        require('postcss-preset-env')({
-            browsers: 'last 2 versions',
-        }),*/
+        /*        require('postcss-preset-env')({
+                    browsers: 'last 2 versions',
+                }),*/
         new MiniCSSExtractPlugin({
-            linkType: 'text/css',
-            filename: "vi.css",
+            // linkType: 'text/css',
+            // filename: "vi.css",
         }),
         new HtmlWebpackPlugin({
             title: 'webpack Boilerplate',
