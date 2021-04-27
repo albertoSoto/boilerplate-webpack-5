@@ -1,0 +1,156 @@
+/*------------------------------------*\
+    #TEXT
+\*------------------------------------*/
+
+/**
+ * Word breaking
+ *
+ * Break strings when their length exceeds the width of their container.
+ */
+
+.u-text-break {
+  word-wrap: break-word !important;
+}
+
+/**
+ * Horizontal text alignment
+ */
+
+.u-text-center {
+  text-align: center !important;
+}
+
+.u-text-left {
+  text-align: left !important;
+}
+
+.u-text-left-from-lg {
+  @include mq($from: lg) {
+    text-align: left !important;
+  }
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+/**
+ * Assign basic colours
+ */
+
+.u-text-muted {
+  color: $color-white-four !important;
+}
+
+.u-text-default {
+  color: $color-text !important;
+}
+
+.u-text-primary {
+  color: $color-azure !important;
+}
+
+.u-text-info {
+  color: $color-duck-egg-blue !important;
+}
+
+.u-text-warning {
+  color: $color-text !important;
+}
+
+.u-text-success {
+  color: $color-irish-green !important;
+}
+
+.u-text-error,
+.u-text-danger {
+  color: $color-cherry-red !important;
+}
+
+/**
+ * Inherit the ancestor's text color.
+ */
+
+.u-text-inherit-color {
+  color: inherit !important;
+}
+
+/**
+ * Capitalize the text
+ */
+
+.u-text-caps {
+  text-transform: uppercase !important;
+}
+
+/**
+ * Enables selectable text
+ */
+
+.u-selectable {
+  -webkit-touch-callout: default !important;
+  user-select: text !important;
+}
+
+/**
+ * Prevent whitespace wrapping
+ */
+
+.u-text-no-wrap {
+  white-space: nowrap !important;
+}
+
+.u-text-block {
+  display: block !important;
+}
+
+.u-inline-block {
+  display: inline-block !important;
+}
+/**
+ * Text truncation
+ *
+ * Prevent text from wrapping onto multiple lines, and truncate with an
+ * ellipsis.
+ *
+ * 1. Ensure that the node has a maximum width after which truncation can
+ *    occur.
+ * 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+ *    nodes.
+ */
+
+.u-text-truncate {
+  max-width: 100%; /* 1 */
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important; /* 2 */
+}
+
+.u-text-strong {
+  @include font-weight(bold);
+}
+
+.u-justify-center {
+  justify-content: center;
+}
+
+.u-font-size-14 {
+  @include font-size(14px,1);
+}
+
+.u-font-size-16 {
+  font-size: 16px;
+}
+
+.u-font-size-19 {
+  font-size: 19px;
+}
+
+.u-font-size-22 {
+  font-size: 22px;
+}
+
+.u-font-size-12 {
+  font-size: 12px;
+}

@@ -1,0 +1,48 @@
+/*------------------------------------*\
+    #TOGGLE-BAR
+\*------------------------------------*/
+
+.c-toggle-bar {
+  margin-bottom: $spacing-unit--small;
+  padding: 0 $spacing-unit--small;
+
+  @include mq($from: md) {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1.5 * $spacing-unit--small;
+  }
+}
+
+  .c-toggle-bar--float {
+    @include mq($from: md) {
+      float: right;
+    }
+  }
+
+  .c-toggle-bar--separator {
+    margin-bottom: $spacing-unit;
+    padding-bottom: $spacing-unit--small;
+    border-bottom: 1px solid $color-white-four;
+  }
+
+  .c-toggle-bar__indicator {
+    display: inline-block;
+    vertical-align: middle;
+    @include square(14px);
+
+    path {
+      fill: $color-white-four;
+    }
+  }
+
+  .c-toggle-bar__toggle {
+    float: right;
+
+    .c-toggle-bar--float & {
+      @include mq($from: md) {
+        float: none;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }

@@ -1,0 +1,48 @@
+.o-layout-vertical--bottom-aligned {
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.o-layout-item-vertical {
+   box-sizing: border-box;
+   display: inline-block;
+   vertical-align: top;
+   width: 100%;
+   font-size: $font-size; /* [1] */
+   text-align: left;
+}
+
+.o-layout-item-vertical--bottom {
+  align-self: flex-end;
+  margin-top: 16px;
+  margin-bottom: $spacing-unit--small;
+}
+
+.o-full-max-width {
+  max-width: 100%;
+}
+
+.o-layout-horizontal--first-fixed {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.o-layout-horizontal--first-fixed-item {
+  flex-basis: 0;
+  flex-grow:0;
+  -ms-flex-preferred-size: $spacing-unit--large;
+}
+
+
+.o-layout--stretch {
+    /* https://github.com/inuitcss/inuitcss/issues/293 */
+    &.o-layout--center {
+      justify-content: center;
+    }
+
+    &.o-layout--right {
+      justify-content: flex-end;
+    }
+}

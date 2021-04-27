@@ -1,0 +1,110 @@
+//General TOTO
+
+.c-frame--toto{
+  display:block;
+  background: $color-toto-background;
+  border:0;
+  color: $color-warm-grey;
+  @include font-size(14px, 1.71);
+  padding:$spacing-unit--small;
+  cursor:pointer;
+
+  &:focus,
+  &:hover {
+    text-decoration:none;
+    color:$color-warm-grey;
+  }
+
+  .c-frame__header {
+    color: $color-white;
+
+    // matchblock
+    &.c-frame__header--toto-generic {
+      padding-bottom: 3px;
+    }
+    //matchblock
+    &.c-frame__header--toto-specific{
+      padding-bottom: 18px;
+    }
+
+    img {
+      height: 19px;
+    }
+  }
+
+  .c-frame__content {
+    .o-layout {
+      margin-left: -$spacing-unit--small;
+    }
+
+    .o-layout__item {
+      padding-left: $spacing-unit--small;
+    }
+  }
+}
+// Branded Poll - TOTO
+.c-article-pollblock--branded {
+  padding:14px;
+  border:solid $color-toto-background;
+  border-width:0 $spacing-unit--small;
+  margin:0 auto;
+
+  .c-btn.c-btn--primary {
+    background: $color-toto-button;
+    color: $color-white;
+
+    &:hover,
+    &:focus {
+      background: $color-toto-button-accent;
+    }
+
+    &.c-btn--disabled {
+      background: $color-toto-button-inactive;
+
+      &:hover,
+      &:focus {
+        background: $color-toto-button;
+      }
+    }
+  }
+}
+
+
+
+.c-btn--toto {
+  display:inline-block;
+  background-color:$color-toto-button-inactive;
+  color:$color-white;
+  @include font-size(14px);
+  padding-left:$spacing-unit;
+  padding-right:$spacing-unit;
+
+  &:focus,
+  &:hover {
+    text-decoration:none;
+    background-color:$color-toto-button;
+    color: $color-white;
+  }
+
+}
+
+// Matchblock
+
+.c-toto-btn-wrap {
+  text-align: center;
+
+ .c-btn {
+  display: block;
+  background-color: $color-toto-button-inactive;
+  color: $color-white;
+  @include font-size(14px);
+  padding-left: $spacing-unit--tiny;
+  padding-right: $spacing-unit--tiny;
+
+  &:focus,
+  &:hover {
+    background-color: $color-toto-button;
+  }
+ }
+}
+

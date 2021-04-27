@@ -1,0 +1,379 @@
+/*------------------------------------*\
+    #FORM
+\*------------------------------------*/
+
+$input-border-width: 1px;
+
+.c-form {
+  margin-bottom: $spacing-unit;
+  overflow: hidden;
+}
+
+  .c-form--inline {
+  @include mq($from: md) {
+    .c-form__group {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+
+    .c-form__control {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+}
+
+  .c-form__control {
+    display: block;
+    width: 100%;
+    background: $color-white;
+    padding: $spacing-unit--tiny $spacing-unit--small;
+    border: 0;
+    border-bottom: $input-border-width solid $color-white-four;
+    color: $color-black-two;
+
+    &:focus {
+      border-color: $color-azure;
+      &[readonly] {
+        border-color: $color-white-four;
+      }
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: $color-white-three;
+      opacity: 1;
+    }
+
+    &:disabled {
+      cursor: $cursor-disabled;
+    }
+
+    .has-error & {
+      border-bottom-color: $color-cherry-red;
+
+      &::placeholder {
+        color: $color-cherry-red;
+      }
+
+    }
+
+    &.c-form__control--big {
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 0.3em;
+
+      &::placeholder {
+        font-weight: normal;
+        line-height: 96px;
+        letter-spacing: 0em;
+      }
+
+      &:-ms-input-placeholder {
+        line-height: 1!important;
+        font-size: 0.87rem!important;
+      }
+
+    }
+  }
+
+
+  .c-form__group {
+    margin-bottom: $spacing-unit;
+  }
+
+    .c-form__group--hidden {
+      @include hidden();
+    }
+
+  .c-form__help {
+    color: $color-warm-grey;
+    margin-top: $spacing-unit--tiny;
+    @include font-size(12px);
+  }
+
+  .c-form__errors {
+    /* no margin bottom in ul because populated through js and only when there is an error margin needed */
+    &:empty {
+      margin-bottom: 0;
+    }
+  }
+
+  .c-form__error {
+    color: $color-cherry-red;
+    @include font-size(14px);
+
+    code {
+      @include font-size(14px);
+      font-family: inherit;
+    }
+  }
+
+  .c-form__terms {
+    @include font-size(12px);
+    color: $color-warm-grey;
+  }
+
+  .c-form__user-display {
+    a {
+      @include font-size(12px);
+      color: $color-azure;
+    }
+  }
+
+
+  /* form step indicator */
+
+.c-form-steps {
+
+  @include mq($until: md) {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style-type: none;
+  margin-left:0;
+
+  li {
+    @include mq($until: md) {
+      align-self: center;
+      flex-grow: 1;
+    }
+  }
+
+  .c-form-step-indicator--wrapper {
+    @include mq($until: md) {
+      position: absolute;
+      left: 50%;
+      bottom: 1.3em;
+
+      &.c-form-step-indicator--wrapper--return {
+        bottom: 0.3em;
+      }
+    }
+  }
+}
+
+.c-subscriptionform-steps {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  list-style-type: none;
+  margin-top: -2px;
+
+
+  li {
+      flex-grow: 1;
+      align-self: center;
+      position: relative;
+
+      .c-step-line-left-done {
+        border-top:2px solid $color-azure;
+        position: absolute;
+        top:21px;
+        left:0;
+        width:50%;
+      }
+
+      .c-step-line-left-upcoming {
+        border-top:2px solid $color-white-four;
+        position: absolute;
+        top:21px;
+        left:0;
+        width:50%;
+      }
+
+      .c-step-line-right-done {
+        border-top:2px solid $color-azure;
+        position: absolute;
+        top:21px;
+        right:0;
+        width:50%;
+      }
+
+      .c-step-line-right-upcoming {
+        border-top:2px solid $color-white-four;
+        position: absolute;
+        top:21px;
+        right:0;
+        width:50%;
+      }
+
+  }
+}
+
+.c-form-step-indicator {
+  width: 40px;
+  margin:  0 auto;
+  border-radius: 100%;
+  @include font-size(18px, 2.3);
+  font-weight: bold;
+
+  &.c-subscriptionform-step-indicator {
+    position: relative;
+    z-index:2;
+  }
+
+  &.c-form-step-indicator--active {
+    background-color: #009ee0;
+    color:white;
+  }
+
+  &.c-form-step-indicator--done {
+    background-color: #009ee0;
+    color:white;
+    @include mq($until: md) {
+      transform: scale(0.7);
+
+      &.form-step--1 {
+        margin-left: -70px;
+      }
+
+      &.form-step--2 {
+        margin-left: -112px;
+      }
+
+      &.form-step--3 {
+        margin-left: 74px;
+        bottom: -2em;
+      }
+
+      &.form-step--1--return {
+        margin-left: -64px;
+      }
+
+      &.form-step--2--return {
+        margin-left: -26px;
+      }
+
+      &.form-step--3--return {
+        margin-left: 10px;
+      }
+
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      margin-top: 12px;
+
+      &.no-margin {
+        margin-top:0px;
+        height: 14px;
+      }
+    }
+  }
+
+  &.c-form-step-indicator--upcoming {
+    background-color: #d8d8d8;
+    color:white;
+    @include mq($until: md) {
+      transform: scale(0.7);
+
+      &.form-step--1 {
+        margin-left: 30px;
+        bottom: -2em;
+      }
+
+      &.form-step--2 {
+        margin-left: 74px;
+        bottom: -2em;
+      }
+
+    }
+  }
+
+  &.c-form-step-indicator--error {
+    background-color: $color-cherry-red;
+    color:white;
+    @include mq($until: md) {
+      transform: scale(0.7);
+    }
+
+    .c-form-step-indicator--error__text {
+      font-weight: bold;
+      color: $color-white;
+    }
+  }
+
+}
+
+.c-form-step-indicator__title{
+
+  @include font-family(sans-serif);
+  @include font-size(16px, 1.25);
+
+  &.c-form-step-indicator__title--active {
+    color:$color-azure;
+    font-weight: bold;
+
+  }
+
+  &.c-form-step-indicator__title--done {
+    color:$color-azure;
+    font-weight: bold;
+  }
+
+}
+
+.c-subscriptionform-step-indicator__title{
+
+  @include font-family(sans-serif);
+  @include font-size(12px, 1.67);
+  @include mq($from: md) {
+    @include font-size(16px, 1.5);
+  }
+
+  &.c-subscriptionform-step-indicator__title--upcoming {
+    color:$color-warm-grey;
+  }
+
+  &.c-subscriptionform-step-indicator__title--done {
+    color:$color-azure;
+    font-weight: bold;
+  }
+
+  &.c-subscriptionform-step-indicator__title--error {
+    color:$color-cherry-red;
+    font-weight: bold;
+  }
+
+}
+
+
+.error-label.huisnummer {
+
+  + span.message {
+    code {
+      font-family: inherit;
+      margin-left: -11em;
+      background-color: #ffffff;
+    }
+  }
+}
+
+.c-form__group--housenumber {
+  code {
+    font-family: inherit;
+    margin-left: -6.7em;
+    background-color: #ffffff;
+  }
+}
+
+.c-form__group--postcode {
+  code {
+    font-family: inherit;
+    margin-left: -4.8em;
+    background-color: #ffffff;
+  }
+}

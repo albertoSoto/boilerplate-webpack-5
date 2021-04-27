@@ -1,0 +1,68 @@
+/*------------------------------------*\
+    #VOTE
+\*------------------------------------*/
+
+$vote-icon-width: 42px;
+$vote-icon-margin: 0.5 * $spacing-unit--tiny;
+$vote-icon-translate: (0.5 * $vote-icon-width) + $vote-icon-margin;
+
+.c-article-vote {
+  background-color: $color-white;
+  padding: 10px 0 0;
+  text-align: center;
+}
+
+  .c-article-vote__buttons {
+    margin-top: $spacing-unit--small;
+    margin-bottom: 0;
+  }
+
+  .c-article-vote__button {
+    display: inline-block;
+    transition: opacity $transition ease-in-out, transform $transition ease-in;
+    @include square($vote-icon-width);
+
+    .c-article-vote--voted-up &,
+    .c-article-vote--voted-down &,
+    .c-article-vote--disabled & {
+      pointer-events: none;
+    }
+  }
+
+    .c-article-vote__button--up {
+      margin-right: $vote-icon-margin;
+
+      &:hover,
+      .c-article-vote--voted-up & {
+        svg path {
+          fill: $color-irish-green;
+        }
+      }
+
+      .c-article-vote--voted-up & {
+        transform: translateX($vote-icon-translate);
+      }
+
+      .c-article-vote--voted-down & {
+        opacity: 0;
+      }
+    }
+
+    .c-article-vote__button--down {
+      margin-left: $vote-icon-margin;
+
+      &:hover,
+      .c-article-vote--voted-down & {
+        svg path {
+          fill: $color-cherry-red;
+        }
+      }
+
+      .c-article-vote--voted-down & {
+        transform: translateX(-$vote-icon-translate);
+      }
+
+      .c-article-vote--voted-up & {
+        opacity: 0;
+      }
+    }

@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #SEPARATOR
+\*------------------------------------*/
+
+$separator-height: 1px;
+
+.c-text-separator {
+  position: relative;
+  text-align: center;
+  color: $color-white-four;
+  margin-bottom: $spacing-unit;
+  @include font-size(14px);
+}
+
+  .c-text-separator__text {
+    color: currentColor;
+    background-color: $color-white;
+    padding: $spacing-unit--small;
+  }
+
+  .c-text-separator__hr {
+    margin: -#{$spacing-unit--small - $separator-height} auto $spacing-unit--small;
+    border-bottom: $separator-height solid currentColor;
+    @include size(100%, 0);
+  }

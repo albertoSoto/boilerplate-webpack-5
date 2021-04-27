@@ -1,0 +1,21 @@
+/* ==========================================================================
+   #LIST with CHECK
+   ========================================================================== */
+
+.c-list-check {
+  list-style: none;
+  margin-left: 0;
+}
+
+  .c-list-check__item {
+    background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTdweCIgaGVpZ2h0PSIxMnB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNSI+ICA8cGF0aCBkPSJNMTkuNyAyLjJsLS45LS45Yy0uNC0uNC0xLS40LTEuNCAwbC05LjcgOS42LTUuMS01Yy0uNC0uNC0xLS40LTEuNCAwbC0uOS44Yy0uNC40LS40IDEgMCAxLjRMNyAxNC43Yy4yLjIuNC4zLjcuMy4zIDAgLjUtLjEuNy0uM0wxOS43IDMuNmMuNC0uNC40LTEgMC0xLjR6IiBmaWxsPSIjMDA4NTI4Ii8+PC9zdmc+") no-repeat 0 $spacing-unit--tiny transparent;
+    list-style-type: none;
+    vertical-align: middle;
+    padding: 0 0 1px $spacing-unit;
+    margin-bottom: #{$spacing-unit--tiny / 2};
+    color: $color-black-two;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }

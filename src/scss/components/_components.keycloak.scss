@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    #KEYCLOAK
+\*------------------------------------*/
+
+.c-kc-details {
+  color: $color-warm-grey;
+
+  @include mq($from: md) {
+    padding-left: 36px;
+  }
+
+  @include mq($from: lg) {
+    padding-left: 72px;
+  }
+
+}
+
+.c-kc-login {
+
+  @include mq($from: md) {
+    padding-right: 36px;
+    border-right: 1px solid $color-white-four;
+  }
+
+  @include mq($from: lg) {
+    padding-right: 72px;
+  }
+
+}

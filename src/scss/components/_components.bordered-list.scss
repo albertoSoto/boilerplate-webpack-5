@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #BORDERED-LIST
+\*------------------------------------*/
+
+$border-width: 3px !default;
+
+.c-bordered-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+  .c-bordered-list__item {
+    border-left: $border-width solid transparent;
+
+    &:hover {
+      border-left-color: $color-azure;
+    }
+  }

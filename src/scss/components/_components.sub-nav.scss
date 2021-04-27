@@ -1,0 +1,91 @@
+/*------------------------------------*\
+    #SUB-NAV
+\*------------------------------------*/
+
+$sub-nav-border-height: 3px;
+
+.c-sub-nav {
+  background-color: $color-azure;
+  margin: 0 #{-$spacing-unit--small} 18px;
+  list-style-type: none;
+  font-size: 0;
+  display: block;
+  text-align: center;
+
+  @include mq($from: md) {
+    background-color: $color-white-three;
+    padding: $spacing-unit--small 0;
+    margin: 0 0 $spacing-unit 0;
+    text-align: left;
+  }
+}
+
+  .c-sub-nav__item {
+    @include font-size(16px, 24px);
+    display: inline-block;
+    padding: 0 $spacing-unit--tiny;
+
+
+    &:hover,
+    &:focus,
+    &:active {
+      /* Make hover state on link item underline the link (larger hover/click area; and identical to main menu setup) */
+      .c-sub-nav__link {
+        text-decoration: none;
+        cursor: pointer;
+        color: $color-white;
+        border-bottom-color: $color-white;
+
+        @include mq($from: md) {
+          color: $color-text;
+          border-left-color: $color-azure;
+        }
+      }
+    }
+
+    @include mq($from: sm) {
+      padding: 0 $spacing-unit--small;
+    }
+
+    @include mq($from: md) {
+      display: block;
+      padding: $spacing-unit--tiny 0;
+    }
+  }
+
+  .c-sub-nav__link {
+    display: block;
+    color: $color-white;
+    padding: $spacing-unit--small 0 #{$spacing-unit--small - $sub-nav-border-height};
+    border-bottom: $sub-nav-border-height solid transparent;
+
+    @include mq($from: md) {
+      color: $color-text;
+      border-bottom: 0;
+      padding: 0 $spacing-unit--small 0 #{$spacing-unit--small - $sub-nav-border-height};
+      margin: 0;
+      border-left: $sub-nav-border-height solid transparent;
+    }
+
+    /* on delayed page load prevent state change color */
+    &:active,
+    &:focus {
+        text-decoration: none;
+        outline: 0;
+        color: $color-white;
+        border-bottom-color: $color-white;
+
+        @include mq($from: md) {
+          color: $color-text;
+          border-left-color: $color-azure;
+        }
+      }
+    }
+
+    .c-sub-nav__link--active {
+      border-bottom-color: $color-white;
+
+      @include mq($from: md) {
+        border-left-color: $color-azure;
+      }
+    }

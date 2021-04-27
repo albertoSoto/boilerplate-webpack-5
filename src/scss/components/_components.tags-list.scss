@@ -1,0 +1,150 @@
+/*------------------------------------*\
+    #TAGS-LIST
+\*------------------------------------*/
+
+.c-tags-list {
+  margin: 0 0 #{$spacing-unit--small+$spacing-unit} 0;
+  padding: 0;
+  list-style-type: none;
+  color: $color-tags;
+}
+
+  .c-tags-list__item {
+    display: inline-block;
+    margin-right: $spacing-unit--tiny;
+    margin-bottom: $spacing-unit--tiny;
+
+    &:active,
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .c-tags-list__link {
+    display: block;
+    padding: 5px $spacing-unit--small 7px;
+    border: 1px solid $color-white-three;
+    color: currentColor;
+    @include rounded(15px);
+    @include font-size(14px);
+    @include font-weight(regular);
+    outline: 0;
+    line-height: 1.29;
+    background-color: $color-white-three;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: currentColor;
+    }
+
+    &:hover {
+      background-color: $color-tags-accent;
+      border-color: $color-tags-accent;
+      color: $color-black;
+    }
+
+    &.c-tags-list__link--no-link {
+      &:hover {
+        background-color: $color-white-three;
+        border-color: $color-white-three;
+        color: currentColor;
+      }
+    }
+
+  }
+
+/*  TAGS AS CHECKBOXES*/
+
+.c-tags-as-checkboxes-list, .c-tags-as-radio-list  {
+
+  margin: 20px 0px 28px;
+
+  @include  mq($from: md) {
+    margin-bottom: 38px
+  }
+
+  li {
+    &.c-tags-as-checkboxes-list__item {
+      margin-right: 2px;
+    }
+
+    label {
+      display: inline-block;
+      background-color: $color-white-three;
+      border: 1px solid $color-white-three;
+      color: currentColor;
+      @include rounded(15px);
+      white-space: nowrap;
+      margin: 3px 0px;
+      user-select: none;
+      transition: all .2s;
+      padding: 5px $spacing-unit--small 7px;
+      outline: 0;
+      line-height: 1.29;
+      cursor: pointer;
+
+      &:before {
+        display: inline-block;
+        text-rendering: auto;
+        @include font-weight(regular);
+        @include font-size(14px);
+        padding: 2px 6px 2px 2px;
+        transition: transform .3s ease-in-out;
+      }
+    }
+
+    input[type="checkbox"] {
+
+      position: absolute;
+      opacity: 0;
+
+      &:checked {
+        + label {
+          border: 1px solid rgba(0, 0, 0, 0.6);
+          background-color: rgba(0, 0, 0, 0.6);
+          transition: all .2s;
+          position: relative;
+
+
+          &:before {
+            content: "    ";
+            white-space: pre;
+            @include font-size(14px);
+            transition: transform .3s ease-in-out;
+            color: $color-white;
+            @include font-weight(bold);
+            position: absolute;
+            left: 50%;
+            margin-left: -10px;
+            background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjQgMTciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI0IDE3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0ZGRkZGRjt9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjMuNjYsMS42bC0xLjExLTEuMDhjLTAuNDYtMC40NS0xLjIxLTAuNDUtMS42NywwTDkuMjMsMTEuODhsLTYuMS01Ljk1Yy0wLjQ2LTAuNDUtMS4yMS0wLjQ1LTEuNjcsMEwwLjM0LDcuMDFjLTAuNDYsMC40NS0wLjQ2LDEuMTcsMCwxLjYybDguMDUsNy44NGMwLjIzLDAuMjIsMC41MywwLjM0LDAuODMsMC4zNHMwLjYtMC4xMSwwLjgzLTAuMzRsMTMuNi0xMy4yNUMyNC4xMiwyLjc3LDI0LjEyLDIuMDUsMjMuNjYsMS42eiIvPjwvc3ZnPg==");
+            background-repeat: no-repeat;
+            background-color: transparent;
+            margin-top: 2px;
+          }
+        }
+      }
+    }
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+
+      &:checked {
+        + label {
+          border: 1px solid #009ee0;
+          background-color: #009ee0;
+          color: #ffffff;
+          transition: all .2s;
+          position: relative;
+        }
+      }
+    }
+
+/*      &:focus {
+        + label {
+          border: 1px solid $color-warm-grey;
+        }
+      }*/
+  }
+}

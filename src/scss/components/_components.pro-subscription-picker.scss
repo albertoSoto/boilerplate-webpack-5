@@ -1,0 +1,229 @@
+/*------------------------------------*\
+    #PRO-SUBSCRIPTION-PICKER
+\*------------------------------------*/
+
+$pro-subscription-button-height: 48px;
+$pro-subscription-padding-bottom: $spacing-unit + $spacing-unit--tiny;
+$pro-subscription-padding-bottom-lg: $spacing-unit + $spacing-unit--tiny;
+
+.c-pro-subscription-picker {
+  position: relative;
+  margin-bottom: -#{48px + $pro-subscription-padding-bottom + $spacing-unit + 1px};
+
+  @include mq($from: lg) {
+    margin-bottom: -#{48px + $pro-subscription-padding-bottom-lg + $spacing-unit + 1px};
+  }
+
+}
+
+  .c-pro-subscription-picker__list {
+    list-style-type: none;
+    margin: $spacing-unit 0 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+
+    @include mq($until: md) {
+      border: 1px solid $color-white-four;
+      min-height: 450px;
+    }
+
+    @include mq($from: md) {
+      margin-top: $spacing-unit--huge;
+      min-height: 0;
+    }
+  }
+
+  .c-pro-subscription-picker__item {
+    flex: 0 0 percentage(1 / 3);
+    border: 0px solid $color-white-four;
+    text-align: center;
+    background-color: $color-white;
+
+
+    @include mq($from: md) {
+      padding: 0;
+      border: 1px;
+      border-bottom-width: 1px;
+    }
+  }
+
+    .c-pro-subscription-picker__item--most-picked {
+      @include mq($from: md) {
+        position: relative;
+
+        .c-pro-subscription-picker__info {
+          border-bottom: none;
+        }
+      }
+
+      &:before {
+        position: absolute;
+        content: attr(data-most-picked);
+        background-color: $color-cherry-red;
+        height: 18px;
+        color: $color-white;
+        padding: 0 $spacing-unit--tiny;
+        border: 1px solid $color-cherry-red;
+        text-transform: uppercase;
+        outline: 0;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        @include font-size(11px, 16px);
+        @include font-weight(bold);
+        @include rounded($radius);
+
+        @include mq($from: md) {
+          padding: 0.5 * $spacing-unit--tiny;
+          height: $spacing-unit + 1px;
+          top: -$spacing-unit;
+          left: -1px;
+          right: -1px;
+          transform: none;
+        }
+      }
+
+      &:after {
+        @include mq($from: md) {
+          position: absolute;
+          height: 18px;
+          content: " ";
+          width: 100%;
+          left: 0%;
+          border:1px solid $color-white;
+          box-shadow:  -1px 0 0 $color-white-four,  0 1px 0 $color-white-four,  1px  0 0 $color-white-four;
+        }
+      }
+
+    }
+
+  .c-pro-subscription-picker__control {
+    display: block;
+    margin: 0 auto;
+    height: 84px;
+
+    @include mq($until: md) {
+      padding: $spacing-unit 0 #{1.5 * $spacing-unit--small};
+    }
+
+    @include mq($from: md) {
+      display: none;
+    }
+  }
+
+  .c-pro-subscription-picker__faux-input {
+    margin: 0 auto;
+
+    &:after {
+      .c-pro-subscription-picker__input:checked + .c-pro-subscription-picker__control & {
+        opacity: 1;
+      }
+    }
+
+    .c-pro-subscription-picker__input:checked + .c-pro-subscription-picker__control & {
+      border-color: $color-azure;
+    }
+  }
+
+  .c-pro-subscription-picker__label {
+    display: block;
+    text-transform: uppercase;
+    padding: 0 3px;
+
+    @include mq($from: md) {
+      display: none;
+    }
+  }
+
+  .c-pro-subscription-picker__info {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-white;
+    padding: $spacing-unit $spacing-unit--large $pro-subscription-padding-bottom;
+
+    @include mq($until: md) {
+      display: none;
+      position: absolute;
+      top: 86px;
+      left: 1px;
+      right: 1px;
+      bottom: 1px;
+
+      .c-pro-subscription-picker__input:checked ~ & {
+        display: flex;
+      }
+    }
+
+    @include mq($from: md) {
+      //height: 348px;
+      min-height: 100%;
+      border: 1px solid $color-white-four;
+    }
+
+    .c-pro-subscription-picker__item--most-picked & {
+      @include mq($from: md) {
+        margin: 0 -1px;
+        //height: 348px + $spacing-unit;
+        padding-bottom: $pro-subscription-padding-bottom-lg;
+      }
+    }
+  }
+
+  .c-pro-subscription-picker__length {
+    display: none;
+    text-transform: uppercase;
+    margin-bottom: $spacing-unit--small;
+
+    @include mq($from: md) {
+      display: block;
+    }
+  }
+
+  .c-pro-subscription-picker__price {
+    display: inline-block;
+    color: $color-azure;
+    font-style: italic;
+    vertical-align: top;
+    margin: 0 -24px 12px -48px;
+    @include font-size(83px, 70px);
+    @include font-weight(extrabold);
+  }
+
+  .c-pro-subscription-picker__price--small {
+    @include font-size(48px);
+    margin-left: -#{0.75 * $spacing-unit};
+  }
+
+  .c-pro-subscription-picker__price--paywall {
+    display: inline-block;
+    color: #009ee0;
+    font-style: italic;
+    vertical-align: top;
+    margin: 0 -24px 12px -48px;
+    font-size: 211px;
+    font-size: 4.8875rem;
+    line-height: 70px;
+    font-weight: 800; }
+
+  .c-pro-subscription-picker__price--small--paywall {
+    font-size: 50px;
+    font-size: 2.7rem;
+    line-height: 1.1;
+    margin-left: -12px;
+  }
+
+  .c-pro-subscription-picker__price-condition--paywall {
+    margin-bottom: auto;
+  }
+
+  .c-pro-subscription-picker__price-info {
+    text-align: left;
+    margin: auto 0;
+    padding: $spacing-unit 0;
+  }
+
+  .c-pro-subscription-picker__button {
+    display: block;
+    margin-top: auto;
+  }

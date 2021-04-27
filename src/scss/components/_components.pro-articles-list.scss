@@ -1,0 +1,111 @@
+/*------------------------------------------------------------------------*\
+    #PRO-HIGHLIGHTS-LIST
+\*------------------------------------------------------------------------*/
+
+.c-pro-articles-list {
+  margin: 0 0 $spacing-unit--small;
+  padding: 0;
+  list-style-type: none;
+
+  @include mq($from: md) {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+  .c-pro-articles-list__item {
+    position: relative;
+    @include font-size(14px);
+    margin-bottom: $spacing-unit;
+  }
+
+  .c-pro-articles-list__link {
+    display: block;
+    color: $color-text;
+
+    &:active,
+    &:hover,
+    &:focus {
+      text-decoration: none;
+
+      .c-pro-articles-list__title {
+        text-decoration: none;
+        color: $color-links-accent;
+      }
+
+      .c-pro-articles-list__img {
+        transform: scale(1.04) rotate(0.001deg);
+      }
+    }
+
+    &:visited {
+      color: $color-links-articles-list-visited;
+    }
+  }
+
+  .c-pro-articles-list__figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .c-pro-articles-list__img {
+    transition: all $transition ease-in-out;
+  }
+
+  .c-pro-articles-list__media-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px 0;
+    vertical-align: middle;
+    @include rounded(0);
+    @include square($spacing-unit);
+  }
+
+  .c-pro-articles-list__meta {
+    position: relative;
+    margin: -#{$spacing-unit--small} 0 0;
+    text-align: center;
+  }
+
+  .c-pro-articles-list__label {
+    @include font-size(11px, 22px);
+  }
+
+  .c-pro-articles-list__body {
+    text-align: center;
+  }
+
+  .c-pro-articles-list__title {
+    @include font-size(21px, 1);
+    @include font-family(serif);
+    @include font-weight(medium);
+    margin: $spacing-unit 0 $spacing-unit--small;
+    padding: 0 #{$spacing-unit--small * 1.5};
+    letter-spacing: -0.02em;
+  }
+
+  // Changed layout : combination like: https://jira.info.nl/browse/VI-3690
+  // See also _components.combination
+
+  .c-pro-highlights__header {
+
+    text-align: left;
+
+    @include mq($from: md) {
+      text-align: center;
+    }
+
+    .c-pro-highlights__head-icon {
+      display: block;
+      margin: 8px auto 15px;
+      @include size(72px, 28px);
+
+      @include mq($from: md) {
+        margin: 20px auto 22px;
+        @include size(108px, 42px);
+      }
+    }
+  }
+
+

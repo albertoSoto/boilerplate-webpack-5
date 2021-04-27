@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    #USER-HEADER
+\*------------------------------------*/
+
+.c-user-header {
+  text-align: center;
+  margin-bottom: $spacing-unit;
+
+  @include mq($from: md) {
+    text-align: left;
+  }
+}
+
+  .c-user-header__title {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .c-user-header__email {
+    display: block;
+    margin-bottom: $spacing-unit--small;
+  }

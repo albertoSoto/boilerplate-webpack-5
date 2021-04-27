@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    #STAT-BAR
+\*------------------------------------*/
+
+$stat-bar-height: 6px;
+$separator-width: 4px;
+$separator-angle: -19deg;
+
+.c-stat-bar {
+  display: block;
+  background-color: #787878;
+  @include size(100%, $stat-bar-height);
+}
+
+  .c-stat-bar__inner {
+    position: relative;
+    background-color: $color-azure;
+    height: $stat-bar-height;
+  }
+
+    .c-stat-bar__inner--seperator:after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: -#{$separator-width / 2};
+      background-color: $color-white;
+      @include size($separator-width, $stat-bar-height);
+      @include transform(skew($separator-angle));
+    }

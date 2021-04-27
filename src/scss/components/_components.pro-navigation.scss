@@ -1,0 +1,72 @@
+/*------------------------------------------------------------------------*\
+    #PRO-NAVIGATION
+\*------------------------------------------------------------------------*/
+
+$skew-height: $spacing-unit--small * 1.5;
+
+.c-pro-navigation {
+  position: relative;
+  background-color: $color-black-two;
+  padding: $spacing-unit $spacing-unit--small;
+  margin: -#{$spacing-unit + $skew-height} 0 #{1.5 * $spacing-unit};
+  text-align: center;
+
+  @include mq($from: md) {
+    background-color: $color-white-three;
+    padding: $spacing-unit $spacing-unit $spacing-unit--large;
+    margin: 0 #{-$spacing-unit} #{-$spacing-unit};
+  }
+
+  @include mq($from: lg) {
+    margin: 0 0 #{-$spacing-unit};
+  }
+}
+
+  .c-pro-navigation__title {
+    @include font-weight(regular);
+  }
+
+.c-pro-navigation-list {
+  margin: 0 0 $spacing-unit--small;
+
+  @include mq($from: md) {
+    margin-left: -$spacing-unit--small;
+  }
+}
+
+  .c-pro-navigation-list__item {
+    @include mq($from: md) {
+      display: inline-block;
+      width: 125px;
+      margin-left: $spacing-unit--small;
+    }
+  }
+
+  .c-pro-navigation-list__link {
+    display: block;
+    color: $color-warm-grey;
+    border: 1px solid $color-warm-grey;
+    padding: $spacing-unit--tiny;
+    margin-bottom: $spacing-unit--small;
+    @include font-size(14px);
+    @include rounded($radius);
+
+    &:hover,
+    &:focus {
+      border-color: $color-white-four;
+      color: $color-white-four;
+      text-decoration: none;
+    }
+
+    @include mq($from: md) {
+      border-color: $color-greyish-brown;
+      color: $color-greyish-brown;
+
+      &:hover,
+      &:focus {
+        background: $color-white-two;
+        border-color: $color-black-two;
+        color: $color-black-two;
+      }
+    }
+  }

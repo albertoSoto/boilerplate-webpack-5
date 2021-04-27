@@ -1,0 +1,83 @@
+/*------------------------------------*\
+    #PRO-SLANT
+\*------------------------------------*/
+
+$pro-slant-height: 36px;
+$pro-slant-height-lg: 72px;
+$pro-slant-columns: 10;
+$pro-slant-columns-lg: 11;
+$pro-slant-columns-grey: 2;
+$pro-slant-columns-grey-lg: 1;
+$pro-slant-skew: -17.5deg;
+
+.o-pro-slant {
+  position: relative;
+  overflow: hidden;
+}
+
+  .o-pro-slant--overlap {
+    margin-top: -$pro-slant-height;
+
+    @include mq($from: lg) {
+      margin-top: -#{$pro-slant-height-lg - 1};
+    }
+  }
+
+  .o-pro-slant__inner {
+    position: relative;
+    height: $pro-slant-height;
+    //margin-top: -$pro-slant-height;
+
+    @include mq($from: lg) {
+      height: $pro-slant-height-lg;
+      //margin-top: -$pro-slant-height-lg;
+    }
+
+    &:before,
+    &:after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      background-color: $color-white;
+      height: 100%;
+
+      .o-pro-slant--grey & {
+        background-color: $color-white-three;
+      }
+    }
+
+    &:before {
+      right: ($pro-slant-columns + ($number-of-columns - ($number-of-columns - $pro-slant-columns)) - $number-of-columns - 1) * -1px;
+      width: percentage($pro-slant-columns / $number-of-columns);
+      transform: skewX($pro-slant-skew);
+      transition: width 1s ease-in-out;
+
+      @include mq($from: lg) {
+        right: ($pro-slant-columns-lg + ($number-of-columns - ($number-of-columns - $pro-slant-columns-lg)) - $number-of-columns - 1) * -1px;
+        width: percentage($pro-slant-columns-lg / $number-of-columns);
+      }
+
+      .o-pro-slant--grey & {
+        width: percentage($pro-slant-columns-grey / $number-of-columns);
+
+        @include mq($from: lg) {
+          width: percentage($pro-slant-columns-grey-lg / $number-of-columns);
+        }
+      }
+
+      .slide  & {
+        width: 150%;
+      }
+    }
+
+    &:after {
+      width: 20em;
+      left: 100%;
+      margin-left: -$spacing-unit--small;
+
+      @include mq($from: lg) {
+        margin-left: -$spacing-unit;
+      }
+    }
+  }

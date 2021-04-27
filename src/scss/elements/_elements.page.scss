@@ -1,0 +1,102 @@
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
+
+html {
+  @include font-family(sans-serif);
+  @include font-weight(regular);
+  background-color: $color-background;
+  color: $color-text;
+  margin-top: $header-height + $spacing-unit;
+  min-width: 20em;
+
+  &.subnavigation-present {
+    margin-top: $header-height + $spacing-unit--large;
+  }
+
+  @include mq($from: lg) {
+    margin-top: $header-height-lg + $spacing-unit--large;
+
+    &.subnavigation-present {
+      margin-top: $header-height-lg  + $subnavigation-menu-height-lg + $spacing-unit--large;
+    }
+  }
+}
+
+  .page--home {
+    @include mq($until: lg) {
+      margin-top: $header-height + $spacing-unit--small;
+    }
+
+    @include mq($until: md) {
+      margin-top: $header-height;
+    }
+
+    /*Remove first AD in preview on homepage, if it's the first component*/
+    @include mq($until: md) {
+      .o-wrapper {
+        .o-layout:first-of-type {
+          .o-layout__item:first-of-type > .c-ad:first-of-type {
+            display: none;
+          }
+        }
+      }
+
+      &.preview-mode {
+        .o-layout:first-of-type {
+          .ad-debug-info:first-of-type {
+            display: none;
+          }
+        }
+      }
+    }
+
+  }
+
+  .page--pro {
+    margin-top: $pro-header-height;
+
+    @include mq($from: lg) {
+      margin-top: $pro-header-height-lg;
+    }
+  }
+
+  .page--no-header {
+    margin-top: 0 !important;
+  }
+
+.main-content {
+  background-color: $color-background;
+  padding-bottom: 60px;
+
+  @include mq($from: md) {
+    padding-bottom: 120px;
+  }
+
+  .page--no-header & {
+    padding-top: $spacing-unit--small !important;
+    padding-bottom: $spacing-unit--small !important;
+  }
+
+  &.regular-header {
+    /*regular header on campaignpage needs more space, top margin on html not enough, give main padding*/
+    .page--pro & {
+      margin-top: 40px ;
+
+      @include mq($from: lg) {
+        margin-top: 30px ;
+      }
+    }
+  }
+}
+
+//https://jira.info.nl/browse/VI-3065 Subnavigation in in-app view needs more padding on main-content
+.page--no-header {
+  nav.subnavigation + .main-content {
+    padding-top:  $spacing-unit--huge !important;
+  }
+}
+
+:focus {
+  outline: 1px dotted $color-duck-egg-blue;
+}

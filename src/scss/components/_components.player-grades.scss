@@ -1,0 +1,150 @@
+/*------------------------------------*\
+    #PLAYER-GRADES
+\*------------------------------------*/
+.c-player-grades {
+  position: relative;
+}
+
+.c-player-grades__cell {
+  padding: $spacing-unit--small $spacing-unit--tiny;
+  vertical-align: top;
+  width: 50%;
+}
+
+.c-player-grades__cell:last-child {
+  padding-right: $spacing-unit--small;
+}
+
+.c-player-grades__logo {
+  width: $spacing-unit;
+  height: $spacing-unit;
+}
+
+.c-player-grades__player {
+  float: left;
+  width: 100%;
+  margin-right: -20px;
+}
+
+.c-player-grades__score, .c-player-grades__grade {
+  width: 20px;
+}
+
+.c-player-grades__score {
+  float: right;
+}
+
+.c-player-grades__grade {
+  float: left;
+}
+
+.c-player-grades__player--sub, .c-player-grades__grade--sub {
+  color: $color-warm-grey;
+}
+
+.c-player-grades__subheader {
+  display: block;
+  margin-top: 12px;
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+/*------------- Input forms ------------------*/
+.c-player-grades__form-wrapper {
+  &:before {
+    @include mq($until: lg) {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 88px;
+      height: 100vh;
+      background: #fff;
+      content: '';
+      overflow: auto;
+      z-index: -1;
+    }
+  }
+}
+
+  .c-player-grades__form-wrapper--first-step {
+    @include mq($from: lg) {
+      padding-top: 24px;
+    }
+  }
+
+.c-player-grades__go-to-start {
+    position: absolute;
+    top: 32px;
+    left: 12px;
+
+    @include mq($from: lg) {
+      position: relative;
+      display: inline-block;
+      margin-left: -48px;
+      top: 0;
+      left: 0;
+    }
+}
+.c-player-grades__go-to-start--icon {
+  float: left;
+}
+
+.c-custom-input__label--grades {
+  color: $color-black-two;
+}
+
+.c-player-grades__club-logo {
+  width:36px;
+  margin-right: 6px;
+}
+
+.c-player-grades__player--wrapper {
+  margin: 0 auto;
+  @include mq($from: lg) {
+    width: 80%;
+  }
+}
+
+.c-player-grades__dropdown {
+  display: block;
+  width: 100%;
+  background: $color-white;
+  padding: $spacing-unit--tiny $spacing-unit--tiny;
+  border: 0;
+  border-bottom: $input-border-width solid $color-white-four;
+  color: $color-black-two;
+
+  margin-bottom: $spacing-unit--small;
+
+  &:focus {
+    border-color: $color-azure;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: $color-white-three;
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: $cursor-disabled;
+  }
+
+}
+
+
+.c-player-grades__player-name {
+  @include font-size(12px, 18px);
+}
+
+.c-player-grades__errors {
+  .c-form__error {
+    // Every input shows error... Hide them all
+    display: none;
+
+    &.parsley-required {
+      // And only show first one
+      display: block;
+    }
+  }
+}

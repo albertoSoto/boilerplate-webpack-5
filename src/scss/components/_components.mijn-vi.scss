@@ -1,0 +1,66 @@
+.badge-wrapper {
+  margin-right:12px;
+  max-width:48px;
+}
+
+.badge {
+  display: inline-block;
+  width: $spacing-unit--large;
+}
+
+.header-19 {
+  @include inuit-font-size(19px);
+  @include font-family(sans-serif);
+  display: block;
+
+  span {
+  margin-right: $spacing-unit--tiny;
+  }
+}
+
+.c-user-email {
+  display: inline-block;
+}
+
+.o-layout-horizontal--second-flex-item {
+  flex-basis: auto;
+  flex-grow:1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.c-relationnumber {
+
+  margin-top: $spacing-unit;
+  margin-bottom: #{$spacing-unit--small+$spacing-unit};
+
+  .c-relationnumber--number {
+    font-family: "Open Sans", sans-serif;
+    @include font-size(40px, 1);
+    font-weight: bold;
+    border-radius: 10px;
+    border: solid 1px $color-white-four;
+    padding: 0px 6px;
+    border-left-color: $color-white;
+    border-right-color: $color-white;
+    margin-left: -3px;
+    margin-right: -3px;
+    display: inline-block;
+
+    &:first-of-type {
+      border-left-color: $color-white-four;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-right-color: $color-white-four;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
+
+.c-subscription-delivery {
+  font-style: normal;
+}

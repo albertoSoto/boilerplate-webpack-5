@@ -1,0 +1,62 @@
+/*------------------------------------*\
+    #QUOTES
+\*------------------------------------*/
+
+.c-quote {
+  text-align: center;
+  margin-bottom: $spacing-unit--small;
+  margin-left: auto;
+  margin-right: auto;
+
+  .c-article__content--left &,
+  .c-article__content--right & {
+    text-align: left;
+  }
+
+  @include mq($from: sm) {
+    .c-article__content--left &,
+    .c-article__content--right & {
+      margin-bottom: 0;
+    }
+
+    .c-article__content--left & {
+      margin-right: $spacing-unit--small;
+    }
+
+    .c-article__content--right & {
+      margin-left: $spacing-unit--small;
+    }
+  }
+
+  @include mq($from: md) {
+    margin-bottom: $spacing-unit;
+
+    .c-article__content--left & {
+      margin-right: $spacing-unit;
+    }
+
+    .c-article__content--right & {
+      margin-left: $spacing-unit;
+    }
+  }
+}
+
+  .c-quote__text {
+    color: $color-quote;
+    font-style: normal;
+    letter-spacing: -0.02em;
+    @include font-family(serif);
+    @include font-weight(medium);
+    @include font-size(36px, 1);
+  }
+
+  .c-quote__source {
+    display: block;
+    font-style: normal;
+    color: $color-quote-cite;
+    @include font-size(14px);
+  }
+
+  .c-quote__company {
+    @include font-weight(regular);
+  }

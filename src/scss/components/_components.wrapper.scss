@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #WRAPPER
+\*------------------------------------*/
+
+.c-wrapper {
+  &:last-of-type {
+    margin-bottom: 0!important; /* since main-content already has 120px padding bottom */
+  }
+}
+
+  .c-wrapper-bg--light {
+    background-color: $color-white-three;
+  }
+
+  .c-wrapper-bg--dark {
+    background-color: $color-black-two;
+    color: $color-white-three;
+  }
+
+
+/*------------------------------------*\
+  #WRAPPER of columns (= kinda wrapping)
+\*------------------------------------*/
+
+.o-layout__item-border {
+  border: 1px solid $color-white-four;
+  padding: $spacing-unit;
+  margin-bottom: $spacing-unit;
+  width: 100%;
+}

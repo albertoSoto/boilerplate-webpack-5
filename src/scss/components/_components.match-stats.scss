@@ -1,0 +1,63 @@
+/*------------------------------------*\
+    #MATCH-STATS
+\*------------------------------------*/
+
+$stats-percentage-width: #{1.5 * $spacing-unit};
+
+.c-match-stats {
+  margin-bottom: $spacing-unit;
+}
+
+  .c-match-stats__title {
+    margin-bottom: $spacing-unit--small;
+  }
+
+  .c-match-stats__list {
+    margin: 0 0 $spacing-unit 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .c-match-stats__item {
+    position: relative;
+    text-align: center;
+    margin-bottom: $spacing-unit--small;
+    @include font-size(14px);
+    @include clearfix;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .c-match-stats__bar-container {
+    position: absolute;
+    padding: 0 $stats-percentage-width;
+    width: 100%;
+  }
+
+  .c-match-stats__bar {
+    margin-top: 10px;
+  }
+
+  .c-match-stats__label {
+    @include font-weight(bold);
+  }
+
+  .c-match-stats__percentage {
+    width: $stats-percentage-width;
+    text-align: left;
+  }
+
+    .c-match-stats__percentage--home {
+      float: left;
+      padding-right: $spacing-unit--tiny;
+      text-align: right;
+    }
+
+    .c-match-stats__percentage--away {
+      float: right;
+      padding-left: $spacing-unit--tiny;
+    }
+
+

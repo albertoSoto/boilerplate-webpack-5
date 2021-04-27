@@ -1,0 +1,127 @@
+/*------------------------------------*\
+    #JWPLAYER
+\*------------------------------------*/
+//@import "../vinl-frontdev/storybook/src/vinl/basics/vinlCarousel";
+
+.glide-description {
+  @include font-size(14px, 18px);
+  height: 100%;
+}
+.vinl-carousel-slides span {
+  margin-left: 0;
+  @include font-size(14px);
+}
+
+.jwplayer.jw-skin-vi {
+
+  //https://jira.info.nl/browse/VI-4677/VI-5014/VI-4105 inserting time within the button disrupted JWPlayer control behaviour, now after, style with absolute from this
+  .jw-display-controls.jw-reset {
+    position: relative;
+  }
+
+  .jw-player-duration {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    display: none;
+    padding: 0 $spacing-unit--small;
+    color: rgba($color-white, 0.8);
+    border-radius: $spacing-unit--small;
+    background-color: rgba($color-black-two, 0.7);
+    text-align: center;
+    transform: translateX(-50%);
+    @include font-size(12px, 18px);
+
+    @at-root {
+      .jw-state-idle#{&} {
+        display: block;
+      }
+
+      .jw-breakpoint-4#{&},
+      .jw-breakpoint-5#{&},
+      .jw-breakpoint-6#{&},
+      .jw-breakpoint-7#{&} {
+        @include font-size(16px);
+      }
+    }
+  }
+
+  .jw-slider-time,
+  .jw-slider-volume {
+    .jw-rail {
+      background-color: $color-white-four;
+    }
+
+    .jw-progress {
+      background-color: $color-azure;
+    }
+  }
+
+  :not(.jw-flag-touch) .jw-button-color:not(.jw-logo-button):focus ~ .jw-player-duration,
+  :not(.jw-flag-touch) .jw-button-color:not(.jw-logo-button):hover ~ .jw-player-duration {
+    background-color: $color-black-two;
+    color: $color-white;
+  }
+}
+
+.jwplayer .jw-rightclick {
+  display:none!important;
+}
+
+/* Carousel */
+
+.c-article__content__carousel--wrapper {
+  margin-left:auto;
+  margin-right: auto;
+  background-color: $color-white-three;
+
+  @include mq($from: sm) {
+    margin-left:-12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  @include mq($from: md) {
+    margin-left:auto;
+    margin-right: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .c-article__content__carousel {
+     margin-left:  -($spacing-unit--small);
+     margin-right: -($spacing-unit--small);
+      padding-top: 24px;
+      padding-bottom: 24px;
+      background-color: $color-white-three;
+
+     @include mq($from: sm) {
+       margin-left:  0;
+       margin-right: 0;
+       text-align: center;
+       position: relative;
+       width: 100%;
+     }
+
+     @include mq($from: md) {
+       margin-left: auto;
+       margin-right: auto;
+       width: $article-width;
+       padding-top: 32px;
+       padding-bottom: 32px;
+     }
+   }
+
+  .jwplayer{
+    .jw-title-primary {
+      font-weight: bold;
+      white-space: normal;
+      @include font-size(14px, 1.29);
+
+      @include mq($from: lg) {
+        @include font-size(16px, 1.5);
+      }
+    }
+  }
+}

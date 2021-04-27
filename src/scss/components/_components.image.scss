@@ -1,0 +1,84 @@
+/*------------------------------------*\
+    #IMAGE
+\*------------------------------------*/
+
+.c-img {
+  position: relative;
+  margin-left: -$spacing-unit--small;
+  margin-right: -$spacing-unit--small;
+  text-align: center;
+  margin-bottom: $spacing-unit--small;
+
+  @include mq($from: sm) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @include mq($from: sm) {
+    .c-article__content--left &,
+    .c-article__content--right & {
+      margin-bottom: 0;
+    }
+
+    .c-article__content--left & {
+      margin-right: $spacing-unit--small;
+    }
+
+    .c-article__content--right & {
+      margin-left: $spacing-unit--small;
+    }
+  }
+
+  @include mq($from: md) {
+    margin-bottom: $spacing-unit;
+
+    .c-article__content--left & {
+      margin-right: $spacing-unit;
+    }
+
+    .c-article__content--right & {
+      margin-left: $spacing-unit;
+    }
+  }
+}
+
+  .c-img__inner {
+    position: relative;
+  }
+
+  .c-img__copy {
+    @include font-size(10px, 16px);
+    color: $color-img-copy-text;
+    position: absolute;
+    right: $spacing-unit--tiny;
+    bottom: $spacing-unit--tiny;
+    padding: #{$spacing-unit--tiny / 2} $spacing-unit--tiny;
+    background-color: $color-img-copy;
+  }
+
+  .c-img__caption {
+    @include font-size(14px, 18px);
+    color: $color-img-caption;
+    margin: $spacing-unit--small $spacing-unit--small 0 $spacing-unit--small ;
+    text-align: left;
+
+    @include mq($from: sm) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .c-article__content--center & {
+      text-align: center;
+    }
+  }
+
+/*---------------------------------------------------------------------------------*\
+  Overrides of external included classes
+\*---------------------------------------------------------------------------------*/
+
+.twitter-video {
+  .o-ratio__content & {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+}

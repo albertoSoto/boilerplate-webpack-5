@@ -1,0 +1,192 @@
+/*------------------------------------*\
+    #PRO-HEADER
+\*------------------------------------*/
+
+.c-pro-header {
+  position: relative;
+  background: $color-black;
+  overflow: hidden;
+}
+
+  .c-pro-header__wrapper {
+    position: relative;
+  }
+
+  .c-pro-header__background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include square(100%);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .c-pro-header__content {
+    position: relative;
+    z-index: 1;
+    padding-top: 85px;
+    height: 426px;
+    text-align: center;
+
+    @include mq($from: lg) {
+      padding-top: 187px;
+      height: 642px;
+    }
+  }
+
+  .c-pro-header__heading {
+    color: $color-white;
+    text-transform: uppercase;
+    @include font-weight(extrabold);
+    @include font-size(33px);
+    @include font-family(sans-serif);
+
+
+    @include mq($from: md) {
+      @include font-size(48px, 60px);
+    }
+  }
+
+  .c-pro-header__accented {
+    &.ends-with-dot {
+      &:after {
+        content: ".";
+        color: $color-azure;
+      }
+    }
+
+    &.ends-with-questionmark {
+      &:after {
+        content: "?";
+        color: $color-azure;
+      }
+    }
+
+    &.ends-with-exclamationmark {
+      &:after {
+        content: "!";
+        color: $color-azure;
+      }
+    }
+
+    &.ends-with-colon {
+      &:after {
+        content: ":";
+        color: $color-azure;
+      }
+    }
+  }
+
+
+    .c-pro-header__heading--inverted {
+      color: $color-black-two;
+    }
+
+  .c-pro-header__text {
+    .ti-container:after {
+      content: ".";
+      color: $color-azure;
+    }
+  }
+
+  .c-pro-header__heading-accent {
+    font-style: normal;
+    position: relative;
+    line-height: 1;
+    color: $color-white;
+
+    span {
+      padding: 0 .25em;
+      background-color: $color-azure;
+      white-space: pre-wrap;
+
+      span {
+        position: relative;
+
+        @supports (box-decoration-break: clone) {
+          box-shadow: none;
+          box-decoration-break: clone;
+        }
+
+        @supports not (box-decoration-break: clone) {
+          box-shadow: -8px 0 0 $color-azure;
+        }
+      }
+    }
+
+    @include mq($until: md) {
+      &:before,
+      &:after {
+        display: block;
+        content: "";
+        width: 100%;
+      }
+    }
+  }
+
+  .c-pro-header__heading-type {
+    .ti-cursor {
+      display: none !important;
+    }
+  }
+
+  .c-pro-header__icon {
+    display: block;
+    margin: 0 auto $spacing-unit;
+    @include size(89px, 34px);
+
+    @include mq($from: md) {
+      margin-bottom: 1.5 * $spacing-unit;
+      @include size(211px, 82px);
+    }
+  }
+
+  .c-vi-header__icon {
+    display: block;
+    margin: 0 auto $spacing-unit;
+    @include size(70px, 49px);
+
+    @include mq($from: md) {
+      margin-bottom: 1.5 * $spacing-unit;
+      @include size(140px, 97px);
+    }
+  }
+
+
+  .c-pro-header__small-heading {
+    color: $color-black-two;
+    text-transform: uppercase;
+    @include font-weight(extrabold);
+    @include font-size(19px, 21px);
+    @include font-family(sans-serif);
+    margin-bottom: $spacing-unit--small;
+
+
+    &.ends-with-colon {
+      &:after {
+        content: ":";
+        color: $color-azure;
+      }
+    }
+
+    &.c-pro-header__smaller--md {
+      @include mq($until: lg) {
+        @include font-size(16px, 21px);
+      }
+    }
+  }
+
+  .c-pro-header__medium-heading {
+    color: $color-black-two;
+    text-transform: uppercase;
+    @include font-weight(extrabold);
+    @include font-size(28px, 30px);
+    @include font-family(sans-serif);
+    margin-bottom: $spacing-unit--small;
+    letter-spacing: normal;
+    @include mq($from: md) {
+      @include font-size(33px, 35px);
+    }
+  }

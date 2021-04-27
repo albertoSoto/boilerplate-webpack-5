@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+
+a {
+  text-decoration: none;
+  color: $color-links;
+
+  &:hover,
+  &:focus {
+    color: $color-links-accent;
+    text-decoration: underline;
+  }
+
+}
+
+.link-current {
+  color: currentColor;
+}
+
+.link-inherit {
+  color: inherit;
+}
+
+.pointer {
+  cursor: pointer;
+}
+

@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #DEFINITION-LIST
+\*------------------------------------*/
+
+.c-definition-list {
+  overflow: hidden;
+  margin-bottom: $spacing-unit;
+}
+
+  .c-definition-list__term,
+  .c-definition-list__definition {
+    @include font-size(14px);
+    @include font-weight(regular);
+  }
+
+  .c-definition-list__definition {
+    margin-left: 0;
+  }
+
+  .c-definition-list__icon {
+    @include square(18px);
+    vertical-align: middle;
+  }

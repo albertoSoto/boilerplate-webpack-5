@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+.table-scrollable {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.table-scrollable,
+table {
+  margin: $spacing-unit 0;
+  width: 100%;
+}
+
+table {
+  max-width: 100%;
+
+  .table-scrollable & {
+    margin: 0;
+  }
+
+  td,
+  th {
+    padding: $spacing-unit--tiny $spacing-unit--small $spacing-unit--small;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  tbody tr {
+    &:nth-child(odd) {
+      background-color: $color-white-three;
+    }
+
+    &:hover {
+      background-color: $color-white-two;
+    }
+  }
+}

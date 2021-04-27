@@ -1,0 +1,307 @@
+/*------------------------------------*\
+    #TOPICS
+\*------------------------------------*/
+
+$topics-list-border-width: 1px;
+$topics-list-bullet-size: 24px;
+$topics-list-dot-size: 14px;
+$topics-list-bullet-size-small: 20px;
+$topics-list-dot-size-small: 10px;
+
+.c-topics__newsitem-list,
+.c-widgets__newsitem-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include mq($from: md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.c-topics-list__item {
+  position: relative;
+  z-index: 0;
+  margin: 0 0 0 $spacing-unit--small;
+  border-left: $topics-list-border-width solid $color-white;
+  padding: 0 0 0 #{$spacing-unit - $topics-list-border-width};
+
+  @include mq($from: md) {
+    padding-left: $spacing-unit--large;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    @include rounded(100%);
+    border: $topics-list-border-width solid $color-white;
+    background-color: $color-black;
+    top: 0;
+    z-index: -1;
+    left: -#{$topics-list-bullet-size-small / 2};
+    @include square($topics-list-bullet-size-small);
+
+    @include mq($from: md) {
+      left: -#{$topics-list-bullet-size / 2};
+      @include square($topics-list-bullet-size);
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    @include rounded(100%);
+    background-color: $color-white;
+    top: 0;
+    left: -6px;
+    margin-top: 4px;
+    z-index: 0;
+    @include square(12px);
+    pointer-events: none;
+    cursor: pointer;
+
+    @include mq($from: md) {
+      left: -#{$spacing-unit--small - (($topics-list-bullet-size - $topics-list-dot-size) / 2)};
+      margin-top: #{($topics-list-bullet-size - $topics-list-dot-size) / 2};
+      @include square($topics-list-dot-size);
+    }
+  }
+
+  &:last-child {
+   /* margin-bottom: 0;*/
+    /*padding-bottom: $spacing-unit;*/
+    border-left: none;
+
+    @include mq($from: md) {
+      /*padding-bottom: $spacing-unit;*/
+    }
+  }
+}
+
+/*instead of border in bullet list*/
+.c-topics-list__item--topic-with-others {
+
+  .first-topic-item-wrapper {
+    &:before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 1px;
+      background: $color-black;
+      top: $topics-list-bullet-size-small;
+      bottom: 15px;
+      left: -1px;
+
+      @include mq($from: md) {
+        top: $topics-list-bullet-size;
+      }
+    }
+
+    &.first-topic-item-wrapper--bg-image,
+    &.first-topic-item-wrapper--bg-blue,
+    &.first-topic-item-wrapper--bg-black {
+      &:before {
+        background: $color-white;
+      }
+    }
+  }
+
+  .c-articles-list__link--topic {
+    &:before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 1px;
+      background: $color-black;
+      top: $topics-list-bullet-size-small;
+      bottom: 0;
+      left: -1px;
+
+      @include mq($from: md) {
+        top: $topics-list-bullet-size;
+      }
+    }
+
+    &.c-articles-list__link--topic--first {
+      &:before {
+        background: $color-black;
+        top: auto;
+        height: 10px;
+        bottom: 0;
+      }
+    }
+  }
+  &:last-of-type {
+    .c-articles-list__link--topic {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
+
+
+  .c-topics-list__item--bg-image,
+  .c-topics-list__item--bg-black,
+  .c-topics-list__item--bg-blue {
+    .c-articles-list__link--topic {
+      &:before {
+        background: $color-white;
+      }
+      &.c-articles-list__link--topic--first {
+        &:before {
+          background: $color-white;
+        }
+      }
+    }
+  }
+
+
+
+
+    .c-topics-list__item--topic-with-others {
+      border-left: none;
+
+      @include mq($from: md) {
+        padding-left: 30px;
+      }
+    }
+
+    .c-topics-list__item--bg-white,
+    .c-topics-list__item--bg-grey {
+
+
+      &:before {
+        border-color: $color-black;
+      }
+      &:after {
+        background-color: $color-black;
+      }
+    }
+
+    .c-topics-list__item--bg-white {
+      &:before {
+        background-color: $color-white;
+      }
+    }
+
+    .c-topics-list__item--bg-grey {
+      &:before {
+        background-color: $color-white-three;
+      }
+    }
+
+    .c-topics-list__item--bg-blue {
+      &:before {
+        background-color: $color-azure;
+      }
+    }
+
+    .c-topics-list__item--bg-image {
+      color: $color-white;
+      &:before {
+        background-color: transparent;
+      }
+    }
+
+.c-articles-list__pro-label--topic--first {
+  width: 56px;
+  height:21px;
+  vertical-align: middle;
+  @include mq($from: md) {
+    width: 64px;
+    height:24px;
+    vertical-align: baseline;
+  }
+}
+
+.c-topic__item--single-topic{
+  &.c-topic__item--first {
+    display: inline-block;
+    @include mq($from: md) {
+      margin-top: -$spacing-unit--small;
+    }
+  }
+}
+
+.c-articles-list__label-link {
+  display:block;
+  margin-bottom: 8px;
+}
+
+.c-articles-list__label-wrapper {
+  padding-left:  #{$spacing-unit + $spacing-unit--small};
+  margin-top: -19px;
+  position: relative;
+
+  @include mq($from: md) {
+    padding-left: 61px;
+    margin-bottom:24px;
+  }
+}
+
+.first-topic-item-wrapper {
+  margin-left: -49px;
+  padding-left: 49px;
+ /* if text is less high then floating image*/
+  min-height: 76px;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    @include size(14px, 6px);
+    background-color: $color-black;
+    border-top:1px solid $color-white;
+    border-bottom:1px solid $color-white;
+    bottom: 9px;
+    left: -8px;
+    margin-top: #{($topics-list-bullet-size - $topics-list-dot-size) / 2};
+    z-index: 3;
+
+    .c-topics__newsitem-list--single-topic & {
+      bottom: 16px;
+    }
+
+  }
+}
+
+  .first-topic-item-wrapper--bg-white {
+    &:after {
+      background-color: $color-white;
+      border-top: 1px solid $color-black;
+      border-bottom: 1px solid $color-black;
+    }
+  }
+
+  .first-topic-item-wrapper--bg-grey {
+    &:after {
+      background-color: $color-white-three;
+      border-top: 1px solid $color-black;
+      border-bottom: 1px solid $color-black;
+    }
+  }
+
+  .first-topic-item-wrapper--bg-blue {
+    &:after {
+      background-color: $color-azure;
+    }
+  }
+
+  .first-topic-item-wrapper--bg-image {
+    &:after {
+      background-color: transparent;
+    }
+  }
+
+  .c-topic-with-others__topic-title-wrapper {
+    margin-left: 94px;
+  }
+
+  .c-topic-with-others__topic-title {
+
+  }

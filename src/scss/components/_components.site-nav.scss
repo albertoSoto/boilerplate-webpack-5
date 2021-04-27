@@ -1,0 +1,1030 @@
+/*------------------------------------*\
+    #SITE-NAV
+\*------------------------------------*/
+
+@mixin menu-item-active() {
+  border-bottom: 2px solid $color-azure;
+}
+
+$logo-height-mobile:          18px;
+$logo-height-desktop:         24px;
+$logo-width-mobile:           26px;
+$logo-width-desktop:          34px;
+
+$icon-account-height-mobile:  20px;
+$icon-account-height-desktop: 26px;
+$icon-search-height:          30px;
+
+$quick-menu-height:           80px;
+
+
+.c-site-nav {
+  min-width: 20em;
+  @include clearfix;
+
+  .o-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+
+    @include mq($from: lg) {
+      padding-right: $spacing-unit--small;
+      padding-left:  $spacing-unit--small;
+    }
+  }
+}
+
+  .c-site-nav--pro {
+    margin: 0 #{-$spacing-unit--small};
+
+    @include mq($from: md) {
+      margin: 0 #{-$spacing-unit};
+    }
+
+    @include mq($from: lg) {
+      margin: 0;
+    }
+  }
+
+
+  .c-site-nav__home {
+    height: $primary-menu-height-md;
+    max-width: 3em;
+
+    @include mq($from: lg) {
+      height: $primary-menu-height-lg;
+    }
+
+    .c-site-nav--pro & {
+      float: left;
+
+      @include mq($until: lg) {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .c-site-nav__logo {
+    display: block;
+
+    &.c-site-nav__logo-menu {
+      height: $logo-height-mobile;
+      width: $logo-width-mobile;
+      margin: 11px 10vw;
+
+      @include mq($from: lg) {
+        height: $logo-height-desktop;
+        width: $logo-width-desktop;
+        margin: 16px $spacing-unit 0 0;
+      }
+    }
+
+    &.c-site-nav__logo-form {
+      height: 36px;
+      width: 52px;
+    }
+
+    .c-site-nav--pro & {
+      height: $pro-logo-height;
+      margin: round(($pro-header-height - $pro-logo-height) / 2) 0;
+
+      @include mq($from: lg) {
+        height: $pro-logo-height-lg;
+        margin: round(($pro-header-height-lg - $pro-logo-height-lg) / 2) 0;
+      }
+    }
+  }
+
+  .c-site-nav__button {
+    .c-site-nav--pro & {
+      float: right;
+      margin: round(($pro-header-height-lg - 30px) / 2) 0;
+      padding: #{0.5 * $spacing-unit--tiny} $spacing-unit--small;
+
+      @include mq($until: lg) {
+        display: none;
+      }
+    }
+  }
+
+  .c-site-nav__list {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+
+    @include mq($from: lg) {
+      float: right;
+      overflow: visible;
+      width: auto;
+    }
+
+    .c-site-nav--pro & {
+      display: none;
+      float: none;
+
+      @include mq($from: lg) {
+        display: inline-block;
+        margin: 0 0 0 $spacing-unit;
+        background-color: unset;
+      }
+
+      @include mq($until: lg) {
+        background-color: $color-black;
+
+        .menu-open & {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .c-site-nav__item {
+    float: left;
+    width: 100%;
+
+    //Social buttons
+    &.c-site-nav__item-social {
+      width: auto;
+    }
+
+    /* breakpoint desktop */
+    @include mq($from: lg) {
+      width: auto;
+
+      //Social buttons
+      &.c-site-nav__item-social {
+        width: auto;
+
+        .c-icon--medium {
+          @include square(1.5*$spacing-unit--small);
+        }
+
+        .c-icon--light {
+          &:active,
+          &:hover {
+            use {
+              fill: $color-warm-grey;
+            }
+          }
+
+        }
+      }
+    }
+
+    .c-site-nav--pro & {
+      @include mq($from: lg) {
+        padding: 0 $spacing-unit--small;
+      }
+    }
+  }
+
+    .c-site-nav__item-social-wrap {
+      display: block;
+      position: relative;
+      padding: $spacing-unit $spacing-unit--tiny;
+
+      @include mq($from: lg) {
+        top: -2px;
+        padding: 5px 5px 0;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        .c-icon--medium use {
+          fill: $color-black-two;
+
+          @include mq($from: lg) {
+            fill: $color-warm-grey;
+          }
+        }
+      }
+
+    }
+
+  .c-site-nav__link { // general
+    display: block;
+    color: $color-black-two;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: currentColor;
+      text-decoration: none;
+    }
+
+    .c-site-nav--pro & {
+      padding: $spacing-unit--tiny 0 $spacing-unit--tiny ($spacing-unit--small - 2px);
+      color: $color-white;
+      border-left: 2px solid transparent;
+
+      &:hover,
+      &.active {
+        color: $color-white;
+        border-color: $color-azure;
+      }
+
+      @include mq($from: lg) {
+        height: $pro-header-height-lg;
+        padding: 0;
+        line-height: $pro-header-height-lg - 2px;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+
+  .c-site-nav__link--account,
+  .c-site-nav__link--search-icon {
+
+    line-height: $primary-menu-height-md;
+    padding-right: $spacing-unit--small;
+
+    // different spacing for the two breakpoints for mobile version
+    @include mq($from: md) {
+      padding-right: $spacing-unit;
+    }
+
+    @include mq($from: lg) {
+      line-height: $primary-menu-height-lg;
+      padding-right: $spacing-unit--small;
+    }
+
+    .icon-account {
+      vertical-align: middle;
+      @include square($icon-account-height-mobile);
+
+      @include mq($from: lg) {
+        @include square($icon-account-height-desktop);
+      }
+    }
+
+    use.icon-account {
+      fill: $color-black-two;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-azure;
+
+      use.icon-account {
+        fill: $color-azure;
+      }
+    }
+
+    svg path {
+      fill: inherit;
+    }
+
+  }
+
+  .c-site-nav__link--search-icon {
+    padding-right: 0;
+
+    .c-search-icon-wrapper {
+      border-right: 1px solid $color-white-four;
+      vertical-align: middle;
+      margin-bottom: 2px;
+      height: 30px;
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .icon-search {
+      @include square($icon-search-height);
+      vertical-align: top;
+      margin-right: 18px;
+    }
+  }
+
+// When menu toggle button is clicked (only there < lg) then noscroll is added by js to HTML tag
+.menu-open {
+  // if menu is unfolded, don't scroll to content
+  overflow: hidden;
+
+  @include mq($from: lg) {
+    // make sure just incase the class stays on html  when upsizing resolution from -unfold menu state- in mobile to desktop
+    overflow: visible;
+  }
+}
+
+.flex-menu-main-container {
+  color: $color-black-two;
+  width: 100%;
+
+  @include mq($from: md) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include mq($from: lg) {
+    flex-direction: column-reverse;
+  }
+
+  // If unfolded menu doesn't fit on screen, should be the only one scrollable
+  .menu-open & {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    @include mq($from: lg) {
+      // make sure just incase the scroll class stays on html  when upsizing resolution from -unfold menu state- in mobile to desktop, display the menu with its original values
+      display: flex;
+      position: static;
+      top: auto;
+      left: auto;
+      bottom: auto;
+      overflow-x: visible;
+      overflow-y: visible;
+    }
+  }
+}
+
+/* PRIMARY CONTAINER- MAIN MENU/CtA/ */
+
+.flex-menu-section-container--primary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: $color-black;
+  background-color: white;
+  padding: 0;
+  border-bottom: 1px solid $color-white-two;
+  margin: auto 0;
+
+  @include mq($from: lg) {
+    flex-wrap: nowrap;
+    border-bottom: none;
+    height: $primary-menu-height-lg;
+  }
+
+  /* nav items */
+
+
+  .c-site-nav__item {
+    @include font-size(16px);
+    // otherwise border-left is too high
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .c-site-nav__link {
+      padding-top: $spacing-unit--tiny;
+      padding-bottom: $spacing-unit--tiny;
+    }
+
+    span {
+      border-left: 2px solid transparent;
+      padding-left: $spacing-unit--small;
+
+      @include mq($from: md) {
+        padding-left: $spacing-unit;
+      }
+    }
+
+    &.active-subtree span {
+      border-left: 2px solid $color-azure;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      span {
+        border-left: 2px solid $color-azure;
+        color: $color-black-two;
+      }
+    }
+
+    @include mq($from: lg) {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left:  $spacing-unit--small;
+      padding-right: $spacing-unit--small;
+
+      .c-site-nav__link { // primary
+        border-bottom: 2px solid transparent;
+        line-height: $primary-menu-height-lg;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        span {
+          border-left: none;
+          padding-left: 0;
+        }
+      }
+
+
+
+
+      &.active-subtree {
+
+        span {
+          border-left: none;
+        }
+
+        .c-site-nav__link {
+          @include menu-item-active;
+        }
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-black-two;
+
+        .c-site-nav__link {
+          @include menu-item-active;
+
+          span {
+            border-left: none;
+          }
+        }
+      }
+    }
+  }
+
+  .flex-menu-part--button {
+    flex: 0 1 auto;
+
+    @include mq($from: lg) {
+      display: none;
+    }
+  }
+
+  .flex-menu-part--logo {
+    padding-left: 0;
+
+    @include mq($from: lg) {
+      padding-left: $spacing-unit--small;
+    }
+  }
+
+  .flex-menu-part--login-search {
+    flex: 0 1 auto;
+    text-align: right;
+    align-items: center;
+
+    @include mq($from: lg) {
+      order: 4;
+      flex: 1 0 auto;
+      text-align: right;
+      align-items: center;
+    }
+  }
+
+  .flex-menu-part--main {
+    flex: 1 0 100%;
+    text-align: left;
+    padding: 0;
+    border-top: 1px solid $color-white-two;
+    display: none;
+
+    .menu-open & {
+      display: flex;
+    }
+
+    @include mq($from: lg) {
+      order: 2;
+      flex: 0 1 auto;
+      display: flex;
+      align-items: center;
+      border-top: none;
+    }
+
+  }
+
+  .flex-menu-part--cta {
+    flex: 1 0 100%;
+    text-align: left;
+    padding-top: (1.5 * $spacing-unit--small);
+    padding-bottom: ($spacing-unit + $spacing-unit--tiny);
+    display: none;
+
+    margin-left: $spacing-unit--small;
+    @include mq($from: md) {
+      margin-left: $spacing-unit;
+    }
+
+    .menu-open & {
+      display: flex;
+      align-items: center;
+    }
+
+    @include mq($from: lg) {
+      order: 3;
+      flex: 0 1 auto;
+      display: flex;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  // CtA menu button, not to be confused with flex-menu-part--button for mobile colapse menu button
+  .flex-menu-part--btn {
+    padding: 2px 16px;
+    vertical-align: $spacing-unit--tiny;
+  }
+}
+
+/* SECONDARY MENU - Service */
+.flex-menu-section-container--secondary {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: $spacing-unit--tiny 0;
+  background-color: $color-white-two;
+
+  .menu-open & {
+    display: flex;
+  }
+
+  /* desktop */
+  @include mq($from: lg) {
+    display: flex;
+    flex-direction: row;
+    background-color: $color-black-two;
+    height: $secondary-menu-height;
+    padding: 0.1666rem 0 0.2666rem;
+  }
+
+  /* Links in secondary */
+
+  .c-site-nav__link {
+    @include font-size(14px);
+    // otherwise border-left is too high
+    padding: $spacing-unit--tiny 0;
+
+    span {
+      border-left: 2px solid transparent;
+      padding-left: $spacing-unit--small;
+
+      @include mq($from: md) {
+        padding-left: $spacing-unit;
+      }
+    }
+
+    &.active-subtree span {
+      border-left: 2px solid $color-azure;
+    }
+
+    &:hover span,
+    &:active span,
+    &:focus span {
+        border-left: 2px solid $color-azure;
+        color: $color-black-two;
+    }
+
+    @include mq($from: lg) {
+      color: $color-white-four;
+      padding: 0 $spacing-unit--small;
+      margin-top: 0;
+      margin-bottom: 0;
+      border-left: transparent;
+      @include font-size(12px);
+
+      span {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      &.active-subtree {
+        border-left: transparent;
+        padding-left: 0;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: underline;
+        border-left: none;
+
+        span {
+          color: inherit;
+          border-left: none;
+        }
+      }
+
+    }
+
+  }
+}
+
+.flex-menu-part--customerservice {
+  display: flex;
+  flex-direction: column;
+
+  @include mq($from: lg) {
+    order: 2;
+    flex-direction: row;
+  }
+}
+
+.flex-menu-part--service-social {
+  display: flex;
+  flex-direction: column;
+
+  @include mq($from: lg) {
+    flex-direction: row;
+
+    div {
+      margin-bottom: 0;
+    }
+  }
+
+  /* make items align with the rest neatly in mobile nav view */
+  ul > .c-site-nav__item-social:first-child {
+    margin-left: $spacing-unit--tiny;
+
+    @include mq($from: md) {
+      margin-left: #{$spacing-unit - $spacing-unit--tiny};
+    }
+
+    @include mq($from: lg) {
+      margin-left: $spacing-unit--small;
+    }
+  }
+
+}
+
+.flex-menu-section-container--quick {
+  background-color: $color-white;
+  border-bottom: 1px solid $color-white-two;
+  display: block;
+
+  .menu-open & {
+    display: none;
+  }
+
+  @include mq($from: lg) {
+    display: none !important;
+  }
+
+  .quick-list {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+
+    li.quick-item {
+      flex-grow: 1;
+      text-align: center;
+      list-style: none;
+
+      &:nth-child(5) {
+        display: none;
+      }
+
+      @include mq($from: md) {
+        &:nth-child(5) {
+          display: flex;
+        }
+      }
+
+      a {
+        width: 100%;
+        line-height: $quicklinks-menu-height;
+
+        span {
+          padding: ($spacing-unit / 3) 0;
+        }
+      }
+
+      &:first-of-type {
+        text-align: left;
+
+        a {
+          padding-left: $spacing-unit--small;
+          // different spacing for the two breakpoints for mobile version
+          @include mq($from: md) {
+            padding-left: $spacing-unit;
+          }
+        }
+      }
+
+
+      &:nth-child(4) {
+        text-align: right;
+
+        a {
+          padding-right: $spacing-unit--small;
+          // different spacing for the two breakpoints for mobile version
+          @include mq($from: md) {
+            padding-right: $spacing-unit;
+          }
+        }
+        // Undo 4th on tablet, there might be 5, if not, last of type will catch it
+        @include mq($from: md) {
+          text-align: center;
+          padding-right: 0;
+        }
+      }
+
+      &:last-of-type {
+        text-align: right;
+
+        a {
+          padding-right: $spacing-unit--small;
+          // different spacing for the two breakpoints for mobile version
+          @include mq($from: md) {
+            padding-right: $spacing-unit;
+          }
+        }
+      }
+
+      &.active-subtree {
+        a span {
+          @include menu-item-active;
+        }
+      }
+
+      .c-site-nav__link {
+        display: inline-block;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        .c-site-nav__link span {
+          @include menu-item-active;
+        }
+      }
+
+    }
+
+  }
+}
+
+// Black bar whole width on desktop
+.black-belt {
+  display: none;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background-color: $color-black-two;
+  border-bottom: 1px solid $color-black-two;
+  @include size(100%, $secondary-menu-height);
+
+  @include mq($from: lg) {
+    display: block;
+  }
+}
+
+/* Menu button to unfold on mobile */
+$hamburger-width: 16px;
+$hamburger-height: 12px;
+$hamburger-line-height: 2px;
+
+.hamburger {
+  font: inherit;
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  text-transform: none;
+  color: inherit;
+  border: 0;
+  background-color: transparent;
+  padding: 6px 0 8px $spacing-unit--small;
+
+  &:focus {
+    outline: 0;
+  }
+
+  // different spacing for the two breakpoints for mobile version
+  @include mq($from: md) {
+    padding-left: $spacing-unit;
+  }
+
+  .c-site-nav--pro & {
+    @include mq($from: md) {
+      padding-left: $spacing-unit--small;
+    }
+
+    @include mq($from: lg) {
+      display: none;
+    }
+  }
+}
+
+  .hamburger__box {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    @include size($hamburger-width, $hamburger-height)
+  }
+
+  .hamburger__inner {
+    top: #{$hamburger-line-height / 2};
+    display: block;
+    margin-top: -#{$hamburger-line-height / 2};
+
+    &,
+    &:before,
+    &:after {
+      position: absolute;
+      background-color: $color-black-two;
+      border-radius: $radius;
+      transition: transform 150ms ease;
+      @include size($hamburger-width, $hamburger-line-height);
+
+      .c-site-nav--pro & {
+        background-color: $color-white;
+      }
+    }
+
+    &:before,
+    &:after {
+      display: block;
+      content: "";
+    }
+
+    &:before {
+      top: #{($hamburger-height - $hamburger-line-height) / 2};
+      transition: transform 200ms ease, opacity 200ms ease;
+    }
+
+    &:after {
+      top: #{$hamburger-height - $hamburger-line-height};
+    }
+
+    .menu-open & {
+      transform: translate3d(0, (($hamburger-height - $hamburger-line-height) / 2), 0) rotate(45deg);
+
+      &:before {
+        opacity: 0;
+        transform: rotate(-45deg) translate3d(-(($hamburger-height + $hamburger-line-height) / 4), -(($hamburger-height + $hamburger-line-height) / 4), 0);
+      }
+
+      &:after {
+        transform: translate3d(0, -($hamburger-height - $hamburger-line-height), 0) rotate(-90deg);
+      }
+    }
+  }
+
+  .hamburger__label {
+    color: $color-black-two;
+    transition: visibility 400ms ease, opacity 400ms ease;
+    vertical-align: middle;
+    @include font-size(16px);
+
+    .c-site-nav--pro & {
+      color: $color-white;
+    }
+
+    .menu-open & {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+.subnavigation {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  top: 41px;
+  left: 0px;
+  /*subnavigation should also cover liveblog (z-index 20) if put on article page*/
+  z-index: 30;
+  backface-visibility: hidden;
+  background-color: $color-azure;
+  height: $subnavigation-menu-height;
+
+  @include mq($from: lg) {
+    top: 90px;
+  }
+
+  @include clearfix;
+
+  .o-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+
+    @include mq($from: lg) {
+      padding-right: $spacing-unit;
+      padding-left:  $spacing-unit;
+    }
+  }
+
+  .page--no-header &{
+    top: 0;
+  }
+
+  .menu-open & {
+    /*if hamburger menu is clicked , hide behind unfolded menu*/
+    z-index: auto;
+  }
+}
+
+.flex-menu-section-container--subnavigation {
+  background-color: $color-azure;
+  display: block;
+
+  .menu-open & {
+    display: none;
+  }
+
+  .subnavigation-list {
+    margin: 0;
+    padding: 0;
+    display: block;
+    white-space: nowrap;
+    font-size: 0;
+    overflow-x: scroll;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+     @include mq($from: md) {
+       overflow: hidden;
+    }
+
+    li.subnavigation-item {
+      text-align: center;
+      list-style: none;
+      display: inline-block;
+      padding-left: $spacing-unit--small;
+
+        &:first-of-type {
+          padding-left: 0;
+
+          @include mq($from: md) {
+            padding-left: $spacing-unit--small;
+          }
+
+          @include mq($from: lg) {
+            padding-left: 0;
+          }
+        }
+
+      &:last-of-type {
+        padding-right: $spacing-unit--small;
+      }
+
+
+      a {
+        width: 100%;
+        line-height: 66px;
+        color: $color-white;
+
+        span {
+          padding: 13px 16px;
+        }
+      }
+
+      &:first-of-type {
+
+        a {
+          padding-left: $spacing-unit--small;
+          // different spacing for the two breakpoints for mobile version
+
+          @include mq($from: lg) {
+            padding-left: 0;
+          }
+        }
+      }
+
+      .c-site-nav__link {
+        display: inline-block;
+        outline: none;
+        height: 66px;
+
+        .c-btn--primary {
+          background-color: $color-azure-accent; // #1FA9E3;
+          height: 42px;
+          line-height: 16px;
+          white-space: nowrap;
+          margin-top: 12px;
+          margin-bottom: 12px;
+        }
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        .c-btn--primary {
+          background-color: $color-white;
+          color: $color-azure;
+        }
+      }
+
+    }
+
+  }
+}

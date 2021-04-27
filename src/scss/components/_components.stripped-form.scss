@@ -1,0 +1,117 @@
+/*------------------------------------*\
+    #STRIPPED-FORM (but KeyCloak uses these classes and attributes as well!!
+\*------------------------------------*/
+
+.c-stripped-form {
+  /* empty for now */
+}
+
+  .c-stripped-form-logo {
+    display: block;
+    margin: 0 auto $spacing-unit;
+    height: 40px;
+
+    @include mq($from: lg) {
+      margin-bottom: $spacing-unit--large;
+      height: 54px;
+    }
+
+  }
+
+  .c-stripped-form__container {
+    /* shared by both mgnl & kc! */
+    background-color: $color-white;
+    max-width: 62em;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .c-stripped-form__wrapper {
+    padding: 0 $spacing-unit--small $spacing-unit--small;
+
+    @include mq($from: sm) {
+      padding: 0 $spacing-unit $spacing-unit--large;
+    }
+
+    @include mq($from: lg) {
+      padding: 0 #{3 * $spacing-unit} $spacing-unit--huge;
+    }
+
+  }
+
+  .c-stripped-form__wrapper--logo-included {
+    padding: 0 $spacing-unit--small $spacing-unit--small;
+
+    @include mq($from: sm) {
+      padding: 0 $spacing-unit $spacing-unit--large;
+    }
+
+    @include mq($from: lg) {
+      padding: 0 60px $spacing-unit--huge;
+    }
+  }
+
+  .c-stripped-form__login-pf {
+    margin-top: 0;
+    background-color: $color-white-two;
+    padding: $spacing-unit 0 $spacing-unit--large;
+
+    &.c-stripped-form--no-logo {
+      padding: 0;
+
+      @include mq($until: lg) {
+        background-color: $color-white;
+      }
+
+      @include mq($from: lg) {
+        padding: $spacing-unit--large 0 72px;
+      }
+    }
+
+    @include mq($from: lg) {
+      padding: $spacing-unit--large 0 72px;
+    }
+
+  }
+
+  .c-stripped-form__back-link {
+    display: block;
+    margin: $spacing-unit--small 0;
+
+    @include mq($from: md) {
+      float: right;
+    }
+
+    @include mq($from: lg) {
+      margin: $spacing-unit 0;
+      margin-right: -#{2 * $spacing-unit};
+    }
+
+  }
+
+  .c-stripped-form__full-width {
+    margin-bottom: #{$spacing-unit};
+    margin-left: -#{$spacing-unit--small};
+    margin-right: -#{$spacing-unit--small};
+
+    @include mq($from: sm) {
+      margin-left: -#{$spacing-unit};
+      margin-right: -#{$spacing-unit};
+    }
+
+    @include mq($from: md) {
+      margin-bottom: #{$spacing-unit + $spacing-unit--small};
+    }
+
+    @include mq($from: lg) {
+      margin-left: -#{3 * $spacing-unit};
+      margin-right: -#{3 * $spacing-unit};
+    }
+
+  }
+
+  .c-stripped-form__img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

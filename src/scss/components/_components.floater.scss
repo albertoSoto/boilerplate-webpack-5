@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #FLOATER
+\*------------------------------------*/
+
+.c-floater {
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-unit 0;
+}
+
+.c-floater-inner {
+  white-space: nowrap;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+
+  &.slide {
+    animation: slide 45s linear infinite;
+    transform-style: preserve-3d;
+  }
+}

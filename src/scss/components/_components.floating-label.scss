@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #FLOATING-LABEL
+\*------------------------------------*/
+
+.c-floating-label {
+  position: relative;
+  margin-top: $spacing-unit;
+
+  & + .c-floating-label {
+    margin-top: $spacing-unit--large;
+  }
+}
+
+.c-floating-label-not-needed +  .c-floating-label {
+  margin-top: $spacing-unit--large;
+}
+  .c-floating-label__label {
+    position: absolute;
+    top: $spacing-unit--tiny;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    @include font-size(12px);
+    @include transition(all 200ms);
+  }
+
+  .c-floating-label__label--floating {
+    top: -#{$spacing-unit};
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .has-error {
+
+    .c-floating-label__label {
+      color: $color-cherry-red;
+    }
+
+    .c-floating-label__label--floating {
+      color: $color-cherry-red;
+    }
+
+  }

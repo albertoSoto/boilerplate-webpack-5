@@ -1,0 +1,90 @@
+/*------------------------------------*\
+    #SHOW-HIDE
+\*------------------------------------*/
+
+// When using Sass-MQ, this defines the separator for the breakpoints suffix
+// in the class name. By default, we are generating the responsive suffixes
+// for the classes with a `@` symbol so you get classes like:
+// <div class="u-show@mobile">
+$show-hide-breakpoint-separator: \@ !default;
+
+// A mixin to spit out our show/hide classes. Pass in an optional suffix.
+//
+// @include showhide(-sm);
+
+@mixin show-hide($breakpoint: null) {
+
+  // Build a class in the format `.u-hide[@<breakpoint>]`.
+  .u-hide#{$breakpoint} {
+    display: none !important;
+  }
+
+  // Build a class in the format `.u-show[@<breakpoint>]`.
+  .u-show#{$breakpoint} {
+    display: block !important;
+  }
+
+}
+
+/**
+ * If we’re using Sass-MQ, automatically generate grid system(s) for each of our
+ * defined breakpoints, and give them a Responsive Suffix, e.g.:
+ *
+ * <div class="u-show@mobile">
+ */
+
+@if (variable-exists(mq-breakpoints)) {
+
+  @each $bp-name, $bp-value in $mq-breakpoints {
+
+    @include mq($from: $bp-name) {
+      @include show-hide(#{$show-hide-breakpoint-separator}#{$bp-name});
+    }
+
+  }
+
+}
+
+/**
+ *
+ *
+ *
+ * <div class="u-show-">
+ */
+
+@media (max-width: #{map-get($mq-breakpoints, sm) - 1}) {
+  .u-hide-xs {
+    display: none !important;
+  }
+}
+
+
+@media (min-width: map-get($mq-breakpoints, sm)) and (max-width: #{map-get($mq-breakpoints, md) - 1}) {
+  .u-hide-sm-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: map-get($mq-breakpoints, md)) and (max-width: #{map-get($mq-breakpoints, lg) - 1}) {
+  .u-hide-md-lg {
+    display: none !important;
+  }
+}
+
+@media (min-width: map-get($mq-breakpoints, lg)) /*and (max-width: #{map-get($mq-breakpoints, xl) - 1})*/ {
+  /* since we do not support XL already disable everything from above LG and do not offer XL class either */
+  .u-hide-lg-xl {
+    display: none !important;
+  }
+}
+
+.u-hidden-showable {
+  display: none;
+}
+
+.u-hidden-showable-until-md {
+  display: none;
+  @include mq($from: md) {
+    display: block !important;
+  }
+}

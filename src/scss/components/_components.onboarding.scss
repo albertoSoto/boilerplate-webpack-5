@@ -1,0 +1,126 @@
+$onboarding-bar-height: 6px;
+$onboarding-separator-width: 4px;
+$onboarding-separator-angle: -19deg;
+
+
+.c-onboarding__bar-container {
+  width: 100%;
+  margin-top: $spacing-unit;
+  margin-bottom: $spacing-unit;
+
+  @include  mq($from: md) {
+    margin-top: #{$spacing-unit+5};
+    margin-bottom: #{$spacing-unit--large+5};
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.onboarding-competition-select {
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  padding: 6px 12px;
+  border: 0;
+  border-bottom: 1px solid #d8d8d8;
+  color: #1f1f1f;
+}
+
+.c-onboarding__bar {
+  display: block;
+  background-color: #787878;
+  @include size(100%, $onboarding-bar-height);
+}
+
+.c-onboarding__bar__inner {
+  position: relative;
+  height: $onboarding-bar-height;
+  float: left;
+  width: 25%; // based on 4 steps
+}
+
+.c-onboarding__bar__inner--seperator:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 1px;
+  background-color: $color-white;
+  @include size($onboarding-separator-width, $onboarding-bar-height);
+  @include transform(skew($onboarding-separator-angle));
+}
+
+.c-onboarding-bar__inner--completed--last.c-onboarding__bar__inner--seperator:after {
+  right: -1px;
+}
+
+
+.c-onboarding-bar__inner--completed {
+  background-color: $color-azure;
+}
+
+.c-onboarding-header {
+  width: 100%;
+  text-align: left!important;
+
+  @include  mq($from: md) {
+    width: auto;
+    max-width: 413px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.c-onboarding-text {
+  text-align: left!important;
+  width: 100%;
+  margin-top:$spacing-unit--small;
+  margin-bottom:$spacing-unit--small;
+
+  @include  mq($from: md) {
+    max-width: 412px;
+    margin: $spacing-unit--small auto $spacing-unit;
+  }
+}
+
+.c-onboarding-code {
+  text-align: left!important;
+  width: 100%;
+  margin-top:$spacing-unit--small;
+  margin-bottom:$spacing-unit--small;
+
+  @include  mq($from: md) {
+    max-width: 700px;
+    margin: $spacing-unit--small auto $spacing-unit;
+  }
+}
+
+.c-onboarding-highlights {
+  width: 100%;
+  text-align: left!important;
+
+  @include  mq($from: md) {
+    max-width: 413px;
+    margin: $spacing-unit--small auto $spacing-unit;
+  }
+}
+
+.c-onboarding-button-explanation {
+  margin-bottom: $spacing-unit--small;
+  margin-left: $spacing-unit--small;
+  margin-right: $spacing-unit--small;
+
+  @include  mq($from: md) {
+    max-width: 413px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.c-onboarding-tags {
+  @include  mq($from: md) {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

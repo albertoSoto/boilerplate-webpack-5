@@ -1,0 +1,54 @@
+/*------------------------------------*\
+    #FULL-WIDTH
+\*------------------------------------*/
+
+.o-full-width {
+  display: block;
+  margin-left: -#{$spacing-unit--small};
+  margin-right: -#{$spacing-unit--small};
+
+  @include mq($from: md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+  .o-full-width--md {
+    @include mq($from: md) {
+      margin-left: -#{$spacing-unit};
+      margin-right: -#{$spacing-unit};
+    }
+  }
+
+.o-full-width-cancelled {
+  margin-left: $spacing-unit--small;
+  margin-right: $spacing-unit--small;
+  width: auto;
+  display: block;
+
+  &.o-full-width-cancelled--widget {
+    margin-bottom: $spacing-unit;
+
+    &.o-full-width-cancelled--widget--bg-white {
+      border: 1px solid $color-white-four;
+    }
+  }
+
+  @include mq($from: md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.o-full-width-anyway {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: auto;
+  display: block;
+
+  margin-bottom: $spacing-unit;
+
+  @include mq($from: md) {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,217 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    #EDIT-MODE
+\*------------------------------------*/
+
+// SETTINGS
+@import "../../node_modules/inuitcss/settings/settings.core";
+@import "settings/settings.global";
+@import "settings/settings.colors";
+
+// TOOLS
+@import "../../node_modules/inuitcss/tools/tools.clearfix";
+@import "../../node_modules/inuitcss/tools/tools.font-size";
+@import "../../node_modules/inuitcss/tools/tools.hidden";
+@import "tools/tools.mixins";
+@import "tools/tools.aliases";
+$mq-breakpoints: (
+  sm:  544px,
+  md:  768px,
+  lg:  992px,
+  xl:  1200px
+);
+@import "../../node_modules/sass-mq/mq";
+
+.edit-mode {
+  margin-top: 0;
+
+  .mgnlEditor.area + * {
+    margin-bottom: 0 !important;
+  }
+
+  .o-layout {
+    // sass-lint:disable-block class-name-format
+    > div.mgnlEditorBar,
+    > div.mgnlEditorBar.area.end,
+    > div.mgnlPlaceholder {
+      margin-left: $spacing-unit !important;
+    }
+
+    // sass-lint:disable-block class-name-format
+    > div.mgnlEditorBar.area.mgnlEditorBarStatusIndicator,
+    > div.mgnlEditorBar.component.mgnlEditorBarStatusIndicator {
+      margin-left: $spacing-unit + 28px !important;
+    }
+
+    &--right,
+    &--center,
+    &--reverse {
+      // sass-lint:disable-block class-name-format
+      > div.mgnlEditorBar {
+        text-align: left;
+      }
+    }
+
+    // flex lay-out in Editmode disrupted by injected MGNL bars
+    &.o-layout--stretch {
+      > div.mgnlEditorBar.mgnlEditor {
+        flex-basis: 100% !important;
+        width:100% !important;
+      }
+
+      .o-layout__item {
+        flex-wrap: wrap !important;
+        > div.mgnlEditorBar.mgnlEditor {
+          width:100% !important;
+        }
+      }
+    }
+  }
+
+  div.mgnlEditorBar{
+    border-radius: 4px!important;
+  }
+
+  #edit-menu-container {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .c-page-header {
+    position: relative;
+    height: auto;
+
+    .flex-menu-main-container,
+    .flex-menu-section-container--secondary,
+    .flex-menu-section-container--primary,
+    .flex-menu-section-container--quick,
+    .flex-menu-part--main,
+    .flex-menu-part--login-search,
+    .flex-menu-part--cta,
+    .flex-menu-part--customerservice,
+    .flex-menu-part--service-social {
+      display: block !important;
+      height: auto;
+      background-color: $color-white;
+    }
+
+    .flex-menu-part--main {
+      padding: 10px;
+
+      .c-site-nav__list {
+        float: none;
+      }
+    }
+
+    .flex-menu-part--cta,
+    .flex-menu-part--login-search {
+      width:  15%;
+      float: none;
+      margin-left: 0;
+      padding: 10px;
+
+      .c-site-nav__list {
+        float: none;
+      }
+    }
+
+    .flex-menu-part--customerservice {
+      float: none;
+      padding: 10px;
+
+      .c-site-nav__list {
+        float: none;
+      }
+    }
+
+    .flex-menu-part--service-social {
+      float: none;
+      padding: 10px;
+
+      .c-site-nav__list {
+        float: none;
+      }
+    }
+
+     .flex-menu-section-container--quick {
+       display: table-cell;
+       padding: 10px;
+
+       .quick-list {
+         display: inline-block;
+
+         .quick-item {
+           width: auto;
+           float: left;
+           padding: 0 $spacing-unit--small;
+         }
+
+         a {
+           width: auto;
+         }
+
+       }
+     }
+
+     .c-page-header {
+       position: relative;
+     }
+
+     .flex-menu-section-container--secondary .c-site-nav__link {
+       color: $color-black;
+     }
+
+    .black-belt,
+    .flex-menu-part--logo {
+      display: none;
+    }
+  }
+
+// Title not behind editbars
+  .c-widget--has-title {
+    .c-article__aside &:first-child {
+      @include mq($from: lg) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // slantedTextImage not conflicting with MGNL-bars
+  .c-pro-content-block-wrapper {
+    display: block;
+
+    .c-pro-content-block {
+      margin-bottom: 0;
+    }
+  }
+
+  .c-pro-subscription-picker {
+    margin-bottom: 0;
+  }
+
+  .edit-subnavigation {
+    ul {
+      margin: 0;
+    }
+  }
+
+  .subnavigation-item {
+    float: left;
+    list-style: none;
+    margin-right: 15px;
+  }
+
+  .flex-menu-section-container--subnavigation {
+    background-color: $color-white;
+  }
+
+}
+
+.c-pro-h2 {
+  &:after {
+    content: "";
+  }
+}

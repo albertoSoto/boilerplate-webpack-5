@@ -1,0 +1,336 @@
+/*------------------------------------------------------------------------*\
+    #PRO-HIGHLIGHTS-LIST
+\*------------------------------------------------------------------------*/
+
+$skew-height: $spacing-unit--small * 1.5;
+
+.c-pro-heading {
+  text-align: center;
+  margin: $spacing-unit--tiny 0;
+
+  @include mq($from: sm) {
+    margin: #{$spacing-unit--small * 1.5} 0;
+  }
+
+  @include mq($from: md) {
+    margin: $spacing-unit 0;
+  }
+}
+
+  .c-pro-heading__icon {
+    vertical-align: middle;
+    margin: 0 $spacing-unit--tiny;
+    @include size(60px, $spacing-unit);
+
+    @include mq($from: sm) {
+      @include size(75px, #{$spacing-unit * 1.25});
+    }
+
+    @include mq($from: md) {
+      @include size(90px, #{$spacing-unit * 1.5});
+    }
+  }
+
+.c-pro-highlights-list {
+  margin: 0 #{-$spacing-unit--small} #{$spacing-unit + $skew-height};
+
+  @include mq($from: md) {
+    margin: 0;
+  }
+}
+
+  .c-pro-highlights-list__item {
+    position: relative;
+    display: block;
+    background-color: $color-white;
+
+    @include mq($from: md) {
+      margin-bottom: $spacing-unit;
+      overflow: hidden;
+    }
+
+    @include mq($from: md, $until: lg) {
+      margin-left: -#{$spacing-unit};
+      margin-right: -#{$spacing-unit};
+    }
+  }
+
+    .c-pro-highlights-list__item--small {
+      background-color: $color-black-two;
+
+      @include mq($from: md) {
+        display: table;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+
+  .c-pro-highlights-list__link {
+    background-color: inherit;
+    color: currentColor;
+
+    .c-pro-highlights-list__item--small & {
+      @include mq($from: md) {
+        display: table-row;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: currentColor;
+
+      .c-pro-highlights-list__img {
+        transform: scale(1.02) rotate(0.001deg);
+
+        .c-pro-highlights-list__item--small & {
+          transform: scale(1.04) rotate(0.001deg);
+        }
+      }
+    }
+  }
+
+  .c-pro-highlights-list__wrapper {
+    overflow: hidden;
+
+    .c-pro-highlights-list__item--small & {
+      @include mq($from: md) {
+        display: table-cell;
+        width: 50%;
+      }
+    }
+  }
+
+  .c-pro-highlights-list__figure {
+    margin: 0;
+    z-index: 0;
+
+    @include mq($until: sm) {
+      position: relative;
+      left: 50%;
+      width: 150%;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  .c-pro-highlights-list__img {
+    transition: all $transition ease-in-out;
+  }
+
+  .c-pro-highlights-list__overlay {
+    position: relative;
+    padding: 1px $spacing-unit #{$spacing-unit--small * 1.5};
+    background-color: inherit;
+    z-index: 1;
+    margin: -1px auto 0;
+
+    @include mq($from: md) {
+      margin-top: -#{74px - $skew-height};
+      padding-left: $spacing-unit--large;
+      padding-right: $spacing-unit--large;
+      width: (8 / $number-of-columns) * 100%;
+    }
+
+    @include mq($from: lg) {
+      &.highlights-list-2-column {
+        padding-left:  #{$spacing-unit--small * 1.5 + 2}; //20px
+        padding-right:  #{$spacing-unit--small * 1.5 + 2};
+        margin-top: -#{64px - $skew-height};
+      }
+    }
+
+    .c-pro-highlights-list__item--small & {
+      margin-top: 0;
+      width: 100%;
+
+      @include mq($from: md) {
+        display: table-cell;
+        width: 50%;
+        vertical-align: middle;
+        padding: $spacing-unit--small $spacing-unit;
+
+        &:before,
+        &:after {
+          display: none;
+        }
+      }
+
+      &:before {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%231F1F1F' d='M0 100h100L0 0v100'/%3E%3C/svg%3E");
+      }
+
+      &:after {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%231F1F1F' d='M100 0H0l100 100V0'/%3E%3C/svg%3E");
+      }
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      left: 0;
+      background-size: 100% 100%;
+      @include size(100%, $skew-height);
+    }
+
+    &:before {
+      top: 0;
+      margin-top: -#{$skew-height};
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%23FFFFFF' d='M0 100h100L0 0v100'/%3E%3C/svg%3E");
+    }
+
+    &:after {
+      bottom: 0;
+      margin-bottom: -#{$skew-height};
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath fill='%23FFFFFF' d='M100 0H0l100 100V0'/%3E%3C/svg%3E");
+
+      @include mq($from: md) {
+        display: none;
+      }
+    }
+  }
+
+  .c-pro-highlights-list__meta {
+    margin: -#{$spacing-unit} 0 $spacing-unit--small;
+    text-align: center;
+
+    .c-pro-highlights-list__item--small & {
+      @include mq($from: md) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .c-pro-highlights-list__title {
+    color: $color-black-two;
+    text-align: center;
+    text-transform: none;
+    margin: $spacing-unit 0 0;
+    letter-spacing: -0.02em;
+    @include font-family(serif);
+    @include font-size(36px, 1);
+    @include font-weight(medium);
+
+    @include mq($from: md) {
+      @include font-size(43px, 1);
+
+      &.highlights-list__title-1-column {
+        .o-layout__item.u-3\/12\@md & {
+          margin: 42px 0 0;
+          @include font-size(18px, 1);
+        }
+        .o-layout__item.u-4\/12\@md & {
+          margin: 42px 0 0;
+          @include font-size(18px, 1);
+        }
+        .o-layout__item.u-5\/12\@md & {
+          margin: 38px 0 0;
+          @include font-size(22px, 1);
+        }
+        .o-layout__item.u-6\/12\@md & {
+          margin: 38px 0 0;
+          @include font-size(22px, 1);
+        }
+        .o-layout__item.u-7\/12\@md & {
+          margin: 35px 0 0;
+          @include font-size(26px, 1);
+        }
+        .o-layout__item.u-8\/12\@md & {
+          margin: 33px 0 0;
+          @include font-size(32px, 1);
+        }
+        .o-layout__item.u-9\/12\@md & {
+          margin: 33px 0 0;
+          @include font-size(32px, 1);
+        }
+      }
+
+
+    }
+
+    @include mq($from: lg) {
+      &.highlights-list__title-2-column {
+        margin: #{1.3333 * $spacing-unit - 10} 0 0;
+        @include font-size(32px, 1);
+      }
+    }
+
+    .c-pro-highlights-list__item--small & {
+      color: $color-white;
+      margin: $spacing-unit--small 0 0;
+      @include font-size(26px, 1);
+
+      &.highlightsvariation2-list__title-2-column {
+        @include mq($from: md) {
+          @include font-size(43px, 1);
+        }
+        @include mq($from: lg) {
+          @include font-size(26px, 1);
+        }
+      }
+
+      &.highlightsvariation2-list__title-1-column {
+        @include mq($from: md) {
+          @include font-size(43px, 1);
+        }
+
+        @include mq($from: md) {
+          .o-layout__item.u-3\/12\@md & {
+            @include font-size(16px, 1);
+          }
+          .o-layout__item.u-4\/12\@md & {
+            @include font-size(16px, 1);
+          }
+          .o-layout__item.u-5\/12\@md & {
+            @include font-size(26px, 1);
+          }
+          .o-layout__item.u-6\/12\@md & {
+            @include font-size(22px, 1);
+          }
+          .o-layout__item.u-7\/12\@md & {
+            @include font-size(26px, 1);
+          }
+          .o-layout__item.u-8\/12\@md & {
+            @include font-size(32px, 1);
+          }
+          .o-layout__item.u-9\/12\@md & {
+            @include font-size(32px, 1);
+          }
+        }
+      }
+
+      &:after {
+        width: 30px;
+        margin-top: $spacing-unit--small;
+
+        @include mq($from: md) {
+          width: $spacing-unit--large;
+        }
+      }
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background-color: $color-azure;
+      margin: #{$spacing-unit--small * 1.5} auto 0;
+      @include size(60px, 3px);
+      @include rounded($radius);
+
+      @include mq($from: md) {
+        width: $spacing-unit--huge;
+      }
+    }
+  }
+
+  ol.o-layout--highlightstyle1, ol.o-layout--highlightstyle2 {
+    margin-bottom: $spacing-unit--large ;
+
+    @include mq($from: md) {
+      margin-bottom: 0 ;
+    }
+  }
+

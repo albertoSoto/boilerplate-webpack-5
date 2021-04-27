@@ -35,23 +35,15 @@ module.exports = {
                     },
                     {
                         loader: "css-loader",
-                        /*options: {
-                            // Run `postcss-loader` on each CSS `@import`, do not forget that `sass-loader` compile non CSS `@import`'s into a single file
-                            // If you need run `sass-loader` and `postcss-loader` on each CSS `@import` please set it to `2`
-                            importLoaders: 1,
-                        },*/
                         options: {
                             importLoaders: 2,
-                            sourceMap: process.env.NODE_ENV === 'development',
+                            //sourceMap: process.env.NODE_ENV === 'development',
                             url: false,
-                            //context: '../../',
                         }
                     },
                     {
                         loader: 'postcss-loader',
-                      //  options: {postcssOptions: {url: false}}
                     },
-                    // Can be `less-loader`
                     {
                         loader: "sass-loader",
                     },

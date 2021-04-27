@@ -1,0 +1,71 @@
+/*------------------------------------*\
+    #TEASER
+\*------------------------------------*/
+
+$heightTransientOverlap: #{10 * $line-height};
+
+.paywall-intro {
+  max-height: $heightTransientOverlap;
+  overflow: hidden;
+}
+
+.c-teaser {
+  position: relative;
+}
+
+  .c-teaser--paywall {
+    &:before {
+      display: block;
+      content: "";
+      margin-top: -#{$heightTransientOverlap};
+      height: $heightTransientOverlap;
+
+      background: transparent; /* fallback old browsers */
+      background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    }
+  }
+
+  .c-teaser__inner {
+    margin: 0 auto $spacing-unit--large;
+    /* ToDo: needs fix from grid column!! */
+    max-width: 440px;
+
+    .c-teaser--paywall & {
+      margin-top: $spacing-unit;
+      max-width: 500px;
+    }
+  }
+
+  .c-teaser__img {
+    margin-bottom: $spacing-unit;
+  }
+
+  .c-teaser__logo {
+    width: 100px;
+    height: 70px; /* needed for older browsers */
+  }
+
+  .c-teaser__heading {
+    margin-bottom: 0;
+
+    .c-teaser--paywall & {
+      margin-bottom: $spacing-unit--small;
+      text-align: center;
+    }
+  }
+
+  .c-teaser__area {
+    margin: $spacing-unit--small 0;
+  }
+
+  .c-teaser__link  {
+    margin-bottom: $spacing-unit--small;
+
+    &.c-teaser__link--white {
+      color: $color-white
+    }
+  }
+
+    .c-teaser__link--block  {
+      display: block;
+    }

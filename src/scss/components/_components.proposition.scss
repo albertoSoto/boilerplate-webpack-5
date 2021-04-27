@@ -1,0 +1,148 @@
+/*------------------------------------*\
+    #PROPOSITION
+\*------------------------------------*/
+
+// Proposition is entirely made of standard components :D
+.c-prop {
+  margin-bottom: $spacing-unit--large;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/*
+ * Highlighted Proposition
+ */
+
+.c-prop-hl {
+  background-color: $color-white-three;
+  border-left: 3px solid $color-azure;
+  padding: $spacing-unit;
+  margin-bottom: $spacing-unit--large;
+
+  @include mq($from: md) {
+    /* from MD act as a flag */
+    display: table;
+    width: 100%;
+  }
+
+}
+
+  .c-prop-hl__img {
+    margin-right: 0;
+    float: none;
+
+    @include mq($from: sm) {
+      float: left;
+      width: 220px;
+      margin-right: $spacing-unit;
+    }
+
+  }
+
+  .c-prop-hl__body {
+
+    @include mq($from: md) {
+      /* make MD act as a flag (vertical align middle) on larger viewports */
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+  }
+
+  .c-prop-hl__body-inner {
+    /* make div's inside vertical align middle */
+    display: table;
+    width: 100%;
+  }
+
+    .c-prop-hl__body-desc,
+    .c-prop-hl__body-cta {
+      padding-top: $spacing-unit;
+
+      @include mq($from: md) {
+        /* make largest div vertical align middle on larger viewports */
+        padding-top: 0;
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+    }
+
+    .c-prop-hl__body-desc {
+
+      @include mq($from: md) {
+        padding-right: $spacing-unit;
+      }
+
+      @include mq($from: sm) {
+        padding-top: 0;
+      }
+
+    }
+
+.c-prop-shop {
+  /* empty for now*/
+}
+
+  .c-prop-shop__abos {
+    margin-bottom: $spacing-unit;
+
+    @include mq($from: lg) {
+      padding-left: #{3 * $spacing-unit};
+    }
+  }
+
+  .c-prop-shop__text {
+    margin-bottom: $spacing-unit;
+  }
+
+  .c-prop-shop__links {
+    text-align: center;
+
+    @include mq($from: sm) {
+      text-align: left;
+    }
+  }
+
+/*------------------------------------*\
+    #PROPOSITION-SHOP-COLLAPSE
+\*------------------------------------*/
+
+.c-prop-collapse {
+  margin-top: -#{$spacing-unit--small};
+
+  @include mq($from: md) {
+    margin-top: 0;
+  }
+}
+
+  .c-prop-collapse__label {
+    @include font-family(sans-serif);
+    @include font-size(16px);
+    display: inline-block;
+    color: $color-azure;
+    cursor: pointer;
+
+    @include mq($from: md) {
+      display: none;
+    }
+  }
+
+  .c-prop-collapse__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    appearance: none;
+  }
+
+  .c-prop-collapse__appear {
+    margin-top: $spacing-unit--small;
+
+    @include mq($from: md) {
+      margin-top: $spacing-unit;
+      display: block;
+    }
+  }

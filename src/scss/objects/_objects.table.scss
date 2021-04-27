@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    #TABLE
+\*------------------------------------*/
+
+.o-table {
+  display: table;
+  border-collapse: collapse;
+}
+
+  .o-table__header {
+    display: table-header-group;
+  }
+
+  .o-table__body {
+    display: table-row-group;
+  }
+
+  .o-table__footer {
+    display: table-footer-group;
+  }
+
+  .o-table__row {
+    display: table-row;
+  }
+
+  .o-table__cell {
+    display: table-cell;
+  }
+
+    .o-table__cell--header {
+      font-weight: bold;
+      vertical-align: middle;
+    }
+
+    .o-table__cell--hidden\@sm {
+      @include mq($until: md) {
+        display: none;
+      }
+    }
+
+  .o-table__col {
+    display: table-column;
+  }
+
+  .o-table__colgroup {
+    display: table-column-group;
+  }
+
+  .o-table__caption {
+    display: table-caption;
+  }
+
+  .o-table--fixed {
+    table-layout: fixed;
+  }

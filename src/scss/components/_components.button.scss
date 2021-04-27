@@ -1,0 +1,515 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ */
+
+.c-btn {
+  display: inline-block; /* [1] */
+  vertical-align: middle; /* [2] */
+  font: inherit; /* [3] */
+  text-align: center; /* [4] */
+  margin:  0; /* [4] */
+  cursor: pointer; /* [5] */
+  overflow: visible; /* [6] */
+  padding: $spacing-unit--small $spacing-unit;
+  transition-duration: $transition;
+  border-radius: $radius;
+  @include font-size(16px);
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+}
+
+  .c-btn--primary {
+    position: relative;
+    border: none;
+    background-color: $color-btn;
+    color: $color-white;
+
+    &:hover,
+    &:focus {
+      background-color: $color-btn-accent;
+      color: $color-white;
+    }
+  }
+
+  .c-btn--primary--inverted {
+    position: relative;
+    border: none;
+    background-color: $color-white;
+    color: $color-btn;
+
+    &:hover,
+    &:focus {
+      color: $color-btn-accent;
+    }
+  }
+
+  .c-btn--secondary {
+    background-color: $color-btn-secondary;
+    color: $color-btn;
+    border: 1px solid $color-btn;
+
+    &:hover,
+    &:focus {
+      background-color: $color-btn-secondary-accent;
+      color: $color-btn;
+    }
+  }
+
+  .c-btn--important {
+    color: $color-btn-important;
+    border: 1px solid $color-btn-important;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $color-btn-important-accent;
+      color: $color-btn-important-accent;
+    }
+  }
+
+  .c-btn--forward-button {
+    background-color: $color-white;
+    padding-left: 0;
+    padding-right: 0;
+
+    &.c-btn--forward-button--grey {
+      background-color: $color-white-three;
+    }
+
+    span {
+      display: inline-block;
+      position: relative;
+      padding-left: 16px;
+      text-align: left!important;
+    }
+
+    &:hover,
+    &:focus {
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .c-btn__proposition {
+    width: 100%;
+    height: 100%;
+    background-color: $color-white;
+    color: $color-black-two;
+    border: 1px solid $color-white-four;
+    position: relative;
+    padding-top: 21px;
+    padding-bottom: 23px;
+    @include mq($until: sm) {
+      padding-left: $spacing-unit--small;
+      padding-right: $spacing-unit--small ;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      border-color: $color-teal-blue;
+      color: $color-black-two;
+    }
+  }
+
+  .c-btn__proposition--selected {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    border: 2px solid $color-azure;
+    z-index: 2;
+    position: relative;
+    background-color: $color-white;
+    color: $color-black-two;
+    padding-top: 20px;
+    padding-bottom: 21px;
+
+    @include mq($until: sm) {
+      padding-left: $spacing-unit--small;
+      padding-right: $spacing-unit--small ;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-black-two;
+      border: 2px solid $color-teal-blue;
+      pointer-events: initial;
+      cursor: grab;
+    }
+
+  }
+
+  .c-btn--info {
+    background-color: $color-white;
+    border-radius: 12px;
+    border: 1px solid $color-azure;
+    color:$color-azure;
+    padding: 0px $spacing-unit;
+
+    &:hover,
+    &:focus {
+      border-color: $color-btn;
+      color: $color-btn;
+    }
+  }
+
+  .c-btn--disabled {
+    position: relative;
+    border: none;
+    background-color: $color-white-two;
+    color: $color-warm-grey;
+
+    &:hover,
+    &:focus {
+      cursor: $cursor-disabled;
+    }
+  }
+
+  .c-btn--negative {
+    background-color: $color-white;
+    color: $color-btn;
+    border: none;
+
+    &.c-btn--negative--black {
+      color: $color-black;
+
+      &:hover,
+      &:focus {
+        color: $color-black-two;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-btn-accent;
+    }
+  }
+
+  .c-btn__icon {
+    vertical-align: middle;
+
+    .c-btn--icon & {
+      display: block;
+      margin: 0;
+    }
+  }
+
+    .c-btn__icon--small {
+      margin-right: $spacing-unit--tiny;
+    }
+
+    .c-btn__icon--large {
+      margin-right: $spacing-unit;
+    }
+
+  %btn-social {
+    color: $color-white;
+    padding: 0;
+    line-height: 0;
+    border-radius: 0px;
+    box-shadow: inset 0 0 0 4px $color-white;
+
+    .c-article__sharing--item--buttons--darker & {
+      box-shadow: inset 0 0 0 4px $color-black;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+    }
+
+    &.c-btn--kc {
+      box-shadow: none;
+      padding: $spacing-unit--tiny $spacing-unit--small;
+      border-radius: $radius;
+      line-height: 1.5;
+    }
+  }
+
+  .c-btn--facebook {
+    @extend %btn-social;
+    background-color: $color-btn-facebook;
+
+    &:hover,
+    &:focus {
+      background-color: $color-white;
+
+      &.c-btn--kc {
+        background-color: $color-btn-facebook-accent;
+      }
+
+      .icon-facebook-logo-button {
+        use {
+          fill: $color-btn-facebook;
+        }
+
+        path {
+          fill: inherit;
+        }
+      }
+    }
+  }
+
+  .c-btn--apple {
+    @extend %btn-social;
+    background-color: $color-btn-apple;
+    &:hover,
+    &:focus {
+      background-color: $color-btn-apple-accent;
+
+      &.c-btn--kc {
+        background-color: $color-btn-apple-accent;
+      }
+
+      .icon-facebook-logo-button {
+        use {
+          fill: $color-white;
+        }
+
+        path {
+          fill: inherit;
+        }
+      }
+    }
+  }
+
+  .c-btn--twitter {
+    @extend %btn-social;
+    background-color: $color-btn-twitter;
+
+    &:hover,
+    &:focus {
+      background-color: $color-white;
+
+      .icon-twitter-logo-button {
+        use {
+          fill: $color-btn-twitter;
+        }
+
+        path {
+          fill: inherit;
+        }
+      }
+    }
+  }
+
+  .c-btn--mail {
+    @extend %btn-social;
+    background-color: $color-btn-mail;
+
+    &:hover,
+    &:focus {
+      background-color: $color-white;
+
+      .icon-mail-logo-button {
+        use {
+          fill: $color-warm-grey;
+        }
+
+        path {
+          fill: inherit;
+        }
+      }
+    }
+  }
+
+  .c-btn--comment {
+    @extend %btn-social;
+    background-color: $color-btn-comment;
+
+    &:hover,
+    &:focus {
+      background-color: $color-btn-comment-accent;
+    }
+  }
+
+  .c-btn--whatsapp {
+    @extend %btn-social;
+    background-color: $color-btn-whatsapp;
+
+    &:hover,
+    &:focus {
+      background-color: $color-white;
+
+      .icon-whatsapp-logo-button {
+        use {
+          fill: $color-btn-whatsapp;
+        }
+
+        path {
+          fill: inherit;
+        }
+      }
+    }
+  }
+
+  //Sharing buttons darker
+  .c-article__sharing--item--buttons--darker {
+    .c-btn--facebook,
+    .c-btn--twitter,
+    .c-btn--mail,
+    .c-btn--whatsapp {
+      &:hover,
+      &:focus {
+        background-color: $color-white;
+      }
+    }
+  }
+
+  .c-btn-social--hide-border--large {
+    box-shadow: inset 0 0 0 8px $color-white;
+  }
+
+  .c-btn--icon {
+    padding: 0;
+  }
+
+  .c-btn--small {
+    padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
+
+    &.c-btn--forward-button {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .c-btn--small--stretched {
+    padding: 3px $inuit-global-spacing-unit;
+  }
+
+
+  .c-btn--large {
+    padding: $inuit-global-spacing-unit $inuit-global-spacing-unit-large;
+
+    &.c-btn--forward-button {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .c-btn__text {
+    %btn-social & {
+      display: none;
+
+      @include mq($from: md) {
+        display: inline-block;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .c-btn--toggle-folding {
+    height: $spacing-unit;
+    padding: 0px $spacing-unit--small 0 #{$spacing-unit--small + $spacing-unit--tiny};
+    border: 0 none;
+    border-radius: $spacing-unit--small;
+    border: none;
+    position: relative;
+    background-color: $color-btn;
+    color: $color-white;
+
+    &.c-btn--toggle-folding--comments {
+      position: absolute;
+      bottom: -11px;
+      transform: translateX(-50%);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $color-btn-accent;
+      color: $color-white;
+    }
+
+    svg {
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      left: -6px;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+  }
+
+  .c-button-selection-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .c-button-selection {
+    display: inline-block;
+    padding: 5px $spacing-unit--small 7px;
+    border: 1px solid $color-white-three;
+    color: currentColor;
+    @include rounded(15px  0px 0px 15px);
+    @include font-size(14px);
+    @include font-weight(regular);
+    outline: 0;
+    line-height: 1.29;
+    background-color: $color-white;
+    max-width: 145px;
+
+    @include mq($from: md) {
+      max-width: 300px;
+    }
+
+    @include mq($from: lg) {
+      max-width: 500px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      color: currentColor;
+    }
+
+    &:hover {
+      background-color: $color-tags-accent;
+      border-color: $color-tags-accent;
+      color: $color-black;
+    }
+  }
+
+  .c-button-selection--right {
+    @include rounded(0px 15px 15px 0px);
+  }
+
+  .c-button-selection--selected {
+    background-color: $color-black;
+    color: $color-white;
+    border: 1px solid $color-black;
+
+    &:hover {
+      // pointer-events:none gives strange flickering cursor effect
+      //pointer-events: none;
+      background-color: $color-black;
+      color: $color-white;
+      border: 1px solid $color-black;
+    }
+  }
+
+  .c-btn--fullwidth {
+    width: 100%;
+  }

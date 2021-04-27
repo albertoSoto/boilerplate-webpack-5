@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    #PAGE-HEADER
+\*------------------------------------*/
+
+.c-page-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: $header-height;
+  background-color: white;
+  z-index: 9;
+  backface-visibility: hidden; // Fix header moving when other items transition
+
+/*  On a page with subnavigation, less height*/
+  .subnavigation-present & {
+    height: 42px;
+
+    @include mq($from: lg) {
+      height: 90px;
+    }
+  }
+
+  @include mq($from: lg) {
+    height: $header-height-lg;
+    border-bottom: 1px solid $color-white-two;
+  }
+}
+
+  .c-page-header--pro {
+    background-color: $color-black;
+    height: $pro-header-height;
+    border-bottom: 1px solid $color-black-two;
+    color: $color-white;
+
+    @include mq($from: lg) {
+      height: $pro-header-height-lg;
+    }
+  }

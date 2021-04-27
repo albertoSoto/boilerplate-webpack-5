@@ -1,0 +1,71 @@
+/*------------------------------------*\
+    #TAG
+\*------------------------------------*/
+
+.c-tag {
+  @include rounded($radius);
+  @include font-size(11px, 16px);
+  display: inline-block;
+  padding: 0 $spacing-unit--tiny;
+  color: $color-black-two;
+  border: 1px solid $color-greyish-brown;
+  text-transform: uppercase;
+  outline: 0;
+}
+
+  .c-tag--red {
+    border-color: $color-cherry-red;
+    background-color: $color-cherry-red;
+    color: $color-white;
+  }
+
+  .c-tag--black {
+    color: $color-white;
+    background-color: $color-black;
+    border-color: $color-black;
+  }
+
+  .c-tag--transparent {
+    color: $color-white;
+    border-color: $color-white-three;
+  }
+
+  .c-tag--pro {
+    border-color: $color-azure;
+    background-color: $color-azure;
+    color: $color-white;
+    vertical-align: top;
+    @include font-size(11px, 22px);
+  }
+
+  .c-tag--pro-logo {
+    @include rounded(0);
+    @include size($spacing-unit--large, #{$spacing-unit--small * 1.5});
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: middle;
+  }
+
+.c-media-tag {
+  display: inline-block;
+  @include rounded($radius);
+  background-color: $color-azure;
+  color: $color-white;
+}
+
+  .c-media-tag--white-on-blue {
+    background-color: $color-white;
+    color: $color-azure;
+  }
+
+  .c-media-tag__icon {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+  }
+
+  .c-media-tag__icon--white-on-blue{
+    background-color: $color-white;
+  }

@@ -1,0 +1,108 @@
+/*------------------------------------*\
+    #ICON
+\*------------------------------------*/
+
+.c-icon {
+  fill: currentColor;
+  overflow: hidden;
+  @include square($spacing-unit);
+}
+
+  .c-icon--light {
+    use {
+      fill: $color-greyish-brown;
+    }
+
+    path {
+      fill: inherit;
+    }
+  }
+
+  .c-icon--lighter {
+    use {
+      fill: $color-white-three;
+    }
+
+    path {
+      fill: inherit;
+    }
+  }
+
+  .c-icon--darker {
+    use {
+      fill: $color-black-two;
+    }
+
+    path {
+      fill: inherit;
+    }
+  }
+
+  .c-icon--primary {
+    use {
+      fill: $color-azure;
+    }
+
+    path {
+      fill: inherit;
+    }
+  }
+
+  .c-icon--dark {
+    use {
+      fill: $color-black;
+    }
+
+    path {
+      fill: inherit;
+    }
+  }
+
+/* Size variants.
+   ========================================================================== */
+
+  .c-icon--tiny {
+    @include square($spacing-unit--tiny);
+  }
+
+  .c-icon--small {
+    @include square($spacing-unit--small);
+  }
+
+  .c-icon--medium {
+    @include square(3*$spacing-unit--small);
+  }
+
+  .c-icon--medium-large {
+    @include square(#{$spacing-unit--large - $spacing-unit--tiny});
+  }
+
+  .c-icon--large {
+    @include square($spacing-unit--large);
+  }
+
+  .c-icon--huge {
+    @include square($spacing-unit--huge);
+  }
+
+  .c-icon--badge {
+    width: 135px;
+    height: 40px;
+  }
+
+
+
+.icon-flag {
+  display: block;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5) inset;
+}
+
+.icon-link-arrow-fwd {
+  transform: rotate(180deg);
+  width: 16px;
+  height: 16px;
+  top: 4px;
+  margin-right: 0.25em;
+  position: absolute;
+  left: -6px;
+}

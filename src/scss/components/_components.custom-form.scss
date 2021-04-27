@@ -1,0 +1,185 @@
+/*------------------------------------*\
+    #CUSTOM-FORM
+\*------------------------------------*/
+
+.c-custom-input {
+  position: relative;
+}
+
+  .c-custom-input__control {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+    .c-custom-input__control--no-label {
+      display: block;
+    }
+
+    .c-custom-input__control--radio-as-button {
+      width: 100%;
+      margin-bottom: $spacing-unit--small;
+    }
+
+  .c-custom-input__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    margin: 0;
+    z-index: -1;
+  }
+
+  .c-custom-input__icon {
+    vertical-align: middle;
+    margin-left: $spacing-unit--tiny;
+  }
+
+  .c-custom-input__faux-input {
+    position: relative;
+    display: block;
+    vertical-align: middle;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: $spacing-unit--tiny;
+    @include square(16px);
+
+    .has-error & {
+      border-color: $color-cherry-red;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+    }
+  }
+
+    .c-custom-input__faux-input--radio,
+    .c-custom-input__faux-input--checkbox {
+      border: 1px solid $color-warm-grey;
+
+      &:after {
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        margin-left: -5px;
+        margin-top: -5px;
+        background-color: $color-azure;
+        @include square(10px);
+
+        .c-custom-input__input:checked + & {
+            opacity: 1;
+        }
+      }
+
+      .c-custom-input__input:checked + & {
+        border-color: $color-azure;
+      }
+
+      .c-custom-input__disabled + & {
+        border-style: dotted;
+        cursor: $cursor-disabled;
+      }
+    }
+
+    .c-custom-input__faux-input--radio {
+      @include rounded(50%);
+
+      &:after {
+        @include rounded(50%);
+      }
+    }
+
+    .c-custom-input__faux-input--checkbox {
+      @include rounded($radius);
+
+      &:after {
+        @include rounded($radius / 2);
+      }
+    }
+
+    .c-custom-input__faux-input--toggle {
+      background-color: $color-white-four;
+      transition: .25s ease-in-out;
+      margin-right: 0;
+      @include rounded($spacing-unit--small);
+      @include size($spacing-unit--large, $spacing-unit);
+
+      .c-custom-input__input:checked + & {
+        background-color: $color-azure;
+      }
+
+      &:after {
+        background-color: $color-white;
+        top: 0;
+        left: 0;
+        margin: 3px;
+        transition: .25s ease-in-out;
+        @include square(1.5 * $spacing-unit--small);
+        @include rounded(50%);
+
+        .c-custom-input__input:checked + & {
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+
+  .c-custom-input__faux-input__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .c-custom-input__faux-input--radio-as-button {
+    display: block;
+    border: 1px solid $color-white-four;
+    padding: $spacing-unit--small;
+    text-align: left;
+    border-radius: 2px;
+
+    .c-custom-input__input:checked + & {
+      border: 1px solid $color-azure;
+      background-color: $color-duck-egg-blue;
+    }
+
+    &:hover{
+      border: 1px solid $color-warm-grey;
+    }
+  }
+
+  .c-custom-input__label {
+    vertical-align: middle;
+  }
+
+    .c-custom-input__label--not-available {
+      margin-left: 5px;
+      @include font-size(12px);
+    }
+
+  .c-custom-input--inline {
+    display: inline-block;
+    margin-right: $spacing-unit--small;
+  }
+
+  .c-custom-select {
+    border: 0;
+    border-bottom: 1px dashed $color-warm-grey;
+    background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.25l4.817-4.81-1.495-1.495L8 8.267 4.678 4.945 3.183 6.44z' fill='%23979797'/%3E%3C/svg%3E") no-repeat right center $color-white;
+    appearance: none;
+    padding: 0 (1.5 * $spacing-unit--small) 0 0;
+    max-width: 100%;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:disabled::-ms-expand {
+      background: #FF6600;
+    }
+  }
+
+

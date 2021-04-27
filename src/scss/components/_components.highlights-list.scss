@@ -1,0 +1,219 @@
+/*------------------------------------------------------------------------*\
+    #HIGHLIGHTS-LIST
+\*------------------------------------------------------------------------*/
+
+$highlights-list-margin-bottom: 42px;
+
+.c-highlights-list {
+  margin: 0 #{-$spacing-unit--small} $spacing-unit;
+  overflow: hidden;
+
+  @include mq($from: sm) {
+    margin-bottom: $highlights-list-margin-bottom;
+  }
+
+  @include mq($from: md) {
+    margin-left: -#{$spacing-unit};
+    margin-right: -#{$spacing-unit};
+  }
+
+  @include mq($from: lg) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+  // List has link below
+  .c-highlights-list--has-link {
+    margin-bottom: $spacing-unit--small;
+  }
+
+  .c-highlights-list__link {
+    display: block;
+
+    &:active,
+    &:hover,
+    &:focus {
+      .c-highlights-list__img {
+        transform: scale(1.02) rotate(0.001deg);
+
+        .c-highlights-list__item--small & {
+          transform: scale(1.04) rotate(0.001deg);
+        }
+      }
+    }
+  }
+
+  .c-highlights-list__item {
+    position: relative;
+    overflow: hidden;
+    display: block;
+
+    @include mq($from: sm) {
+      width: 66.66666667%;
+      float: left;
+    }
+
+    .c-highlights-list--dossier & {
+      @include mq($from: sm) {
+        float: right;
+      }
+    }
+  }
+
+    .c-highlights-list__item--small {
+      width: 50%;
+      float: left;
+
+      @include mq($until: sm) {
+        background-color: $color-black;
+        padding-bottom: $spacing-unit--large;
+      }
+
+      @include mq($from: sm) {
+        width: 33.33333333%;
+      }
+    }
+
+  .c-highlights-list__figure {
+    margin: 0;
+
+    &:after {
+      @include mq($until: sm) {
+        .c-highlights-list__item--small & {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          display: block;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba($color-black, 1) 85%);
+          @include size(100%, 50%);
+        }
+      }
+    }
+  }
+
+  .c-highlights-list__img {
+    transition: all $transition ease-in-out;
+    backface-visibility: hidden;
+  }
+
+  .c-highlights-list__media-label {
+    clip-path: circle(50%);
+    padding: 5px 0;
+    vertical-align: middle;
+    @include square(#{18px});
+    margin-bottom: 2px;
+
+    @include mq($from: md) {
+      padding: 6px 6px 6px 9px;
+      @include square(#{24px});
+      margin-bottom: 5px;
+    }
+
+    .c-highlights-list__item--small & {
+      padding: 5px 0;
+      @include square(18px);
+      margin-bottom: 2px;
+    }
+  }
+
+  .c-highlights-list__meta {
+    margin-bottom: $spacing-unit--tiny;
+
+    .c-highlights-list__item--small & {
+      margin-bottom: #{$spacing-unit--tiny / 2};
+    }
+  }
+
+  .c-highlights-list__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: #{$spacing-unit * 1.5} $spacing-unit--small #{$spacing-unit--small * 1.5};
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba($color-black, 0.75) 50%);
+
+    @include mq($from: sm) {
+      padding: $spacing-unit--small $spacing-unit;
+    }
+
+    @include mq($from: md) {
+      padding: $spacing-unit #{$spacing-unit--small *1.5} $spacing-unit--small;
+    }
+
+    .c-highlights-list__item--small & {
+      padding: $spacing-unit--small;
+
+      @include mq($from: sm) {
+        padding: $spacing-unit $spacing-unit--small 11px;
+      }
+    }
+
+  }
+
+  .c-highlights-list__title {
+    color: $color-white;
+    margin: 0;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    @include font-family(serif);
+    @include font-size(21px, 1);
+    @include font-weight(regular);
+
+    @include mq($from: md) {
+      @include font-size(31px, 1);
+    }
+
+    .c-highlights-list__item--small & {
+      letter-spacing: 0;
+      @include font-size(17px, 18px);
+
+      @include mq($from: md) {
+        letter-spacing: -0.01em;
+        @include font-size(19px, 1);
+      }
+    }
+
+    .c-highlights-list__title--media {
+      margin-right: 6px;
+    }
+  }
+
+.c-highlights-list-header {
+  margin-bottom: $spacing-unit--small;
+}
+
+.c-highlights-list-dossier-link {
+  margin-bottom: $spacing-unit;
+
+  @include mq($from: sm) {
+    margin-bottom: $highlights-list-margin-bottom;
+  }
+}
+
+// combining combination detail and Pro highlights here as 2 big and rest: c-highlights-list--2big-and-others__wrapper
+
+  .c-highlights-list--2big-and-others__wrapper {
+    justify-content: center;
+
+    .c-highlights-list--2big-and-others__teaser-big:first-of-type {
+      .c-articles-list__item {
+        @include mq($until: md) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .c-highlights-list--2big-and-others__teaser-big {
+      .c-articles-list__img {
+        img {
+          @include mq($from: sm) {
+            @include mq($until: md) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }

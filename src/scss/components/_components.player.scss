@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #PLAYER
+\*------------------------------------*/
+
+.c-player__club-logo,
+.c-player__competition-logo {
+  margin-right: $spacing-unit--tiny;
+  width: $spacing-unit--tiny * 3;
+}
+
+.c-player__flag {
+  display: inline-block;
+  margin-right: $spacing-unit--tiny;
+}

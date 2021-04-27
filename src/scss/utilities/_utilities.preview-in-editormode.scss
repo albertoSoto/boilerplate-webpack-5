@@ -1,0 +1,9 @@
+// preview in editormode, preview in new tab should not be touched by this
+.preview-in-editormode {
+  &.js-subscription-shop {
+    a, button {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+}

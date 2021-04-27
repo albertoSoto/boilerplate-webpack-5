@@ -1,0 +1,143 @@
+/*------------------------------------*\
+    #PRO-MEMBER-BOX
+\*------------------------------------*/
+
+.c-pro-member-box {
+  position: relative;
+  background: $color-teal-blue;
+  color: $color-white;
+  margin-top: 18px;
+  padding-bottom: 18px;
+
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 47%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: -18px 0 0;
+    vertical-align: top;
+    background: $color-azure;
+    z-index: 1;
+    border-bottom: 18px solid $color-white;
+
+  }
+
+  &:after {
+    display: block;
+    position: absolute;
+    content: "";
+    top: -18px;
+    left: -53%;
+    bottom: 0;
+    width: 100%;
+    background: $color-azure;
+    z-index: 1;
+    transform: skewX(-17.5deg);
+    transform-origin: bottom right;
+    border-bottom: 18px solid $color-white;
+
+    @include mq($from: sm) {
+      left: 0%;
+      width: 50%;
+    }
+  }
+
+  &.c-pro-member-box--black {
+    margin-left: 8px;
+    margin-top: -20px;
+    background: $color-black !important;
+
+    &:before {
+      margin-left:-10px;
+      background: $color-black-two !important;
+    }
+
+    &:after {
+      background: $color-black-two !important;
+    }
+
+  }
+}
+
+  .c-pro-member-box__content {
+    position: relative;
+    padding: $spacing-unit + $spacing-unit--small;
+    background-color: rgba($color-azure, 0.6);
+    text-align: center;
+    z-index: 2;
+
+    &.c-pro-member-box__content--black-three {
+      background-color: rgba(60, 60, 60, 0) !important;
+      margin-bottom: -15px;
+    }
+
+    &:before {
+      display: block;
+      position: absolute;
+      content: "";
+      background: $color-white;
+      bottom: -19px;
+      left: 0;
+      height:(0.75*$spacing-unit);
+      width: 47%;
+
+      @include mq($from: md) {
+        width: 50%;
+      }
+
+    }
+
+    @include mq($from: sm) {
+      padding: 42px;
+    }
+
+    @include mq($from: md) {
+      padding: 54px 84px;
+    }
+  }
+
+  .c-pro-member-box__icon {
+    display: block;
+    margin: 0 auto 1.5 * $spacing-unit;
+    @include size(77px, 29px);
+
+    @include mq($from: md) {
+      margin-bottom: $spacing-unit;
+      @include size(107px, 41px);
+    }
+  }
+
+  .c-pro-member-box__custom-logo {
+    display: block;
+    margin: 0 auto 1.5 * $spacing-unit;
+
+    @include mq($from: md) {
+      margin-bottom: $spacing-unit;
+    }
+  }
+
+  .c-pro-member-box__label {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-bottom: $spacing-unit--small;
+    @include font-weight(bold);
+    @include font-size(11px, 16px);
+  }
+
+  .c-pro-member-box__title {
+    color: $color-white;
+    @include font-size(23px, 1.09);
+
+    @include mq($from: md) {
+      @include font-size(33px, 1.13);
+    }
+  }
+
+  .c-pro-member-box__text {
+    @include mq($until: md) {
+      margin-bottom: 1.5 * $spacing-unit;
+    }
+  }

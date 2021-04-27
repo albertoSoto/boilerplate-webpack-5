@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #SOCIAL-SHARING
+\*------------------------------------*/
+
+.c-social-sharing {
+  margin-bottom: 0;
+  clear: both;
+}
+
+  .c-social-sharing__item {
+    margin: 0 $spacing-unit--tiny $spacing-unit--tiny 0;
+
+    &.c-social-sharing__item--large {
+      margin: 0 $spacing-unit--tiny 0 $spacing-unit--tiny;
+    }
+  }
+
+

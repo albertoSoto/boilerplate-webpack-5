@@ -1,0 +1,12 @@
+/*------------------------------------------------------------------------*\
+    #PIKADAY
+\*------------------------------------------------------------------------*/
+
+$pd-th-color: $color-black-two;
+$pd-picker-bg: $color-white-three;
+$pd-title-bg: transparent;
+$pd-day-today-color: $color-duck-egg-blue;
+$pd-day-selected-bg: $color-azure;
+$pd-day-hover-bg: $color-teal-blue;
+$pd-font-family: "Open Sans", sans-serif;
+@import "../../../node_modules/pikaday/scss/pikaday";

@@ -1,0 +1,233 @@
+/*------------------------------------*\
+    #PAGE-FOOTER
+\*------------------------------------*/
+
+.c-page-footer {
+  text-align: center;
+
+  // ToDo: Waiting for Scribble fix, https://jira.info.nl/browse/VI-1353
+  // @include font-family(sans-serif);
+  // @include font-weight(regular);
+
+  @include mq($from: md) {
+    text-align: left;
+  }
+}
+
+  .c-page-footer__line {
+    margin-bottom: 0;
+    border-bottom-color: $color-white-four;
+  }
+
+  .c-page-footer__copyright {
+    color: $color-warm-grey;
+  }
+
+.c-page-footer__doormat {
+  /* empty for now */
+}
+
+  .c-page-footer__doormat--top {
+    background-color: $color-black-two;
+    color: $color-white;
+  }
+
+  .c-page-footer__doormat--middle {
+    background-color: $color-white-three;
+   }
+
+  .c-page-footer__doormat--bottom {
+    background-color: $color-white;
+  }
+
+  .c-page-footer__doormat--copyright {
+    padding: $spacing-unit--small $spacing-unit;
+  }
+
+  .c-page-footer__doormat-columns {
+      padding: $spacing-unit 0;
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: $color-black-two;
+      }
+    }
+
+/* doormat--top */
+.c-footer-social {
+  /* empty on mobile */
+
+  //@include mq($from: md) {
+  //  position: relative;
+  //  top: 80px;
+  //
+  //  .page--standard-no-newsletter & {
+  //    position: inherit;
+  //    top: 0;
+  //  }
+  //}
+}
+
+  .c-footer-social__list {
+    width: auto;
+    display: inline-block;
+    margin-bottom: 0;
+
+    @include mq($from: md) {
+      float: right;
+      overflow: visible;
+    }
+
+    //pragmatical reuse of site-nav__item from top menu
+    .c-site-nav__item-social {
+
+      .c-site-nav__item-social-wrap {
+        display: inline-block;
+        background-color: $color-white-two;
+        box-shadow: inset 0 0 0 $spacing-unit--small $color-black-two;
+        // clip-path: circle(18px at 24px 24px);
+        // again dirty: overrule the setting in nav from menu
+        padding: $spacing-unit--tiny;
+      }
+
+      &:last-child {
+        margin-right: -#{$spacing-unit--tiny}; /* because of padding and insets mess with list item (here) instead */
+      }
+
+      &:first-child {
+        margin-left: -#{$spacing-unit--tiny}; /* mess her as well for perfect centering on lower viewports */
+      }
+
+      svg.c-icon--medium {
+        display: block;
+        @include square(3*$spacing-unit--small);
+      }
+
+      svg.c-icon--light {
+        use {
+          fill: $color-greyish-brown;
+        }
+
+        &:active,
+        &:hover {
+          use {
+            fill: $color-warm-grey;
+          }
+        }
+      }
+    }
+  }
+/* doormat--middle */
+
+.c-footer-partner {
+  text-align: center !important; /* override o-layout--reverse */
+
+  @include mq($from: md) {
+    text-align: left !important;
+  }
+}
+
+  .c-footer-partner__heading {
+    /* empty for now */
+  }
+
+  .c-footer-partner__link {
+    text-align: center;
+    color: $color-text;
+    @include font-size(14px, 18px);
+  }
+
+  .c-footer-partner__logo {
+    display: inline-block;
+    margin-bottom: $spacing-unit--tiny;
+    width: #{5*$spacing-unit--small}; /* to make nicely align in center */
+
+    @include mq($from: lg) {
+      display: table-cell;
+      padding-right: $spacing-unit--small;
+    }
+
+  }
+
+  .c-footer-partner__name {
+    display: block;
+
+    @include mq($from: lg) {
+      display: table-cell;
+      text-align: left;
+    }
+  }
+
+  .c-footer-icon__badge {
+    float: left;
+    margin-left: $spacing-unit--small;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .footer-partner-logo {
+    @include square(5 * $spacing-unit--small);
+
+    @include mq($from: md) {
+      @include square($spacing-unit--large);
+    }
+  }
+
+.c-footer-badge {
+  text-align: center !important; /* overriding the reverse class property */
+}
+
+  .c-footer-badge__list {
+    width: auto;
+    display: inline-block;
+
+    @include mq($from: md) {
+      float: right;
+      margin-bottom: 0;
+    }
+
+  }
+
+  .c-footer-category {
+    margin-bottom: $spacing-unit;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq($from: sm) {
+      margin-bottom: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin-bottom: $spacing-unit--tiny;
+      color: $color-black-two;
+    }
+  }
+
+  .c-footer-category-list {
+    margin: 0;
+  }
+
+    .c-footer-category-list__item {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      @include font-size(14px);
+
+      a {
+        color: $color-warm-grey;
+        @include font-weight(regular);
+
+        &:hover {
+          color: $color-azure;
+        }
+      }
+    }

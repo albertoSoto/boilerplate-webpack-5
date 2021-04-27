@@ -1,0 +1,28 @@
+/* ==========================================================================
+   #LIST-INLINE
+   ========================================================================== */
+
+$list-inline-delimiter: "\00A0\2022\00A0";
+
+/**
+* 1. Fallback for old IEs not supporting `rem` values.
+* 2. To make sure bullet gets correct shape.
+*/
+
+.o-list-inline--delimited {
+  font-size: 0;
+
+  .o-list-inline__item {
+    font-size: $font-size; /* [1] */
+    font-size: 1rem;
+  }
+
+  .o-list-inline__item + .o-list-inline__item {
+
+    &:before {
+      font-family: sans-serif; /* [2] */
+      content: "#{$list-inline-delimiter}";
+    }
+
+  }
+}

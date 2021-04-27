@@ -1,0 +1,105 @@
+/*------------------------------------*\
+    #AUTHOR
+\*------------------------------------*/
+
+$author-height: 42px;
+
+.c-author-list {
+  margin-bottom: $spacing-unit--small;
+}
+
+  .c-author-list__item {
+    margin-bottom: $spacing-unit--small;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & > *{
+      vertical-align: middle;
+    }
+  }
+
+.c-author {
+  line-height: $author-height / 2;
+}
+
+  .c-author__img {
+    display: inline-block;
+    margin: 0 $spacing-unit--tiny;
+    @include square($author-height);
+    @include rounded(100%);
+    overflow: hidden;
+
+    .c-author__img--placeholder {
+      height: $author-height;
+      background-color:$color-white-three;
+    }
+  }
+
+  .c-author__label {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 3px;
+    @include font-size(16px,  $spacing-unit);
+  }
+
+  .c-author__link {
+    color: $color-black-two;
+    border-bottom: 1px solid $color-white-four;
+
+    &:hover,
+    &:focus,
+    &:active {
+     text-decoration: none;
+      border-bottom: 1px solid $color-azure;
+    }
+  }
+
+.c-author__twitter-link {
+  border-radius: 24px;
+  display: inline-block;
+  position: absolute;
+  bottom: -9px;
+  margin-left: -19px;
+
+  svg {
+    width: $spacing-unit;
+    height: $spacing-unit;
+  }
+}
+
+.c-author-title__twitter-link {
+  border-radius: 24px;
+  display: inline-block;
+  position: relative;
+  margin-left: -32px;
+  @include mq($from: md) {
+    margin-left: -50px;
+  }
+
+  svg {
+    width: $spacing-unit;
+    height: $spacing-unit;
+
+    @include mq($from: md) {
+      width: $spacing-unit--large;
+      height: $spacing-unit--large;
+    }
+  }
+}
+
+.c-author__title {
+  @include font-family(sans-serif);
+  @include font-weight(extrabold);
+  text-transform: uppercase;
+  color: $color-black;
+  @include font-size(33px);
+  line-height: 1.27;
+
+  @include mq($from: md) {
+    @include font-size(48px);
+    line-height: 1.13;
+  }
+}

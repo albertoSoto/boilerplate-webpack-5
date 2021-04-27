@@ -1,0 +1,87 @@
+/*------------------------------------*\
+    #RELATED
+\*------------------------------------*/
+
+.c-related {
+  position: relative;
+}
+
+  .c-related__intro {
+    margin-bottom: $spacing-unit--tiny;
+    text-align: center;
+  }
+
+  .c-related__img {
+    position: relative;
+    margin-bottom: $spacing-unit--tiny;
+
+    @include mq($until: sm) {
+      margin: 0 0 $spacing-unit--small 0;
+      float: none;
+    }
+
+    @include mq($from: sm) {
+      width: 190px;
+    }
+
+    .c-article--pro & {
+      @include mq($until: md) {
+        margin: 0 0 $spacing-unit--small 0;
+        float: none;
+      }
+
+      @include mq($from: md) {
+        width: 190px;
+      }
+    }
+  }
+
+  .c-related__media-label {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px 0;
+    vertical-align: middle;
+    @include rounded(0);
+    @include square(#{$spacing-unit--small * 1.5});
+  }
+
+  .c-related__title {
+    text-transform: none;
+    margin-bottom: $spacing-unit--tiny;
+  }
+
+  .c-related__description {
+    @include font-size(14px);
+  }
+
+  .c-related__link {
+    font-size: 14px;
+    margin-bottom: 0;
+
+    &:active,
+    &:hover,
+    &:focus {
+      text-decoration: none;
+
+      .c-related__title--compact {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .c-frame--related {
+    padding: $spacing-unit--small;
+    margin-bottom: 0;
+
+    &:active,
+    &:hover,
+    &:focus {
+      background-color: $color-white-two;
+    }
+  }
+
+  .c-related__static-text {
+    color: $color-warm-grey;
+  }
+

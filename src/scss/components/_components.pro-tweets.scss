@@ -1,0 +1,72 @@
+/*------------------------------------*\
+    #PRO-TWEETS
+\*------------------------------------*/
+
+.c-pro-tweets {
+  position: relative;
+}
+
+  .c-pro-tweets__list {
+    list-style-type: none;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: stretch;
+    align-content: flex-start;
+    margin: 0;
+    padding: 0;
+    @include size(2000px, auto);
+
+    @include mq($from: lg) {
+      @include size(3000px, 174px);
+    }
+  }
+
+    .c-pro-tweets__item {
+      flex-basis: auto;
+      white-space: normal;
+      margin: 0 $spacing-unit--small;
+      min-width: 320px;
+
+      @include mq($from: lg) {
+        height: 174px;
+      }
+    }
+
+    .c-pro-tweets__tweet {
+      display: block;
+      padding: #{$spacing-unit + $spacing-unit--tiny} #{(1.5 * $spacing-unit)-2} $spacing-unit;
+      border: 1px solid $color-white-four;
+      color: $color-black-two;
+      transition: border-color $transition;
+      height: 100%;
+      @include rounded(6px);
+
+      &:hover,
+      &:focus {
+        color: inherit;
+        text-decoration: none;
+        border-color: $color-warm-grey;
+      }
+    }
+
+    .c-pro-tweets__quote,
+    .c-pro-tweets__cite {
+      font-style: normal;
+    }
+
+    .c-pro-tweets__cite {
+      color: $color-warm-grey;
+    }
+
+    .c-pro-tweets__footer {
+      margin-top: $spacing-unit--small;
+      line-height: 22px;
+
+      &:after {
+        content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 39 32'%3E%3Cpath fill='%23009ee0' d='M39 3.8a15.9 15.9 0 0 1-4.6 1.3A8.1 8.1 0 0 0 37.9.6a15.9 15.9 0 0 1-5.1 2A8 8 0 0 0 27 0a8 8 0 0 0-8 8.1 8.2 8.2 0 0 0 .2 1.8A22.6 22.6 0 0 1 2.7 1.5a8.1 8.1 0 0 0 2.5 10.8 7.9 7.9 0 0 1-3.6-1 8.1 8.1 0 0 0 6.4 8l-2.1.3H4.4a8 8 0 0 0 7.4 5.4 16 16 0 0 1-9.9 3.5H0A22.5 22.5 0 0 0 12.3 32C27 32 35 19.7 35 9V8a16.3 16.3 0 0 0 4-4.2z'/%3E%3C/svg%3E");
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: $spacing-unit--tiny;
+        @include square(1.5 * $spacing-unit--small);
+      }
+    }

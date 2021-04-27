@@ -1,0 +1,175 @@
+.u-margin-bottom-none {
+  margin-bottom: 0;
+}
+
+.u-margin-bottom-small-md {
+  margin-bottom: $spacing-unit--small;
+
+  @include mq($from: md) {
+    margin-bottom: 0;
+  }
+
+}
+.u-margin-bottom-until-lg {
+
+  @include mq($until: lg) {
+    margin-bottom:  $spacing-unit;
+  }
+}
+
+.u-margin-bottom-large-until-lg {
+
+  @include mq($until: lg) {
+    margin-bottom:  $spacing-unit--large;
+  }
+}
+
+.u-margin-bottom-200-until-lg {
+  @include mq($until: lg) {
+    margin-bottom:  200px;
+  }
+}
+
+.u-margin-bottom-from-lg {
+
+  @include mq($from: lg) {
+    margin-bottom:  $spacing-unit;
+  }
+}
+
+.u-margin-bottom-42-from-lg {
+  @include mq($from: lg) {
+    margin-bottom:  42px;
+  }
+}
+
+.u-margin-bottom-large-from-lg {
+  @include mq($from: lg) {
+    margin-bottom:  $spacing-unit--large;
+  }
+}
+
+.u-text-center-till-lg {
+  @include mq($until: lg) {
+    text-align: center !important;
+  }
+}
+
+.u-in-bottom-view-mobile {
+  @include mq($until: lg) {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    margin-bottom: 0;
+    background-color: $color-white;
+    width: 100%;
+    padding-top: $spacing-unit;
+    padding-bottom: $spacing-unit;
+
+    // POSITION CHILD ELEMENTS ABOVE THE FAUX SHADOW
+    & > * { position: relative; z-index: 2; }
+
+    // CURVED SHADOW
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: #fff;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    &:before {
+      border-radius: 100%/24px;
+      width: 80%;
+      left: 10%;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, .24)
+    }
+
+    &.u-in-bottom-view-mobile--small {
+      padding-top: $spacing-unit--small;
+      padding-bottom: $spacing-unit--small;
+    }
+  }
+}
+
+.u-flexdir-reverse-lg {
+  @include mq($from: lg) {
+    flex-direction: row-reverse;
+  }
+}
+
+
+$vi-widths-breakpoint-separator: \@ !default;
+
+$vi-responsive-spacing-directions: (
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+  '-horizontal': '-left' '-right',
+  '-vertical': '-top' '-bottom',
+) !default;
+
+$vi-responsive-spacing-properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+) !default;
+
+$vi-responsive-spacing-sizes: (
+  '-tiny': $inuit-global-spacing-unit-tiny,
+  '-small': $inuit-global-spacing-unit-small,
+  '': $inuit-global-spacing-unit,
+  '-large': $inuit-global-spacing-unit-large,
+  '-huge': $inuit-global-spacing-unit-huge,
+  '-none': 0
+) !default;
+
+
+
+/* stylelint-disable max-nesting-depth */
+
+@each $property-namespace, $property in $vi-responsive-spacing-properties {
+
+  @each $direction-namespace, $direction-rules in $vi-responsive-spacing-directions {
+
+    @each $size-namespace, $size in $vi-responsive-spacing-sizes {
+
+      @each $inuit-bp-name, $inuit-bp-value in $mq-breakpoints {
+
+        @include mq($from: $inuit-bp-name) {
+
+          .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$vi-widths-breakpoint-separator}#{$inuit-bp-name} {
+
+            @each $direction in $direction-rules {
+              #{$property}#{$direction}: $size !important;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.u-float--left {
+  float: left!important;
+}
+
+.u-float--right {
+  float: right!important;
+}
+
+.u-float--clear {
+  clear: both;
+}
+

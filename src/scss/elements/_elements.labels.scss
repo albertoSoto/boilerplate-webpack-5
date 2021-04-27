@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    #LABELS
+\*------------------------------------*/
+
+label {
+  color: $color-warm-grey;
+  @include font-size(14px);
+}
+
+label[for] {
+  cursor: pointer;
+}

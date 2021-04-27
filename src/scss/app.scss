@@ -1,39 +1,309 @@
+@charset "UTF-8";
+/* ==========================================================================
+   VOETBAL INTERNATIONAL
+   ========================================================================== */
+
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Config...............Project-level configuration and feature switches.
+ * Colors...............Manage our color palette in isolation.
+ * Core.................inuitcss’ core and setup settings.
+ * Global...............Project-wide variables and settings.
+ *
+ * TOOLS
+ * Rem..................Tools for converting pixel inputs into their rem
+ *                      equivalents.
+ * Font-size............A mixin which guarantees baseline-friendly line-heights.
+ * Clearfix.............Micro clearfix mixin.
+ * Hidden...............Mixin for hiding elements.
+ * Mixins...............Globally-available mixins.
+ * Aliases..............Aliases onto longer inuitcss variables and mixins.
+ * Sass MQ..............inuitcss’ default media query manager.
+ *
+ * GENERIC
+ * Box-sizing...........Better default `box-sizing`.
+ * Normalize.css........A level playing field using @necolas’ Normalize.css.
+ * Reset................A tiny reset to complement Normalize.css.
+ * Shared...............Sensibly and tersely share some global commonalities
+ *                      (particularly useful when managing vertical rhythm).
+ *
+ * ELEMENTS
+ * Headings.............Heading styles.
+ * Inputs...............Base input styles.
+ * Labels...............Base label styles.
+ * Images...............Base image styles.
+ * Links................Hyperlink styles.
+ * Page.................Set up our document’s default `font-size` and
+ *                      `line-height`.
+ * Page.................Our extension of the inuitcss page module.
+ * Quotes...............Quote styles.
+ * Tables...............Simple table styles.
+ * Tables...............Striped table styles.
+ * Type.................Misc type styles.
+ *
+ * OBJECTS
+ * Block................Image-on-top-of-text object.
+ * Box..................Simple boxing abstraction.
+ * Crop.................Provide a cropping context for media (images, etc.).
+ * Faux link............A link that is positioned over entire content.
+ * Flag.................Table-layout-based advancement on the Media object.
+ * Layout...............Generic layout module.
+ * List-bare............Lists with no bullets or indents.
+ * List-inline..........A list whose items all site in a line.
+ * Full width...........An object that stretches content over page margins.
+ * Table................To setup table by div's
+ * Media................Image- and text-like content side by side. The
+ *                      poster-child of OOCSS.
+ * Pack.................Pack items into available horizontal space.
+ * Ratio................A container for maintaining aspect ratio of content.
+ * Wrapper..............Page constraint object.
+ * Wrapper..............Our extension of the inuitcss page constraint object.
+ * Collapse.............Collapse (open and close) div on click
+ * Grid- helper.........Some classes to help with flex grid
+ *
+ * COMPONENTS
+ * Owl.carousel.........Carousel styles.
+ * Pikaday..............Calendar styles.
+ * Page header..........Page header styles.
+ * Page footer..........Page footer styles.
+ * Site nav.............Main navigation styles.
+ * Sub nav..............2nd level navigation styles.
+ * Button...............Button styles.
+ * Checked list.........Check list styles
+ * Label................Text label styles
+ * Image................Image styles.
+ * Article..............Article styles.
+ * Author...............Author styles.
+ * Quote................Quote styles
+ * Streamer.............Streamer styles.
+ * Tag..................A tag.
+ * Tags list............A list of tags.
+ * Articles list........A list of articles.
+ * Pro articles list....A list of PRO-articles.
+ * Striped list.........A list with alternating row colors.
+ * Bordered list........A list with a left border hover effect.
+ * Events list..........Events list styles.
+ * Definition list......A list with definitions.
+ * Stats header.........The header for stats pages.
+ * Stats table..........A generic table style for stats pages.
+ * Competitions list....A list of competitions.
+ * Highlights list......A list of highlights.
+ * Pro highlights list..A list of PRO-highlights.
+ * Pro navigation.......The category navigation for PRO
+ * Match overview.......Match overview styles.
+ * Match info...........Match info styles.
+ * Match stats..........Match stats styles.
+ * Toggle bar...........Toggle bar styles.
+ * Stat bar.............Stat bar styles.
+ * Fixture..............Match fixture styles.
+ * Match header.........Match header styles.
+ * Frames...............Content frame styles.
+ * Related..............Related item styles (block).
+ * Widgets..............Sidebar widget styles.
+ * Ad...................Ad container styles.
+ * Forms................Form styles.
+ * Custom form..........Custom form element styles.
+ * Floating label.......Floating label styles.
+ * Separator............Various separator (hr) styles.
+ * JWPlayer.............Specific JWPlayer style overrides.
+ * Viafoura.............Specific Viafoura style overrides.
+ * Teaser...............Teaser Basic
+ * owl.carousel.........Owl carousel styling.
+ * Social sharing.......Social sharing list.
+ * User heading.........User-data heading.
+ * Icon link............Link with icon (arrow) to specified page (default parent page).
+ * Native Ad...........Styling for components from Blue Conic, content comes from Marketing Apps, HTML from Blue Conic, CSS form here
+ * Subscriptionshop.....The subscription toggle component styles are amongst it
+ * Search...............Search results and search input fields
+ * User Comment List....In the Mijn VI an overview of the given comments
+ * Player Grades........Player grades in the articles
+ * Mijn VI..............Dashboard for Mijn VI
+ * Poll.................Poll
+ * Branding.............Branding stuff like matchblocks (TOTO for example)
+ *
+ * UTILITIES
+ * Clearfix.............Bind our clearfix onto a utility class.
+ * Hide.................Helper classes to hide content
+ *                      classes.
+ * Print................Reset-like styles taken from the HTML5 Boilerplate.
+ *                      classes.
+ * Spacing..............Nudge bits of the DOM around with these spacing.
+ * Text.................Helper classes for text.
+ * Headings.............Helper classes for headings.
+ * Widths...............Width helper classes.
+ */
+
+// SETTINGS
+@import "settings/settings.config";
 @import "../../node_modules/inuitcss/settings/settings.core";
+@import "settings/settings.global";
+@import "settings/settings.colors";
+
+// TOOLS
 @import "../../node_modules/inuitcss/tools/tools.clearfix";
 @import "../../node_modules/inuitcss/tools/tools.font-size";
 @import "../../node_modules/inuitcss/tools/tools.hidden";
+@import "tools/tools.mixins";
+@import "tools/tools.aliases";
+$mq-breakpoints: (
+  sm:  544px,
+  md:  768px,
+  lg:  992px,
+  xl:  1200px
+);
 @import "../../node_modules/sass-mq/mq";
-@import 'modules/colors';
+
+// GENERIC
+@import "../../node_modules/inuitcss/generic/generic.box-sizing";
+@import "../../node_modules/inuitcss/generic/generic.normalize";
+@import "../../node_modules/inuitcss/generic/generic.reset";
+@import "../../node_modules/inuitcss/generic/generic.shared";
+
 // ELEMENTS
 //@import "../../node_modules/inuitcss/elements/elements.headings";
+@import "elements/elements.fieldset";
+@import "elements/elements.headings";
 @import "../../node_modules/inuitcss/elements/elements.images";
+@import "elements/elements.inputs";
+@import "elements/elements.labels";
+@import "elements/elements.links";
 @import "../../node_modules/inuitcss/elements/elements.page";
+@import "elements/elements.page";
+@import "elements/elements.quotes";
 @import "../../node_modules/inuitcss/elements/elements.tables";
+@import "elements/elements.tables";
+@import "elements/elements.type";
+
 // OBJECTS
 @import "../../node_modules/inuitcss/objects/objects.block";
 @import "../../node_modules/inuitcss/objects/objects.box";
 @import "../../node_modules/inuitcss/objects/objects.crop";
+@import "objects/objects.collapse";
+@import "objects/objects.faux-link";
+//@import "../../node_modules/inuitcss/objects/objects.table";
+@import "objects/objects.table";
 @import "../../node_modules/inuitcss/objects/objects.flag";
 @import "../../node_modules/inuitcss/objects/objects.layout";
 @import "../../node_modules/inuitcss/objects/objects.list-bare";
 @import "../../node_modules/inuitcss/objects/objects.list-inline";
+@import "objects/objects.list-inline";
+@import "objects/objects.full-width";
 @import "../../node_modules/inuitcss/objects/objects.media";
 @import "../../node_modules/inuitcss/objects/objects.pack";
-@import "../../node_modules/inuitcss/objects/objects.ratio";
+@import "objects/objects.grid-helpers";
+$inuit-ratios: (
+  (2:1),
+  (3:2),
+  (4:3),
+  (16:9),
+);
+//@import "../../node_modules/inuitcss/objects/objects.ratio";
 @import "../../node_modules/inuitcss/objects/objects.wrapper";
+@import "objects/objects.wrapper";
+@import "objects/objects.pro-slant";
+
+// COMPONENTS
+@import "../../node_modules/owl.carousel/src/scss/owl.carousel";
+@import "components/components.pikaday";
+@import "components/components.page-header";
+@import "components/components.page-footer";
+@import "components/components.site-nav";
+@import "components/components.sub-nav";
+@import "components/components.button";
+@import "components/components.checked-list";
+@import "components/components.label";
+@import "components/components.icon";
+@import "components/components.image";
+@import "components/components.teaser";
+@import "components/components.article";
+@import "components/components.article-pro";
+@import "components/components.article-vote";
+@import "components/components.article-bookmark";
+@import "components/components.author";
+@import "components/components.quote";
+@import "components/components.streamer";
+@import "components/components.tag";
+@import "components/components.tags-list";
+@import "components/components.striped-list";
+@import "components/components.bordered-list";
+@import "components/components.events-list";
+@import "components/components.definition-list";
+@import "components/components.stats-header";
+@import "components/components.stats-table";
+@import "components/components.competitions-list";
+@import "components/components.match-overview";
+@import "components/components.match-info";
+@import "components/components.toggle-bar";
+@import "components/components.highlights-list";
+@import "components/components.pro-highlights-list";
+//@import "components/components.pro-navigation"; VI-3622
+@import "components/components.articles-list";
+@import "components/components.pro-articles-list";
+@import "components/components.keycloak";
+@import "components/components.proposition";
+@import "components/components.line-up";
+@import "components/components.liveblog";
+@import "components/components.match-stats";
+@import "components/components.stat-bar";
+@import "components/components.fixture";
+@import "components/components.match-header";
+@import "components/components.frame";
+@import "components/components.related";
+@import "components/components.widget";
+@import "components/components.ad";
+@import "components/components.form";
+@import "components/components.custom-form";
+@import "components/components.floating-label";
+@import "components/components.separator";
+@import "components/components.stripped-form";
+@import "components/components.jwplayer";
+@import "components/components.viafoura";
+@import "components/components.player";
+@import "components/components.newsletter-forms";
+@import "components/components.flags";
+@import "components/components.social-sharing";
+@import "components/components.user-header";
+@import "components/components.icon-link";
+@import "components/components.text-image";
+@import "components/components.floater";
+@import "components/components.accordion";
+@import "components/components.article-opta-block";
+@import "components/components.consent-form";
+@import "components/components.topics";
+@import "components/components.combination";
+@import "components/components.combination-list";
+@import "components/components.subscriptionshop";
+@import "components/components.search";
+@import "components/components.user-comment-list";
+@import "components/components.player-grades";
+@import "components/components.poll";
+// ABOUT-PRO
+@import "components/components.pro";
+@import "components/components.pro-header";
+@import "components/components.pro-subscription-picker";
+@import "components/components.pro-content-block";
+@import "components/components.pro-tweets";
+@import "components/components.pro-member-box";
+@import "components/components.wrapper";
+@import "components/components.onboarding";
+@import "components/components.native-ad";
+@import "components/components.mijn-vi";
+@import "components/components.branding";
+@import "components/components.youtube";
+
 // UTILITIES
 @import "../../node_modules/inuitcss/utilities/utilities.clearfix";
+//@import "../../node_modules/inuitcss/utilities/utilities.headings";
 @import "../../node_modules/inuitcss/utilities/utilities.hide";
 @import "../../node_modules/inuitcss/utilities/utilities.print";
 @import "../../node_modules/inuitcss/utilities/utilities.spacings";
+//@import "../../node_modules/inuitcss/utilities/utilities.responsive-spacings";
+@import "utilities/utilities.show-hide";
+@import "utilities/utilities.text";
+@import "utilities/utilities.headings";
+@import "utilities/utilities.responsive";
+@import "utilities/utilities.preview-in-editormode";
+$inuit-fractions: $number-of-columns;
 @import "../../node_modules/inuitcss/utilities/utilities.widths";
-img {
-  max-width: 80%;
-}
-
-.centered {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}

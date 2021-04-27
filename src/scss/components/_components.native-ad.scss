@@ -1,0 +1,367 @@
+/*------------------------------------*\
+    #NATIVE ADS
+    Note: the classname is different to bypass ad blockers (vowels are removed).
+\*------------------------------------*/
+/**
+ * 1. Vertically center content in the smallest native ad size.
+ * 2. Ensure that text in buttons and links is always on a single line.
+ * 3. Center content on larger screens in the smallest native ad size.
+ * 4. Align native ad to viewport on small screens.
+ * 5. Display white variant of smallest native size as a grey variant.
+ * 6. Make branding image full width in wide variant, but let other child elements respect the flexbox layout.
+ * 7. Set both min- and max-width to enforce correct size. `Width` property doesn't work here.
+ * 8. Solve commong IE11 and flexbox issues.
+ */
+.c-ntvd {
+  display: flex; /* [1] */
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: $spacing-unit--small;
+  background: $color-white;
+  color: $color-black-two;
+  .c-img--branding {
+    min-width: 1px; /* [8] */
+    min-height: 1px; /* [8] */
+    margin: 0;
+    &--small { display: block; }
+    &--wide { display: none; }
+  }
+  .c-pro-h4 {
+    @include font-family('sans-serif');
+    @include font-weight('bold');
+    @include inuit-font-size(16px, 1.13);
+    max-width: 100%; /* [8] */
+    color: inherit;
+    text-align: left;
+    text-transform: uppercase;
+    &:after {
+      content: '.';
+      color: $color-azure;
+    }
+  }
+  &__header {
+    min-height: 1px; /* [8] */
+
+    .c-img {
+      order: 1;
+      min-width: 120px; /* [7] */
+      max-width: 120px; /* [7] */
+      min-height: 1px; /* [8] */
+      margin-bottom: $spacing-unit--small;
+      margin-left: $spacing-unit--small;
+      justify-self: flex-end;
+    }
+  }
+  &__outer,
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    min-width: 1px; /* [8] */
+    min-height: 1px; /* [8] */
+  }
+  &__outer { padding: $spacing-unit--small; }
+  &__content { margin-bottom: $spacing-unit; }
+  .c-btn { padding: ($spacing-unit--tiny / 2) $spacing-unit--small; }
+  a { white-space: nowrap; /* [2] */ }
+  &__price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-azure;
+    p { margin-bottom: 0; }
+    &--condition {
+      @include inuit-font-size(12px, 1.5);
+      margin-right: $spacing-unit--small;
+      color: $color-warm-grey;
+    }
+    &--before { text-decoration: line-through; }
+    &--new {
+      @include inuit-font-size(33px, 1);
+      @include font-weight('extrabold');
+      display: inline-block;
+      margin: 0 (-$spacing-unit--small) 0 0;
+      color: inherit;
+      font-style: italic;
+      vertical-align: top;
+      &-small {
+        @include inuit-font-size(19px);
+        margin-left: -$spacing-unit--tiny;
+      }
+    }
+  }
+}
+/* Style variants
+   ========================================================================== */
+.c-ntvd {
+  $root: &;
+
+  &--white {
+    #{$root}__outer { border: 1px solid $color-white-four; }
+    &#{$root}--branded #{$root}__outer { border-top: 0 none; }
+  }
+  &--grey {
+    #{$root}__outer { background: $color-white-three; }
+  }
+  &--black,
+  &--blue {
+    color: $color-white;
+  }
+  &--black {
+    #{$root}__outer { background: $color-black; }
+  }
+  &--blue {
+    #{$root}__outer { background: $color-azure; }
+    .c-pro-h4:after { color: $color-black-two; }
+    .c-btn {
+      background: $color-white;
+      color: $color-azure;
+      &:hover,
+      &:focus {
+        color: $color-teal-blue;
+      }
+    }
+    a { color: inherit; }
+    #{$root}__price {
+      color: $color-white;
+      &--condition { color: $color-black-two; }
+    }
+  }
+
+  &--xs {
+    &#{$root}--white,
+    &#{$root}--grey { background: $color-white-three; }
+    &#{$root}--black { background: $color-black; }
+    &#{$root}--blue { background: $color-azure; }
+  }
+
+}
+/* Size variants
+   ========================================================================== */
+.c-ntvd {
+  $root: &;
+
+  &--xs {
+    flex-direction: row;
+    align-items: center; /* [1] */
+    justify-content: center; /* [3] */
+    margin-right: -$spacing-unit--small; /* [4] */
+    margin-left: -$spacing-unit--small; /* [4] */
+
+    @include mq($from: md) {
+      & {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+    #{$root}__outer {
+      flex-direction: row;
+      align-items: center; /* [1] */
+    }
+    #{$root}__header {
+      padding-right: $spacing-unit--small;
+    }
+    .c-pro-h4 {
+      margin-bottom: 0;
+    }
+    &#{$root}--white {
+      #{$root}__outer {
+        border: 0 none; /* [5] */
+        background: $color-white-three; /* [5] */
+      }
+      // @include mq($from: md) {
+      //   border: 1px solid $color-white-four;
+      //   background: $color-white;
+      // }
+    }
+  }
+  &--sm,
+  &--md {
+    .c-btn {
+      padding-top: $spacing-unit--tiny;
+      padding-bottom: $spacing-unit--tiny;
+    }
+  }
+  &--sm,
+  &--md,
+  &--lg,
+  &--xl {
+    #{$root}__outer { width: 100%; /* [8] */ }
+    #{$root}__footer {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &--sm {
+    .c-img--branding { margin: (-$spacing-unit--small) (-$spacing-unit--small) $spacing-unit; }
+    #{$root}__outer { padding-bottom: $spacing-unit; }
+    #{$root}__footer { justify-content: space-between; }
+    .c-btn { margin-right: $spacing-unit--small; }
+  }
+  &--md,
+  &--lg,
+  &--xl {
+    margin-bottom: $spacing-unit;
+    .c-pro-h4 { @include inuit-font-size(19px, 1.11); }
+    #{$root}__outer { padding: $spacing-unit; }
+    #{$root}__footer {
+      flex-direction: column;
+      justify-content: center;
+    }
+    .c-btn {
+      padding: ($spacing-unit--tiny * 1.5) $spacing-unit;
+
+      & + a { margin-top: $spacing-unit--small; }
+    }
+  }
+  &--lg,
+  &--xl {
+    #{$root}__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &--xl {
+    position: relative;
+    #{$root}__header {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .c-img {
+        order: 0;
+        min-width: 296px; /* [7] */
+        max-width: 296px; /* [7] */
+        margin-top: -$spacing-unit--large;
+        margin-left: 0;
+      }
+    }
+    /*
+     * Position packshots slightly different in combination with a branding image
+     */
+    &#{$root}--branded #{$root}__header {
+      .c-img {
+        margin-top: -$spacing-unit--huge;
+      }
+    }
+  }
+}
+/* Wide layout
+   ========================================================================== */
+// Define styling as a mixin, use @include later in an @each loop.
+@mixin c-ntvd--wide() {
+  $root: '.c-ntvd';
+
+  flex-direction: row;
+  flex-wrap: wrap; /* [6] */
+  .c-img--branding {
+    // width: auto; /* [6] */
+    // width: calc(100% + #{$spacing-unit * 2}); /* [6, 8] */
+    &--small { display: none; }
+    &--wide { display: block; }
+  }
+  #{$root}__outer {
+    flex-direction: row;
+    padding-bottom: $spacing-unit;
+  }
+  #{$root}__inner {
+    flex: 1; /* [6] */
+    padding-right: $spacing-unit;
+  }
+  #{$root}__content { margin-bottom: 0; }
+  #{$root}__price { justify-content: flex-start; }
+  #{$root}__footer {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .c-btn + a { margin-top: $spacing-unit--small; }
+  // Extra small size
+  &#{$root}--xs {
+    #{$root}__inner {
+      flex: none;
+      padding-right: 0;
+    }
+  }
+  // Extra small and small size but wide variant
+  &#{$root}--xs,
+  &#{$root}--sm {
+    #{$root}__outer { padding-bottom: $spacing-unit--small; }
+  }
+  // Large and extra large sizes
+  &#{$root}--lg,
+  &#{$root}--xl {
+    #{$root}__inner { padding-right: $spacing-unit--large; }
+  }
+  // Extra large size
+  &#{$root}--xl {
+    margin-top: $spacing-unit * 3;
+    #{$root}__outer { padding-top: $spacing-unit--huge; }
+    #{$root}__header {
+      .c-img {
+        position: absolute;
+        top: -$spacing-unit;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    #{$root}__footer { justify-content: flex-start; }
+
+    &#{$root}--branded {
+      margin-top: 0;
+      padding-top: $spacing-unit;
+      #{$root}__header {
+        .c-img {
+          top: $spacing-unit--large;
+          margin-top: 0;
+        }
+      }
+      // .c-img--branding { margin-bottom: $spacing-unit--huge; }
+    }
+  }
+}
+/*
+ * Define when the wide layout should be shown
+ * based on column widths for container elements
+ * f.e. 'md': (8, 9) means both .u-8/12@md and .u-9/12@md
+ */
+$native-ad-wide-containers: (
+  'md': (8, 9, 10, 11, 12),
+  'lg': (6, 7, 8, 9, 10, 11, 12),
+  // 'xl': (6, 7, 8, 9, 10, 11, 12)
+) !default;
+/*
+ * Break up placeholder classes per breakpoint
+ * (Because using @extend from within @media queries in an @each loop will give an error)
+ */
+%c-ntvd--wide--md {
+  @include mq($from: md) {
+    @include c-ntvd--wide();
+  }
+}
+%c-ntvd--wide--lg {
+  @include mq($from: lg) {
+    @include c-ntvd--wide();
+  }
+}
+%c-ntvd--wide--xl {
+  @include mq($from: xl) {
+    @include c-ntvd--wide();
+  }
+}
+/*
+ * Dynamically create styling definitions for wide native ads (within each breakpoint)
+ */
+@each $mq, $sizes in $native-ad-wide-containers {
+  @each $size in $sizes {
+    .u-#{$size}\/#{$number-of-columns}\@#{$mq} {
+      & > .c-ntvd {
+        @extend %c-ntvd--wide--#{$mq};
+      }
+    }
+  }
+}
+.c-ntvd {
+  .c-article__content & {
+    @extend %c-ntvd--wide--md;
+  }
+}

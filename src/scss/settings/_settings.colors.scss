@@ -1,0 +1,103 @@
+///*------------------------------------*\
+//    #COLORS
+//\*------------------------------------*/
+
+$color-azure:         #009ee0;
+$cornflower-lightblue:#7fceef;
+$color-teal-blue:     #007eb3;
+$color-duck-egg-blue: #f2fafd;
+$color-white:         #ffffff;
+$color-white-two:     #eaeaea;
+$color-white-three:   #f0f0f0;
+$color-white-four:    #d8d8d8;
+$color-greyish-brown: #4c4c4c;
+$color-pale-grey:     #ebf6ee;
+$color-warm-grey:     #979797;
+$color-dark-grey:     #787878;
+$color-black:         #000000;
+$color-black-two:     #1f1f1f;
+$color-irish-green:   #008528;
+$color-leafy-green:   #59ba3a;
+$color-cherry-red:    #e30613;
+$color-scarlet:       #cb030f;
+$color-dandelion:     #ffe900;
+$color-pig-pink:      #f3c0c3;
+
+// Basic
+$color-text:                $color-black-two;
+$color-background:          $color-white;
+
+// Site nav
+$color-site-nav-text:       $color-white;
+
+// Headings
+$color-headings:            $color-black-two;
+$color-heading-sub:         $color-warm-grey;
+
+// Labels
+$color-labels:              $color-warm-grey;
+
+// Images
+$color-img-copy:            rgba($color-black-two, 0.5);
+$color-img-copy-text:       $color-white;
+$color-img-caption:         $color-labels;
+
+// Article
+$color-article-theme:       $color-warm-grey;
+$color-article-theme-link:  $color-azure;
+
+// Meta
+$color-meta-author:         $color-azure;
+$color-meta-date:           $color-warm-grey;
+
+// Quotes
+$color-quote:               $color-azure;
+$color-quote-cite:          $color-warm-grey;
+
+// Streamers
+$color-streamer:            $color-azure;
+
+// Frame
+$color-frame-border-left:   $color-azure;
+$color-frame-border:        $color-white-four;
+$color-frame-bg:            $color-white-three;
+
+// Tags list
+$color-tags:                $color-black-two;
+$color-tags-accent:         $color-white-two;
+
+// Links
+$color-links:                       $color-azure;
+$color-links-accent:                $color-links;
+$color-links-articles-list-visited: $color-warm-grey;
+
+// Buttons
+$color-btn:                   $color-azure;
+$color-btn-accent:            $color-teal-blue;
+$color-btn-secondary:         transparent;
+$color-btn-secondary-accent:  #f2fafd;
+$color-btn-facebook:          #4267B2;
+$color-btn-facebook-accent:   #365899;
+$color-azure-accent:          #1FA9E3;
+$color-btn-twitter:           #1B95E0;
+$color-btn-twitter-accent:    #0C7ABF;
+$color-btn-apple:             #000000;
+$color-btn-apple-accent:      $color-black-two;
+$color-btn-mail:              $color-warm-grey;
+$color-btn-mail-accent:       #787878;
+$color-btn-comment:           $color-azure;
+$color-btn-comment-accent:    $color-teal-blue;
+$color-btn-whatsapp:          #25D366;
+$color-btn-whatsapp-accent:   #128C7E;
+$color-btn-important:         $color-cherry-red;
+$color-btn-important-accent:  $color-scarlet;
+
+  // Matches list
+$color-match-bg:            $color-white-three;
+$color-match-live:          $color-cherry-red;
+
+// Branding - TOTO
+$color-toto-background: #20262f;
+$color-toto-button:#1a842d;
+$color-toto-button-accent:#257934; // self-invented
+$color-toto-button-inactive:#2f3643

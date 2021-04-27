@@ -1,0 +1,36 @@
+/*------------------------------------*\
+    #TYPE
+\*------------------------------------*/
+
+/**
+ * Typographical base selectors.
+ */
+
+p {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+::selection {
+  background: $color-azure;
+  color: $color-white;
+}
+
+/**
+ * Emboldened elements.
+ */
+strong,
+b,
+dt {
+  @include font-weight(bold);
+}
+
+/**
+ * Horizontal rules.
+ */
+hr {
+  border: none;
+  border-bottom: 1px solid $color-warm-grey;
+  margin-bottom: $spacing-unit - 1px;
+}

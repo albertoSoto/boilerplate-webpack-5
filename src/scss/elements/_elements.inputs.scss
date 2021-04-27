@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #INPUTS
+\*------------------------------------*/
+
+input,
+textarea,
+select {
+  @include font-size(14px);
+  @include rounded(0);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+// sass-lint:disable-block no-vendor-prefixes
+select::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit] {
+  appearance: button;
+  cursor: pointer;
+}
+
+input[type=number],
+input[type=date],
+input[type=time] {
+  appearance: textfield;
+
+  // sass-lint:disable-block no-vendor-prefixes
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+}
+
+::placeholder {
+  color: $color-warm-grey;
+  opacity: 1;
+  @include font-size(14px);
+}
+
+// sass-lint:disable no-vendor-prefixes
+:-webkit-autofill {
+  &,
+  &:hover,
+  &:focus {
+    -webkit-text-fill-color: $color-black-two;
+    -webkit-box-shadow: 0 0 0 1000px $color-white inset;
+  }
+}
+// sass-lint:enable no-vendor-prefixes

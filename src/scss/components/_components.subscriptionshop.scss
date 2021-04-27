@@ -1,0 +1,316 @@
+/*------------------------------------*\
+    #SUBSCRIPTIONSHOP
+\*------------------------------------*/
+.c-subscription-shop__subscription--summary {
+  border: 1px solid $color-white-four;
+  padding-top:#{$spacing-unit--tiny + $spacing-unit--small}; // 18px
+  padding-bottom:#{$spacing-unit--tiny + $spacing-unit--small}; // 18px
+  padding-right: $spacing-unit; // 24px
+  padding-left: $spacing-unit; // 24px
+  position: relative;
+  margin-bottom: $spacing-unit--small;
+}
+
+.c-subscription-shop__price {
+  display: inline-block;
+  color: $color-azure;
+  font-style: italic;
+  vertical-align: top;
+  margin: -5px 0 0 0;
+  @include font-size(33px, 36px);
+  @include font-weight(extrabold);
+
+  &.c-subscription-shop__price--large{
+    @include font-size(42px, 16px);
+    color: $color-black-two;
+
+    // if inside the highlighted one
+    .c-subscription-category-highlighted & {
+      color: $color-azure;
+    }
+  }
+}
+
+.c-subscription-shop__price--cents {
+  @include font-size(19px);
+  margin-top: 1px;
+  margin-left: -8px;
+
+  &.c-subscription-shop__price--large{
+    @include font-size(24px);
+    margin-top: -10px;
+  }
+}
+
+.c-subscription-shop__price--dash {
+  @include font-size(36px,36px);
+  margin-left: -8px;
+  margin-top: -1px;
+}
+
+.c-subscription-shop__button-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+
+  //To remove after refactor
+  &.c-new-style {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    @include mq($from: md) {
+      margin-top: 48px;
+    }
+
+  }
+
+  &.four-buttons {
+    flex-wrap: wrap;
+    min-height: 100%;
+  }
+}
+
+.c-subscription-shop__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 400px;
+
+  &.c-subscription-shop__button--new-style {
+    padding:0;
+    position:relative;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+
+      .c-subscription-proposition__label--wrapper {
+        border-color: $color-teal-blue;
+      }
+
+      .c-subscription-proposition__label {
+        background-color: $color-teal-blue;
+      }
+
+    }
+  }
+}
+
+.c-subscription-shop__button--1of4 {
+  display: flex;
+  flex-basis: calc(50% - 20px);
+  justify-content: center;
+  flex-direction: column;
+  /* display flex messes up in IE11 , IE11 only rule here (hack)*/
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+    max-width: 48%;
+  }
+}
+
+.c-subscription-category-highlighted {
+  position: relative;
+  margin-bottom: $spacing-unit--small;
+  @include mq($from: md) {
+    margin-bottom: 0;
+  }
+}
+
+
+.c-subscription-category {
+  border: 1px solid $color-white-four;
+  border-radius: 2px;
+  margin-right: $spacing-unit;
+  padding: $spacing-unit;
+  flex:none;
+  width: 100%;
+  height:100%;
+
+  // if inside the highlighted one
+  .c-subscription-category-highlighted & {
+    border: 2px solid $color-azure;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+}
+
+.c-text-underlighted {
+  @include font-size(14px, 1);
+  color: $color-dark-grey;
+}
+
+.c-subscriptionshop-logo {
+  float: left;
+  padding-left: $spacing-unit;
+  padding-right: $spacing-unit--small;
+
+  @include mq($from: sm) {
+    padding-right: 18px;;
+  }
+
+  @include mq($from: md) {
+    padding-right: $spacing-unit;
+  }
+}
+
+.c-subscription-shop__title-wrapper,
+.c-subscription-shop__steps-wrapper {
+
+}
+
+.c-subscription-category-title {
+  color: $color-black-two;
+  @include font-size(23px, 1.09);
+  @include font-weight('extrabold');
+  @include font-family(sans-serif);
+  text-transform: initial;
+  letter-spacing: normal;
+
+  // if inside the highlighted one
+  .c-subscription-category-highlighted & {
+    color: $color-azure;
+  }
+}
+
+.c-subscription-category__label--wrapper {
+  width: 100%;
+  @include mq($from: md) {
+    //margin-right: 24px;
+    //padding-right: 24px;
+    position: absolute;
+  }
+}
+.c-subscription-category__label {
+  width: 100%;
+  height: 34px;
+  margin-top:-34px;
+  background-color: $color-azure;
+  color: $color-white;
+  @include font-size(12px, 3);
+  text-transform: uppercase;
+  @include font-weight('bold');
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.c-btn--subscription-category {
+  display:block;
+  position: relative;
+  width: 100%;
+
+  .c-btn-fake {
+    background-color: $color-black-two;
+
+    .c-subscription-category-highlighted & {
+      background-color: $color-btn;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    .c-subscription-category {
+      border-color: $color-greyish-brown;
+    }
+    .c-btn-fake {
+      background-color: $color-greyish-brown;
+    }
+  }
+
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  // if inside the highlighted one
+  .c-subscription-category-highlighted & {
+    &:hover {
+      .c-subscription-category {
+        border-color: $color-btn-accent;
+      }
+
+      .c-btn-fake,
+      .c-subscription-category__label {
+        background-color: $color-btn-accent;
+      }
+
+    }
+  }
+
+}
+
+.c-subscriptionshop-infopane {
+  @include mq($from: lg) {
+    padding-left: 32px;
+  }
+}
+
+.c-subscriptionshop-buttons-and-form {
+  @include mq($from: lg) {
+    padding-right: 32px;
+  }
+  float: left;
+}
+
+.c-subscription-proposition__label--wrapper {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $cornflower-lightblue;
+  border-bottom: none;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  top:-18px;
+  left:0;
+  right:0;
+
+  &.label--selected {
+    left: 0;
+    right: 0;
+    border-color: $color-azure;
+
+    .c-subscription-proposition__label {
+      background-color: $color-azure;
+      @include font-size(12px, 1.5);
+    }
+
+
+  }
+}
+.c-subscription-proposition__label {
+  width: 100%;
+  background-color: $cornflower-lightblue;
+  color: $color-white;
+  @include font-size(12px, 1.5);
+  text-transform: uppercase;
+  @include font-weight('bold');
+}
+
+/* Voucher */
+.c-voucher-code__validated {
+  @include font-size(14px);
+  padding-top: 5px;
+  margin-left: -28px;
+
+  .c-voucher-code__checkmark{
+    padding-left: 6px;
+    margin-left: 14px;
+    width: 18px;
+    display: inline-block;
+    margin-top: -4px;
+    margin-right: 10px;
+  }
+
+  .c-voucher-code__delete{
+    margin-left: 10px;
+    padding: 0 10px;
+    font-size: 18px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,127 @@
+/*------------------------------------*\
+    #PRO
+\*------------------------------------*/
+
+.c-pro-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.c-pro-h2, .c-pro-h3, .c-pro-h4, .page--pro .c-accordion-h2 {
+  color: $color-black;
+  text-transform: uppercase;
+  text-align: center;
+  @include font-weight(extrabold);
+
+  &:after {
+    content: ".";
+    color: $color-azure;
+  }
+
+  &.ends-with-questionmark {
+    &:after {
+      content: "?";
+      color: $color-azure;
+    }
+  }
+
+  &.ends-with-colon {
+    &:after {
+      content: ":";
+      color: $color-azure;
+    }
+  }
+
+  &.ends-with-exclamationmark {
+    &:after {
+      content: "!";
+      color: $color-azure;
+    }
+  }
+}
+
+.c-pro-h3--white {
+  color: $color-white;
+
+  &:after {
+    color: $color-black;
+  }
+
+  &.ends-with-questionmark {
+    &:after {
+      content: "?";
+      color:  $color-black;
+    }
+  }
+
+  &.ends-with-exclamationmark {
+    &:after {
+      content: "!";
+      color:  $color-black;
+    }
+  }
+}
+
+.c-pro-h3--white-on-black {
+  color: $color-white;
+
+  &:after {
+    color: $color-azure;
+  }
+}
+
+.c-pro-h2, .page--pro .c-accordion-h2 {
+  @include font-size(28px, 32px);
+  @include mq($from: md) {
+    @include font-size(40px, 44px);
+  }
+}
+
+.c-pro-h3 {
+  @include font-size(23px, 1.09);
+  @include mq($from: md) {
+    @include font-size(33px, 1.13);
+  }
+}
+
+.c-pro-h4 {
+  @include inuit-font-size(19px, 1.09);
+  @include font-family(sans-serif);
+  text-align: left;
+  letter-spacing: normal;
+}
+
+.c-pro-content {
+  position: relative;
+  padding: $spacing-unit--large 0 $spacing-unit;
+}
+
+  .c-pro-content--intro {
+    @include mq($from: lg) {
+      margin-top: -($spacing-unit--large + $spacing-unit);
+      padding-bottom: 0;
+      margin-bottom: -($spacing-unit--small);
+    }
+
+    p {
+      @include font-size(19px);
+      line-height: #{1.25 * $line-height}
+    }
+  }
+
+  $subscription-margin: 48px + $spacing-unit + $spacing-unit--tiny + $spacing-unit + 1px;
+  $subscription-margin-lg: 48px + $spacing-unit--large + $spacing-unit--tiny + $spacing-unit + 1px;
+
+  .c-pro-content--subscription {
+    + .c-pro-content {
+      margin-top: $subscription-margin + $spacing-unit;
+
+      @include mq($from: lg) {
+        margin-top: $subscription-margin-lg + $spacing-unit;
+      }
+    }
+  }
+
+  .c-pro-content--grey {
+    background-color: $color-white-three;
+  }

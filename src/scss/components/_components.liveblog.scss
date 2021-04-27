@@ -1,0 +1,412 @@
+/*------------------------------------*\
+    #LIVE-BLOG
+\*------------------------------------*/
+
+$liveblog-list-border-width: 1px;
+$liveblog-sticky-bullet-size: 6px;
+$liveblog-list-bullet-size: 24px;
+$liveblog-list-dot-size: 14px;
+
+.c-liveblog {
+  @include font-size(14px);
+  padding-bottom: $spacing-unit--large;
+}
+
+.c-liveblog__live-posts {
+  margin: $spacing-unit 0;
+}
+
+.c-liveblog__posts-list {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include mq($from: md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.c-liveblog__posts-list--sticky {
+  &:not(:empty) {
+    margin-bottom: $spacing-unit--small;
+  }
+}
+
+.c-liveblog-list__item {
+  position: relative;
+  z-index: 0;
+  margin: 0 0 0 $spacing-unit--small;
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    @include rounded(100%);
+  }
+
+  &:not(.c-liveblog-list__item--sticky) {
+    border-left: $liveblog-list-border-width solid $color-azure;
+    padding: 0 0 $spacing-unit #{$spacing-unit - $liveblog-list-border-width};
+
+    @include mq($from: sm) {
+      padding-left: $spacing-unit--large;
+    }
+
+    &:before {
+      border: $liveblog-list-border-width solid $color-azure;
+      background-color: $color-white;
+      top: 0;
+      left: -#{$liveblog-list-bullet-size / 2};
+      z-index: -1;
+      @include square($liveblog-list-bullet-size);
+    }
+
+    &:after {
+      background-color: $color-azure;
+      top: 0;
+      left: -#{$spacing-unit--small - (($liveblog-list-bullet-size - $liveblog-list-dot-size) / 2)}; /* width divided by 2 and then compensate for own border and li-border */
+      margin-top: #{($liveblog-list-bullet-size - $liveblog-list-dot-size) / 2};
+      z-index: 0;
+      @include square($liveblog-list-dot-size);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: $spacing-unit; /* this adds necessary length to the timeline line to bring line against old posts ul */
+
+      .c-liveblog__posts--old > & {
+        border-left-color: transparent;
+      }
+    }
+  }
+}
+
+.c-liveblog-list__item--sticky {
+  padding-left: $spacing-unit;
+  margin-bottom: $spacing-unit;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: ($spacing-unit - $liveblog-sticky-bullet-size) / 2;
+    left: -#{$liveblog-sticky-bullet-size / 2};
+    @include rounded(100%);
+    @include square($liveblog-sticky-bullet-size);
+    background-color: $color-black-two;
+  }
+}
+
+.c-liveblog-item__icon {
+  position: absolute;
+  background-color: $color-background;
+  top: 0;
+  left: -#{$liveblog-list-bullet-size / 2}; /* width divided by 2 and then compensate li-border */
+  z-index: 1;
+}
+
+.c-liveblog-item__content {
+  overflow: hidden;
+
+  /*---------------------------------------------------------------------------------*\
+    Overrides of standard behavior
+  \*---------------------------------------------------------------------------------*/
+  > ul {
+    list-style-type: disc;
+  }
+
+  > blockquote {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*---------------------------------------------------------------------------------*\
+    Overrides owl.carousel styling
+  \*---------------------------------------------------------------------------------*/
+
+  .owl-counter {
+    font-size: 14px;
+    font-style: italic;
+    color: $color-warm-grey;
+  }
+
+  .owl-carousel {
+    // sass-lint:disable-block class-name-format
+    .Media .Meta {
+      display: none;
+    }
+
+    &:hover {
+      .owl-prev,
+      .owl-next {
+        background-color: $color-azure;
+      }
+    }
+  }
+
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 50%;
+    text-indent: -9999px;
+    margin-top: -#{$spacing-unit--small};
+    color: $color-azure;
+    background-color: rgba($color-azure, 0.9);
+    transition: opacity $transition ease;
+    will-change: opacity;
+    @include square(30px);
+    @include rounded(100%);
+
+    &:before {
+      content: "";
+      border-color: $color-white;
+      border-width: 1px 1px 0 0;
+      border-style: solid;
+      position: absolute;
+      top: 10px;
+      @include square(10px);
+    }
+
+    &.disabled {
+      cursor: default;
+      opacity: 0;
+    }
+  }
+
+  .owl-prev {
+    left: 10px;
+
+    &:before {
+      left: 12px;
+      @include rotation(225deg);
+    }
+  }
+
+  .owl-next {
+    right: 10px;
+
+    &:before {
+      right: 12px;
+      @include rotation(45deg);
+    }
+  }
+}
+
+.c-liveblog-item__body,
+.c-liveblog-poll__question {
+  .c-liveblog__posts-list--sticky & {
+    @include font-weight(bold);
+    @include font-size(16px);
+  }
+}
+
+.c-liveblog-item__body {
+  .instagram {
+    box-sizing: content-box;
+    iframe {
+      box-sizing: content-box;
+    }
+  }
+}
+
+
+.c-liveblog-item__date {
+  margin-bottom: $spacing-unit--tiny;
+}
+
+.c-liveblog-item__name {
+  color: $color-azure;
+}
+
+//.c-liveblog-item__avatar {
+//}
+
+.c-liveblog__btn-container {
+  text-align: center;
+  margin: $spacing-unit--small 0;
+
+  @include mq($from: md) {
+    margin: $spacing-unit 0;
+  }
+}
+
+.c-liveblog__scroll-container {
+  position: fixed;
+  top: $header-height + $spacing-unit--small;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  @include mq($from: lg) {
+    // Fixed header
+    top: $header-height-lg + $spacing-unit--small;
+  }
+
+  .page--no-header & {
+    top: $spacing-unit--small;
+  }
+}
+
+.new-posts-button,
+.new-posts-scroll {
+  &:empty {
+    display: none;
+  }
+}
+
+.old-posts-button {
+  display: none;
+}
+
+.c-liveblog-anchor {
+  &,
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.c-liveblog-faux-input {
+  text-decoration: none !important;
+}
+
+.c-liveblog-faux-input-label {
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.c-liveblog-highlighted-post {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  @include square(100%);
+}
+
+.c-liveblog-highlighted-post__overlay {
+  display: block;
+  background: $color-black-two;
+  opacity: 0.4;
+  @include square(100%);
+}
+
+.c-liveblog-highlighted-post__container {
+  position: fixed;
+  max-height: 100%;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  background: $color-white;
+  min-width: 320px;
+  max-width: 800px;
+  width: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.c-liveblog-highlighted-post__close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 20px;
+  padding-right: 16px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:before {
+    content: "\00D7";
+    color: $color-azure;
+  }
+}
+
+.c-liveblog-poll {
+  margin-bottom: 0;
+}
+
+.c-liveblog-poll__question {
+  @include font-weight(bold);
+  margin-bottom: $spacing-unit--tiny;
+}
+
+.c-liveblog-poll__answer {
+  position: relative;
+  margin-bottom: $spacing-unit--tiny;
+}
+
+.c-liveblog-poll__answer-text {
+  .c-liveblog-poll__answer--correct & {
+    color: $color-irish-green;
+  }
+
+  .c-liveblog-poll__answer--voted & {
+    @include font-weight(bold);
+  }
+}
+
+.c-liveblog-poll__percentage {
+  display: inline-block;
+  width: 40px;
+  @include font-weight(bold);
+}
+
+.c-liveblog-poll__icon {
+  $icon-size: 1.5 * $spacing-unit--small;
+  position: absolute;
+  background-color: $color-background;
+  top: ($spacing-unit - $icon-size) / 2;
+  left: #{-$spacing-unit - (($icon-size - $spacing-unit) / 2)};
+  @include square($icon-size);
+}
+
+.c-liveblog-poll__votes {
+  color: $color-warm-grey;
+}
+
+.scrbbl-sitePreview { // sass-lint:disable-line class-name-format
+  overflow: hidden;
+
+  h3 {
+    margin-bottom: $spacing-unit--small;
+  }
+
+  .LinkImage { // sass-lint:disable-line class-name-format
+    @include mq($from: sm) {
+      float: left;
+      margin-right: $spacing-unit--small;
+      width: 50%;
+    }
+
+    @include mq($from: lg) {
+      margin-right: $spacing-unit;
+      width: 33.33333333%;
+    }
+
+    @include mq($until: sm) {
+      margin-bottom: $spacing-unit--small;
+    }
+  }
+
+  .LinkSiteName { // sass-lint:disable-line class-name-format
+    display: none;
+  }
+}
+
+/*---------------------------------------------------------------------------------*\
+    Overrides of external included classes
+\*---------------------------------------------------------------------------------*/
+
+.instagram-media,
+.twitter-tweet,
+.fb-post iframe[style],
+.fb-video iframe[style] {
+  .post & {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 500px !important;
+  }
+}

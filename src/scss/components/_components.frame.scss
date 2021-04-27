@@ -1,0 +1,45 @@
+/*------------------------------------*\
+    #FRAME
+\*------------------------------------*/
+
+$frame-border-width: 1px;
+$frame-border-left-width: 3px;
+
+.c-frame {
+  margin-bottom: $spacing-unit--small;
+  border-left: $frame-border-left-width solid $color-frame-border-left;
+  background-color: $color-frame-bg;
+  padding: $spacing-unit--small $spacing-unit (1.5 * $spacing-unit--small);
+
+  p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  @include mq($from: md) {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+  .c-frame--tiny {
+    padding: $spacing-unit--tiny $spacing-unit--small;
+  }
+
+  .c-frame--border {
+    border: $frame-border-width solid $color-frame-border;
+    border-left: $frame-border-left-width solid $color-frame-border-left;
+    background-color: transparent;
+  }
+
+  .c-frame--notification {
+    border-left: $frame-border-left-width solid $color-irish-green;
+    background-color: rgba($color-irish-green, 0.08);
+    color: $color-irish-green;
+  }
+
+  .c-frame--error {
+    border-left: $frame-border-left-width solid $color-cherry-red;
+    background-color: rgba($color-cherry-red, 0.2);
+    color: $color-black-two;
+  }

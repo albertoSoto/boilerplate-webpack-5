@@ -1,0 +1,58 @@
+/*------------------------------------*\
+    #Streamers
+\*------------------------------------*/
+
+$streamer-border-width: 3px;
+
+.c-streamer {
+  padding-left: $spacing-unit;
+  border-left: $streamer-border-width solid $color-streamer;
+  margin-bottom: $spacing-unit--small;
+  margin-left: auto;
+  margin-right: auto;
+
+  .c-article__content--right & {
+    padding-left: 0;
+    padding-right: $spacing-unit;
+    margin-left: $spacing-unit;
+    text-align: right;
+    border-left: 0;
+    border-right: $streamer-border-width solid $color-streamer;
+  }
+
+  @include mq($from: sm) {
+    .c-article__content--left &,
+    .c-article__content--right & {
+      margin-bottom: 0;
+    }
+
+    .c-article__content--left & {
+      margin-right: $spacing-unit--small;
+    }
+
+    .c-article__content--right & {
+      margin-left: $spacing-unit--small;
+    }
+  }
+
+  @include mq($from: md) {
+    margin-bottom: $spacing-unit;
+
+    .c-article__content--left & {
+      margin-right: $spacing-unit;
+    }
+
+    .c-article__content--right & {
+      margin-left: $spacing-unit;
+    }
+  }
+}
+
+  .c-streamer__text {
+    color: $color-streamer;
+    margin-bottom: 0;
+    letter-spacing: -0.02em;
+    @include font-family(serif);
+    @include font-weight(medium);
+    @include font-size(36px, 1);
+  }

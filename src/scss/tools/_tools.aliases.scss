@@ -1,0 +1,24 @@
+///*------------------------------------*\
+//    #ALIASES
+//\*------------------------------------*/
+
+$spacing-unit:          $inuit-global-spacing-unit;
+$spacing-unit--tiny:    $inuit-global-spacing-unit-tiny;
+$spacing-unit--small:   $inuit-global-spacing-unit-small;
+$spacing-unit--large:   $inuit-global-spacing-unit-large;
+$spacing-unit--huge:    $inuit-global-spacing-unit-huge;
+
+$line-height:           $inuit-global-line-height;
+$font-size:             $inuit-global-font-size;
+
+@mixin font-size($args...) {
+  @include inuit-font-size($args...);
+}
+
+@mixin clearfix() {
+  @include inuit-clearfix();
+}
+
+@mixin hidden() {
+  @include inuit-hidden-visually();
+}

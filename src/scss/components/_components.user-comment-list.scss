@@ -1,0 +1,92 @@
+/*------------------------------------*\
+    #USER COMMENT LIST
+\*------------------------------------*/
+
+.user-comment-list__comment {
+  display: block;
+  color: $color-black-two;
+  font-family: "Open Sans", sans-serif;
+  @include font-size(14px);
+  border-bottom: 1px solid $color-white-four;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: $color-black-two;
+
+    .user-comment-list__comment--content {
+      color: $color-azure;
+      text-decoration: underline;
+    }
+  }
+
+  .user-comment-list__comment--page-title {
+    font-weight: bold;
+
+    &:hover {
+      color: $color-black-two;
+    }
+  }
+
+  .user-comment-list__comment--time {
+    color: $color-warm-grey;
+    font-size: 12px;
+
+    &:before {
+      content: "    ";
+      white-space: pre;
+      @include font-size(13px);
+      color: $color-white;
+      background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23979797' d='M50.5,3 C24.3060784,3 3,23.962432 3,49.733871 C3,75.5053099 24.3060784,96.4677419 50.5,96.4677419 C76.6939216,96.4677419 98,75.5053099 98,49.733871 C98,23.962432 76.6939216,3 50.5,3 Z M50.5,8.49810247 C73.6837255,8.49810247 92.4117647,26.9240765 92.4117647,49.733871 C92.4117647,72.5436654 73.6837255,90.9696395 50.5,90.9696395 C27.3162745,90.9696395 8.58823529,72.5436654 8.58823529,49.733871 C8.58823529,26.9240765 27.3162745,8.49810247 50.5,8.49810247 Z M50.5,19.4943074 C48.9576471,19.4943074 47.7058824,20.7258824 47.7058824,22.2433586 L47.7058824,49.733871 C47.7058824,51.2513472 48.9576471,52.4829222 50.5,52.4829222 L75.6470588,52.4829222 C77.1894118,52.4829222 78.4411765,51.2513472 78.4411765,49.733871 C78.4411765,48.2163947 77.1894118,46.9848197 75.6470588,46.9848197 L53.2941176,46.9848197 L53.2941176,22.2433586 C53.2941176,20.7258824 52.0423529,19.4943074 50.5,19.4943074 Z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-color: transparent;
+      background-position: center;
+    }
+
+    span {
+      margin-left: 5px;
+    }
+  }
+
+  .user-comment-list__comment--content {
+    margin: 4px 0px;
+  }
+
+  .user-comment-list__comment--icon-wrapper {
+
+  }
+
+  .user-comment-list__comment--liked {
+      color: $color-warm-grey;
+  }
+
+  .user-comment-list__comment--replies {
+    color: $color-warm-grey;
+  }
+
+  .user-comment-list__comment--icon--replies,
+  .user-comment-list__comment--icon--like {
+    width: 16px;
+    height: 16px;
+    font-size: 9px;
+    line-height: 18px;
+    display: inline-block;
+    margin-right: 8px;
+
+    path {
+      fill: $color-azure;
+    }
+  }
+}
+
+.user-comment-list__comment--icon--replies {
+  margin-left: 8px;
+}
+
+.user-comment-list__divider {
+  color: $color-white-four;
+  margin: 12px 0px;
+}

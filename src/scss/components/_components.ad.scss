@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #AD
+\*------------------------------------*/
+
+.c-ad {
+  position: relative;
+  margin-bottom: 0;
+  text-align: center;
+  margin-left: -#{$spacing-unit--small};
+  margin-right: -#{$spacing-unit--small};
+
+  @include mq($from: md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+  .c-ad--box {
+
+    @include mq($from: md) {
+      padding: $spacing-unit 0;
+      background-color: $color-white-three;
+    }
+
+  }
+
+  .c-ad--left {
+    text-align: left;
+  }
+
+  .c-ad--right {
+    text-align: right;
+  }
+
+  .c-ad--in-list {
+
+  }

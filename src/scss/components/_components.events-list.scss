@@ -1,0 +1,225 @@
+/*------------------------------------*\
+    #EVENTS-LIST
+\*------------------------------------*/
+
+$events-list-border-width: 1px;
+
+.c-match-events {
+  margin: 0 0 $spacing-unit--small;
+
+  @include mq($from: md) {
+    margin: 0 0 $spacing-unit;
+  }
+}
+
+  .c-match-events--box {
+    background-color: $color-black-two;
+    margin: 0 #{-$spacing-unit--small};
+    padding: $spacing-unit--small;
+    border-top: $events-list-border-width solid $color-greyish-brown;
+    color: $color-white;
+
+    &:last-child {
+      margin-bottom: $spacing-unit;
+
+      @include mq($from: lg) {
+        margin-bottom: 1.5 * $spacing-unit;
+      }
+    }
+
+    @include mq($from: md) {
+      margin-left: -$spacing-unit;
+      margin-right: -$spacing-unit;
+    }
+
+    @include mq($from: lg) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .c-match-events__time {
+    color: $color-azure;
+    text-align: center;
+    @include font-size(12px);
+    @include font-weight(bold);
+  }
+
+.c-events-list {
+  position: relative;
+  margin: 0 #{-$spacing-unit--small} $spacing-unit;
+  padding: 0;
+  list-style-type: none;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include mq($from: md) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+  .c-events-list--large {
+    &:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      margin-left: -#{$events-list-border-width / 2};
+      background-color: $color-azure;
+      @include size($events-list-border-width, 100%);
+    }
+  }
+
+  .c-events-list__item {
+    position: relative;
+    width: 50%;
+    z-index: 0;
+
+    .c-events-list--large & {
+      margin-top: $spacing-unit--small;
+    }
+  }
+
+    .c-events-list__item--home {
+      margin-right: 50%;
+
+      .c-events-list--large & {
+        padding-right: #{$events-list-border-width / 2};
+      }
+    }
+
+    .c-events-list__item--away {
+      margin-left: 50%;
+
+      .c-events-list--large & {
+        padding-left: #{$events-list-border-width / 2};
+      }
+    }
+
+  .c-events-list__event {
+    position: relative;
+
+    .c-events-list__item--home & {
+      padding-right: $spacing-unit;
+    }
+
+    .c-events-list__item--away & {
+      padding-left: $spacing-unit;
+    }
+
+    .c-events-list--large .c-events-list__item--home & {
+      padding: $spacing-unit--small $spacing-unit $spacing-unit--small $spacing-unit--large;
+
+      &:after {
+        right: -#{$spacing-unit--small + $events-list-border-width};
+        clip: rect(0 $spacing-unit $spacing-unit #{$spacing-unit--small - (2 * $events-list-border-width)});
+      }
+    }
+
+    .c-events-list--large .c-events-list__item--away & {
+      padding: $spacing-unit--small $spacing-unit--large $spacing-unit--small $spacing-unit;
+
+      &:after {
+        left: -#{$spacing-unit--small + $events-list-border-width};
+        clip: rect(0 #{$spacing-unit--small + (2 * $events-list-border-width)} $spacing-unit 0);
+      }
+    }
+
+    .c-events-list--large & {
+      padding: 0 $spacing-unit;
+      background-color: $color-white-two;
+
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        border: $events-list-border-width solid $color-azure;
+        background-color: $color-white-two;
+        top: 50%;
+        margin-top: -#{$spacing-unit--small};
+        z-index: -1;
+        @include square($spacing-unit);
+        @include rounded(100%);
+      }
+    }
+  }
+
+  .c-events-list__icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -#{$spacing-unit--small};
+    @include square($spacing-unit);
+
+    .c-events-list__item--home & {
+      left: $spacing-unit--small;
+    }
+
+    .c-events-list__item--away & {
+      right: $spacing-unit--small;
+    }
+  }
+
+  .c-events-list__player-name {
+    @include font-size(14px);
+
+    .c-events-list__item--home & {
+      text-align: right;
+    }
+
+    .c-events-list--large & {
+      text-align: left;
+    }
+  }
+
+    .c-events-list__player-name--related {
+      color: lighten($color-text, 50%);
+    }
+
+  .c-events-list__time {
+    position: absolute;
+    top: 50%;
+    color: $color-azure;
+    margin-top: -#{$spacing-unit--small};
+    @include font-size(12px);
+    @include font-weight(bold);
+
+    &:not(.c-events-list--large) {
+      width: 42px;
+      text-align: center;
+    }
+
+    .c-events-list__item--home & {
+      right: -21px;
+    }
+
+    .c-events-list__item--away & {
+      left: -21px;
+    }
+
+    .c-events-list--large & {
+      width: auto;
+      text-align: left;
+    }
+
+    .c-events-list--large .c-events-list__item--home & {
+      right: #{-$spacing-unit--tiny};
+    }
+
+    .c-events-list--large .c-events-list__item--away & {
+      left: #{-$spacing-unit--tiny};
+    }
+  }
+
+  .c-events-list__link {
+    z-index: 2;
+
+    .c-events-list--large .c-events-list__item--home & {
+      right: -#{$spacing-unit--small};
+    }
+
+    .c-events-list--large .c-events-list__item--away & {
+      left: -#{$spacing-unit--small};
+    }
+  }

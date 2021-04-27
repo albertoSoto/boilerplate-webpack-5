@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #LABEL
+\*------------------------------------*/
+
+.c-label {
+  @include font-size(14px);
+  color: $color-labels;
+}
+
+  .c-label--black {
+    color: $color-text;
+  }
+
+  .c-label--blue {
+    color: $color-azure;
+  }
+
+  .c-label--red {
+    color: $color-cherry-red;
+  }
+
+  .c-label--dark-grey {
+    color: $color-dark-grey;
+  }
+
+  .c-label--small {
+    @include font-size(12px);
+  }
+
+.c-label-list {
+  > .c-label-list__item {
+    @include font-size(14px);
+  }
+}
+
+.c-title-label-highlight {
+  background-color: $color-azure;
+  color: $color-white;
+  padding: 0 5px 3px;
+  border-radius: 2px;
+  display: inline-block;
+}

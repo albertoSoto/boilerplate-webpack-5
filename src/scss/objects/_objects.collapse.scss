@@ -1,0 +1,25 @@
+/* ==========================================================================
+   #COLLAPSE
+   ========================================================================== */
+
+.o-collapse {
+  /* empty for now */
+}
+
+  .o-collapse__label:after {
+    content: attr(data-text-closed);
+  }
+
+  .o-collapse__appear {
+    display: none;
+  }
+
+  .o-collapse__input:checked + .o-collapse__label:after {
+    content: attr(data-text-open);
+  }
+
+  .o-collapse__input:checked ~ .o-collapse__appear {
+    display: block;
+  }
+
+

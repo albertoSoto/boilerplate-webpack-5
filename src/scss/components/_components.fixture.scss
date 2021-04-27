@@ -1,0 +1,178 @@
+/*------------------------------------*\
+    #FIXTURE
+\*------------------------------------*/
+
+@keyframes flash {
+  0%,
+  65%,
+  100% {
+    opacity: 1;
+  }
+
+  30%,
+  35% {
+    opacity: 0;
+  }
+}
+
+.c-fixture {
+  margin: 0;
+  display: table;
+  border-spacing: $spacing-unit--tiny;
+  border-collapse: separate;
+  width: 100%;
+}
+
+  .c-fixture__crest {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+  }
+
+  .c-fixture__row {
+    display: table-row;
+  }
+
+  .c-fixture__col {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+    .c-fixture__col--name {
+      width: 65%;
+    }
+
+    .c-fixture__col--namelarge {
+      width: 72.5%;
+    }
+
+    .c-fixture__col--namesmall {
+        width: 40%;
+    }
+
+    .c-fixture__col--namevar {
+      width: 72.5%;
+      @include mq($from: md) {
+        width: 40%;
+      }
+    }
+
+    .c-fixture__col--status {
+      vertical-align: bottom;
+      width: 17.5%;
+    }
+
+    .c-fixture__col--statusvar {
+      vertical-align: bottom;
+      text-align: center;
+      width: 17.5%;
+      @include mq($from: md) {
+        width: 42.5%;
+      }
+    }
+
+    .c-fixture__col--score {
+      width: 10%;
+      text-align: right;
+    }
+
+      .c-fixture__col--namelarge ~ .c-fixture__col--score {
+        @include mq($from: sm) {
+          text-align: center;
+        }
+      }
+
+    .c-fixture__col--score-mixed-second {
+      text-align: right;
+      width: 12.5%;
+    }
+
+    .c-fixture__col--score-mixed-first {
+      text-align: left;
+      width: 5%;
+      margin-left: 5px;
+    }
+
+
+.c-fixture__col--prev {
+      width: 7.5%;
+    }
+
+  .c-fixture--aggr-home {
+    .c-fixture__team-name--home {
+      @include font-weight(bold);
+    }
+  }
+
+  .c-fixture--aggr-away {
+    .c-fixture__team-name--away {
+      @include font-weight(bold);
+    }
+  }
+
+  .c-fixture__team-name {
+    @include font-size(14px);
+    position: relative;
+    padding-left: 33px;
+  }
+
+  .c-fixture__status {
+    position: relative;
+    height: $spacing-unit;
+    margin-bottom: -#{1.25 * $spacing-unit--small};
+    text-transform: uppercase;
+    @include font-size(14px);
+    @include font-weight(bold);
+
+    .c-fixture--live & {
+      &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        background-color: $color-match-live;
+        animation: flash 2s infinite;
+        top: 50%;
+        margin-top: #{-($spacing-unit--tiny / 2)};
+        left: #{-$spacing-unit--small};
+        @include rounded($spacing-unit--tiny);
+        @include square($spacing-unit--tiny);
+      }
+    }
+  }
+
+  .c-fixture__score {
+    @include font-size(16px);
+    @include font-weight(bold);
+  }
+
+  .c-fixture__team-name--home,
+  .c-fixture__score--home {
+    vertical-align: bottom;
+  }
+
+  .c-fixture__team-name--away,
+  .c-fixture__score--away {
+    vertical-align: top;
+  }
+
+  .c-fixture__prev {
+    @include font-family(sans-serif);
+    @include font-size(11px);
+    color: $color-warm-grey;
+    white-space: nowrap;
+  }
+
+  /*In case of abbreviation, show full name on lower breakpoint https://jira.info.nl/browse/VI-3281*/
+  .teamFullName {
+    @include mq($from: md) {
+      display: none;
+    }
+  }
+
+  .teamCodeName {
+    display: none;
+    @include mq($from: md) {
+      display: inline-block;
+    }
+  }

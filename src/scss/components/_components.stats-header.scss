@@ -1,0 +1,80 @@
+/*------------------------------------*\
+    #STATS-HEADER
+\*------------------------------------*/
+
+.c-stats-header {
+  text-align: center;
+
+  @include mq($from: md) {
+    display: table;
+    text-align: left;
+    margin-bottom: #{1.5 * $spacing-unit};
+  }
+}
+
+  .c-stats-header__logo,
+  .c-stats-header__body {
+    display: block;
+
+    @include mq($from: md) {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .c-stats-header__logo {
+    margin: 0 auto $spacing-unit--tiny;
+
+    > img {
+      max-width: 120px;
+    }
+
+    @include mq($from: md) {
+      padding-right: $spacing-unit;
+    }
+  }
+
+  .c-stats-header__body {
+    margin-bottom: $spacing-unit--small;
+
+    @include mq($from: md) {
+      width: auto;
+
+      &,
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .c-stats-header__label {
+    display: block;
+  }
+
+  .c-stats-header__title {
+    display: block;
+    margin: 0;
+
+    @include mq($from: md) {
+      display: inline-block;
+    }
+  }
+
+  .c-stats-header__select {
+    height: 37px;
+    margin-bottom: 0;
+
+    option {
+      @include font-family(sans-serif);
+      @include font-weight(regular);
+      @include font-size($font-size);
+    }
+
+    @include mq($from: md) {
+      margin-left: $spacing-unit--tiny;
+    }
+
+    @include mq($from: lg) {
+      height: 44px;
+    }
+  }

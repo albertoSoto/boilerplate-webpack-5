@@ -1,0 +1,115 @@
+/*------------------------------------*\
+    #STATS-TABLE
+\*------------------------------------*/
+
+.c-stats-table {
+  width: 100%;
+  margin-bottom: 20px;
+  @include font-size(14px);
+}
+
+  .c-stats-table--nested {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  .c-stats-table__header {
+    .c-icon {
+      height: $spacing-unit--tiny * 3;
+    }
+  }
+
+  .c-stats-table__logo {
+    max-width: initial;
+    @include square($spacing-unit);
+  }
+
+  .c-stats-table__row {
+    padding: 0 $spacing-unit--small;
+
+    .c-stats-table--nested & {
+      padding: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  .c-stats-table__cell {
+    padding: (1.5 * $spacing-unit--tiny) $spacing-unit--tiny (1.5 * $spacing-unit--tiny) $spacing-unit--small;
+    color: $color-text;
+
+    .c-bordered-list__item &:first-child {
+      padding-left: $spacing-unit--small - $border-width;
+      min-width: $spacing-unit + ($spacing-unit--tiny - $border-width);
+    }
+
+    &:last-child {
+      padding-right: $spacing-unit--small;
+    }
+
+    .c-stats-table--nested & {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+    .c-stats-table__cell--bare {
+      padding: 0;
+    }
+
+    .c-stats-table__cell--hover {
+      .c-stats-table__row:hover & {
+        color: $color-links;
+        text-decoration: underline;
+      }
+    }
+
+    .c-stats-table__cell--small {
+      width: $spacing-unit;
+    }
+
+    .c-stats-table__cell--team {
+      width: 70%;
+
+      @include mq($from: sm) {
+        width: 60%;
+      }
+    }
+
+    .c-stats-table__cell--diff {
+      width: 7%;
+      min-width: 75px;
+    }
+
+    .c-stats-table__cell--bold {
+      @include font-weight(bold);
+    }
+
+    .c-stats-table__cell--middle {
+      vertical-align: middle;
+    }
+
+    .c-stats-table__cell--header {
+      text-align: left;
+    }
+
+    .c-stats-table__cell--icon {
+      width: $spacing-unit * 1.5;
+      padding-right: 0.5 * $spacing-unit--tiny;
+
+      &:last-child {
+        padding-right: $spacing-unit--tiny;
+      }
+    }

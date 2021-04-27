@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    #Text-Image component
+\*------------------------------------*/
+
+.c-text-image {
+  padding: 0;
+}
+
+  .c-text-image-padding-top-bottom {
+    padding: $spacing-unit 0;
+  }
+
+    .c-text-image-padding-top-bottom--mobile {
+      @include mq($from: md) {
+        padding: 0;
+      }
+    }
+
+
+  .c-text-image-padding-top {
+    padding-top: $spacing-unit;
+  }
+
+    .c-text-image-padding-top--mobile {
+      @include mq($from: md) {
+        padding-top: 0;
+      }
+    }
+
+
+  .c-text-image-padding-bottom {
+    padding-bottom: $spacing-unit;
+  }
+
+    .c-text-image-padding-bottom--mobile {
+      @include mq($from: md) {
+        padding-bottom: 0;
+      }
+    }
+

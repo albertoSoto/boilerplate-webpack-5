@@ -1,0 +1,169 @@
+.c-article-optablock {
+
+  .c-article-optablock-block {
+    background-color: $color-white-three;
+    color: $color-black-two;
+    padding: $spacing-unit $spacing-unit--small;
+    margin-left: -$spacing-unit--small;
+    margin-right: -$spacing-unit--small;
+
+    // on mobile block till the edge, bigger screens margins and less paddings
+    @include mq($from: md) {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+    }
+
+  }
+
+  .c-article-optablock-header {
+    margin-bottom: 0;
+  }
+
+  .c-article-optablock-subheader {
+    color: $color-heading-sub;
+    @include font-size(14px);
+    margin-bottom: 0;
+  }
+
+}
+
+/* ########### PLAYER SPECIFIC ###############*/
+// Placeholder to make space for absolute positioned image on mobile
+.c-article-optablock-img-placeholder {
+  width: $spacing-unit--large;
+  height: $spacing-unit--large;
+  float: left;
+  margin-right: $spacing-unit--small;
+
+  // not needed on bigger screens
+  @include mq($from: md) {
+    display: none;
+  }
+
+}
+
+//Clear float for image
+.c-article-optablock-hr {
+  clear: left;
+  margin: #{$spacing-unit--small + $spacing-unit--tiny} 0 $spacing-unit--small;
+  border-bottom: 1px solid $color-white-four;
+
+  @include mq($from: md) {
+    clear: none;
+  }
+}
+
+.c-article-optablock-block--player {
+  position: relative;
+
+  @include mq($from: md) {
+    position: static;
+  }
+}
+
+.c-article-optablock-img-wrapper {
+  //make image square, hide rest, place in placeholder
+  position: absolute;
+  top: $spacing-unit;
+  left: $spacing-unit--small;
+  width: $spacing-unit--large;
+  height: $spacing-unit--large;
+  overflow: hidden;
+
+  // regular placement below hr
+  @include mq($from: md) {
+    position: relative;
+    overflow: auto;
+    width: 80px;
+    height: auto;
+    top: auto;
+    left: auto;
+    float: left;
+    margin-top: $spacing-unit--tiny;
+    margin-right: #{1.5 * $spacing-unit--small};
+  }
+}
+
+.c-article-optablock-img {
+  /*
+  //ToDo: Show square on mobile, but only top, or shift to middle?
+  margin-top: -25%;
+  @include mq($from: md) {
+    margin-top: 0;
+  }
+  */
+}
+
+/* ############# MATCH SPECIFIC ################## */
+.c-article-matchlist {
+
+  .c-match-overview__list {
+    margin-bottom: $spacing-unit--small;
+  }
+
+  .c-match-overview__list--no-date {
+    margin-left: -$spacing-unit--small;
+  }
+
+  .same-date{
+    margin-top: -$spacing-unit;
+  }
+}
+
+
+.c-article-matchlist__big {
+
+  .c-match-header {
+    background-color: $color-white-three;
+    color: $color-black-two;
+
+    // on mobile block till the edge, bigger screens margins and less paddings
+    margin-left: -$spacing-unit--small;
+    margin-right: -$spacing-unit--small;
+
+    @include mq($from: md) {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+    }
+
+  }
+}
+
+.c-article-optablock-heading-wrap-outer {
+}
+
+  .c-article-optablock-heading-wrap-inner {
+    overflow: hidden;
+  }
+
+.c-article-optablock-standing-img {
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin-right: $spacing-unit--small;
+  }
+
+.c-article-optablock-standing-footer-label {
+  display: block;
+  margin-bottom: $spacing-unit--small;
+  @include font-size(12px);
+}
+
+.c-article-optablock-standing--table-cell {
+  padding-left: 0;
+}
+
+/*Not for article actually, but for standings component*/
+.c-opta-component {
+  margin: 0 auto $spacing-unit--small;
+}
+
+//Lists below article and media item detail pages
+.c-related-opta-news-list {
+  margin-top: #{$spacing-unit--tiny+$spacing-unit};
+  margin-bottom: #{$spacing-unit--small+$spacing-unit};
+}
